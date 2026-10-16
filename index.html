@@ -3,237 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#073b70">
-<title>Control de Barnices</title>
+<meta name="theme-color" content="#12365a">
+<title>Sonoco | Control de Barnices</title>
 
 <style>
+:root {
+  --azul: #12365a;
+  --azul2: #1e5685;
+  --azul3: #eaf3fb;
+  --fondo: #f2f5f9;
+  --blanco: #ffffff;
+  --texto: #203247;
+  --gris: #68798b;
+  --borde: #d8e1eb;
+  --verde: #168653;
+  --rojo: #c73939;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fa;
-  color: #172b3e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
 }
 
 header {
-  background: linear-gradient(135deg, #062a4e, #07549a);
+  background: linear-gradient(135deg, #102d4b, #1e5685);
   color: white;
   text-align: center;
-  padding: 28px 12px;
+  padding: 25px 16px 22px;
+  border-bottom: 4px solid #77b6e7;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 3px;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 13px;
+}
+
+.logo-line {
+  width: 65px;
+  height: 3px;
+  background: #83c6f6;
+  margin: 0 auto 14px;
+  border-radius: 5px;
 }
 
 h1 {
-  font-size: 27px;
-  margin: 10px 0 5px;
+  margin: 0;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .subtitle {
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-main {
-  padding: 14px;
-  max-width: 850px;
-  margin: auto;
-}
-
-.fecha-hora {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.info {
-  background: white;
-  border: 1px solid #c6d2dc;
-  border-radius: 13px;
-  padding: 14px 10px;
-}
-
-.info strong {
-  display: block;
-  font-size: 12px;
-  color: #617386;
-  margin-bottom: 7px;
-}
-
-.info span {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.cabecera-tabla,
-.fila {
-  display: grid;
-  grid-template-columns: 30px minmax(0, 1.2fr) minmax(0, .8fr) 30px;
-  gap: 5px;
-  align-items: center;
-}
-
-.cabecera-tabla {
-  background: #073b70;
-  color: white;
-  padding: 13px 5px;
+  margin-top: 9px;
   font-size: 11px;
-  font-weight: bold;
-  border-radius: 10px 10px 0 0;
+  letter-spacing: 2px;
+  color: #d4e8f8;
+}
+
+.firma {
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #d9edff;
+}
+
+.contenedor {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 17px 13px 35px;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 12px rgba(19, 48, 78, 0.07);
+  border: 1px solid #e3eaf1;
+}
+
+.fecha-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.etiqueta {
+  font-size: 11px;
+  color: var(--gris);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.fecha {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--azul);
+}
+
+.hora {
+  font-size: 14px;
+  color: var(--gris);
+  margin-top: 4px;
+}
+
+.estado {
+  background: #e7f7ee;
+  color: #137447;
+  border-radius: 20px;
+  padding: 8px 11px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.titulo-seccion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.titulo-seccion h2 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--azul);
+}
+
+.contador {
+  background: var(--azul3);
+  color: var(--azul);
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.encabezados {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 35px;
+  gap: 8px;
+  padding: 0 2px 8px;
+}
+
+.encabezados div {
+  font-size: 10px;
+  color: var(--gris);
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 .fila {
-  background: white;
-  padding: 6px 4px;
-  border-bottom: 1px solid #dbe3ea;
-}
-
-.numero {
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 35px;
+  gap: 8px;
+  margin-bottom: 9px;
+  align-items: center;
 }
 
 input {
   width: 100%;
   min-width: 0;
-  padding: 11px 5px;
-  border: 1px solid #bdcad5;
-  border-radius: 7px;
-  font-size: 13px;
-  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  padding: 12px 9px;
+  font-size: 14px;
+  color: var(--texto);
+  background: #fff;
+  outline: none;
 }
 
-.ubicacion {
-  background: #eaf4fc;
-  color: #073b70;
-  text-align: center;
-  font-weight: bold;
+input:focus {
+  border-color: var(--azul2);
+  box-shadow: 0 0 0 3px rgba(30, 86, 133, 0.1);
 }
 
-.eliminar {
-  border: none;
-  background: white;
-  color: #d92d20;
-  font-size: 20px;
-  padding: 5px 0;
+input::placeholder {
+  color: #a0adba;
 }
 
-.botones {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 16px;
+input.ubicacion-auto {
+  background: #eef8f2;
+  border-color: #b7e0c8;
+  color: #126c42;
+  font-weight: 800;
 }
 
-button {
+.boton-borrar {
+  width: 35px;
+  height: 42px;
+  border: 1px solid #f0cccc;
+  background: #fff2f2;
+  color: var(--rojo);
+  border-radius: 9px;
+  font-size: 19px;
+  font-weight: 800;
   cursor: pointer;
 }
 
 .boton {
+  width: 100%;
   border: none;
   border-radius: 11px;
-  padding: 16px 8px;
-  font-size: 13px;
-  font-weight: bold;
+  padding: 14px 15px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.boton-anadir {
+  background: var(--azul3);
+  color: var(--azul);
+  border: 1px dashed #8eafcf;
+  margin-top: 6px;
+}
+
+.boton-generar {
+  background: linear-gradient(135deg, #12365a, #1e5685);
   color: white;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(18, 54, 90, 0.18);
 }
 
-.aniadir {
-  background: #073b70;
+.boton-compartir {
+  background: var(--verde);
+  color: white;
+  margin-bottom: 10px;
 }
 
-.limpiar {
-  background: #6c7a86;
+.boton-limpiar {
+  background: white;
+  color: var(--gris);
+  border: 1px solid var(--borde);
 }
 
-.generar {
-  width: 100%;
-  margin-top: 12px;
-  background: #079653;
-  font-size: 16px;
-}
-
-.nota {
-  color: #617386;
+.aviso {
   font-size: 12px;
   line-height: 1.5;
-  margin-top: 16px;
+  color: var(--gris);
+  margin: 12px 2px 0;
+}
+
+.aviso strong {
+  color: var(--azul);
 }
 
 #resultado {
   display: none;
-  background: white;
-  padding: 15px;
-  margin-top: 20px;
-  border-radius: 12px;
 }
 
 #resultado h2 {
-  color: #073b70;
-  text-align: center;
+  color: var(--azul);
+  font-size: 16px;
+  margin: 0 0 12px;
 }
 
-#tablaCaptura {
+.previsualizacion {
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.previsualizacion img {
+  display: block;
   width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
+  height: auto;
 }
 
-#tablaCaptura th {
-  background: #073b70;
-  color: white;
-}
-
-#tablaCaptura th,
-#tablaCaptura td {
-  border: 1px solid #c6d2dc;
-  padding: 8px 4px;
-  text-align: left;
-  overflow-wrap: anywhere;
-}
-
-#tablaCaptura td:last-child {
+.pie {
   text-align: center;
+  color: #8593a1;
+  font-size: 11px;
+  padding: 7px 0 4px;
 }
 
-.acciones {
-  display: grid;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.whatsapp {
-  background: #079653;
-}
-
-.guardar {
-  background: #07549a;
-}
-
-.volver {
-  background: #6c7a86;
-}
-
-@media(max-width:360px) {
-  main {
-    padding: 8px;
+@media (max-width: 390px) {
+  .contenedor {
+    padding-left: 9px;
+    padding-right: 9px;
   }
 
-  .cabecera-tabla {
-    font-size: 10px;
+  .tarjeta {
+    padding: 12px;
+  }
+
+  .fila,
+  .encabezados {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 32px;
+    gap: 5px;
   }
 
   input {
-    font-size: 12px;
+    padding: 11px 7px;
+    font-size: 13px;
+  }
+
+  .boton-borrar {
+    width: 32px;
+  }
+
+  h1 {
+    font-size: 21px;
   }
 }
 </style>
@@ -243,93 +331,91 @@ button {
 
 <header>
   <div class="logo">SONOCO</div>
+  <div class="logo-line"></div>
   <h1>CONTROL DE BARNICES</h1>
   <div class="subtitle">REGISTRO DE UBICACIONES</div>
+  <div class="firma">By Rubén D. 268</div>
 </header>
 
-<main>
+<main class="contenedor">
 
-  <div class="fecha-hora">
-    <div class="info">
-      <strong>FECHA</strong>
-      <span id="fecha"></span>
+  <section class="tarjeta">
+    <div class="fecha-cabecera">
+      <div>
+        <div class="etiqueta">FECHA DEL REGISTRO</div>
+        <div class="fecha" id="fecha">--/--/----</div>
+        <div class="hora" id="hora">Hora: --:--</div>
+      </div>
+      <div class="estado">● REGISTRO ACTUAL</div>
     </div>
-
-    <div class="info">
-      <strong>HORA DEL IPHONE</strong>
-      <span id="hora"></span>
-    </div>
-  </div>
-
-  <div class="cabecera-tabla">
-    <span>Nº</span>
-    <span>DESCRIPCIÓN / BARNIZ</span>
-    <span>UBICACIÓN</span>
-    <span></span>
-  </div>
-
-  <div id="filas"></div>
-
-  <div class="botones">
-    <button class="boton aniadir" onclick="anadirFila()">
-      ＋ AÑADIR FILA
-    </button>
-
-    <button class="boton limpiar" onclick="limpiarTodo()">
-      LIMPIAR TODO
-    </button>
-  </div>
-
-  <button class="boton generar" onclick="generarImagen()">
-    ▣ GENERAR IMAGEN
-  </button>
-
-  <div class="nota">
-    Las ubicaciones conocidas se completan al salir del campo
-    del barniz, escribiendo el código con punto o sin punto.
-    Si no se reconoce, puedes escribir la ubicación manualmente.
-    Los registros no se guardan al cerrar la aplicación.
-  </div>
-
-  <section id="resultado">
-    <h2>CONTROL DE BARNICES</h2>
-
-    <p>
-      <strong>Fecha:</strong> <span id="fechaCaptura"></span><br>
-      <strong>Hora:</strong> <span id="horaCaptura"></span>
-    </p>
-
-    <table id="tablaCaptura">
-      <thead>
-        <tr>
-          <th>Nº</th>
-          <th>DESCRIPCIÓN / BARNIZ</th>
-          <th>UBICACIÓN</th>
-        </tr>
-      </thead>
-      <tbody id="contenidoCaptura"></tbody>
-    </table>
-
-    <div class="acciones">
-      <button class="boton whatsapp" onclick="compartir()">
-        COMPARTIR POR WHATSAPP
-      </button>
-
-      <button class="boton guardar" onclick="guardarImagen()">
-        GUARDAR IMAGEN EN EL IPHONE
-      </button>
-
-      <button class="boton volver" onclick="volverEditar()">
-        VOLVER PARA EDITAR
-      </button>
-    </div>
-
-    <p id="mensaje"></p>
   </section>
+
+  <section class="tarjeta">
+    <div class="titulo-seccion">
+      <h2>Ubicación de barnices</h2>
+      <div class="contador"><span id="total">0</span> filas</div>
+    </div>
+
+    <div class="encabezados">
+      <div>DESCRIPCIÓN / BARNIZ</div>
+      <div>UBICACIÓN</div>
+      <div></div>
+    </div>
+
+    <div id="lista"></div>
+
+    <button type="button" class="boton boton-anadir" id="btnAnadir">
+      ＋ Añadir otra fila
+    </button>
+
+    <p class="aviso">
+      <strong>Ubicación automática:</strong> escribe el código o nombre
+      del barniz y, si está reconocido, la ubicación se completará sola.
+      Para otras ubicaciones, puedes escribirla manualmente.
+    </p>
+  </section>
+
+  <section class="tarjeta">
+    <button type="button" class="boton boton-generar" id="btnGenerar">
+      ▧ Generar imagen del registro
+    </button>
+
+    <button type="button" class="boton boton-compartir" id="btnCompartir">
+      ↗ Compartir imagen por WhatsApp
+    </button>
+
+    <button type="button" class="boton boton-limpiar" id="btnLimpiar">
+      Limpiar registro actual
+    </button>
+
+    <p class="aviso">
+      El registro no se guarda como historial. Al cerrar o recargar
+      la aplicación, los datos introducidos se perderán.
+    </p>
+  </section>
+
+  <section class="tarjeta" id="resultado">
+    <h2>Vista previa de la imagen</h2>
+    <div class="previsualizacion">
+      <img id="imagenResultado" alt="Imagen del registro de barnices">
+    </div>
+    <p class="aviso">
+      Puedes compartir la imagen o guardarla en tu dispositivo.
+    </p>
+  </section>
+
+  <div class="pie">CONTROL DE BARNICES · By Rubén D. 268</div>
 
 </main>
 
 <script>
+"use strict";
+
+/* =========================================
+   UBICACIONES CONOCIDAS
+   Se ignoran puntos, espacios y mayúsculas.
+========================================= */
+
 const ubicaciones = {
   "814449": "W02008",
   "MKB113T": "W02009",
@@ -342,236 +428,446 @@ const ubicaciones = {
   "814509": "W02002"
 };
 
-function normalizar(texto) {
-  return texto
-    .trim()
-    .toUpperCase()
-    .replace(/\s/g, "")
-    .replace(/\./g, "");
-}
+const lista = document.getElementById("lista");
+const total = document.getElementById("total");
+const resultado = document.getElementById("resultado");
+const imagenResultado = document.getElementById("imagenResultado");
+
+let imagenGenerada = null;
+
+/* =========================================
+   FECHA Y HORA AUTOMÁTICAS
+========================================= */
 
 function actualizarFechaHora() {
   const ahora = new Date();
 
-  document.getElementById("fecha").textContent =
-    ahora.toLocaleDateString("es-ES");
+  const fecha = ahora.toLocaleDateString("es-ES", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
 
-  document.getElementById("hora").textContent =
-    ahora.toLocaleTimeString("es-ES", {
+  const hora = ahora.toLocaleTimeString("es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  });
+
+  document.getElementById("fecha").textContent = fecha;
+  document.getElementById("hora").textContent = "Hora: " + hora;
+}
+
+actualizarFechaHora();
+setInterval(actualizarFechaHora, 1000);
+
+/* =========================================
+   NORMALIZAR CÓDIGOS
+========================================= */
+
+function normalizar(texto) {
+  return String(texto || "")
+    .toUpperCase()
+    .trim()
+    .replace(/[.\s-]/g, "");
+}
+
+/* =========================================
+   CREAR FILA
+========================================= */
+
+function crearFila(descripcion = "", ubicacion = "") {
+  const fila = document.createElement("div");
+  fila.className = "fila";
+
+  const inputDescripcion = document.createElement("input");
+  inputDescripcion.type = "text";
+  inputDescripcion.placeholder = "Código o nombre";
+  inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
+  inputDescripcion.autocomplete = "off";
+  inputDescripcion.value = descripcion;
+
+  const inputUbicacion = document.createElement("input");
+  inputUbicacion.type = "text";
+  inputUbicacion.placeholder = "Ubicación";
+  inputUbicacion.setAttribute("aria-label", "Ubicación del barniz");
+  inputUbicacion.autocomplete = "off";
+  inputUbicacion.value = ubicacion;
+
+  const botonBorrar = document.createElement("button");
+  botonBorrar.type = "button";
+  botonBorrar.className = "boton-borrar";
+  botonBorrar.textContent = "×";
+  botonBorrar.setAttribute("aria-label", "Eliminar fila");
+
+  function completarUbicacion() {
+    const clave = normalizar(inputDescripcion.value);
+
+    if (ubicaciones[clave]) {
+      inputUbicacion.value = ubicaciones[clave];
+      inputUbicacion.classList.add("ubicacion-auto");
+    } else {
+      inputUbicacion.classList.remove("ubicacion-auto");
+    }
+
+    actualizarTotal();
+  }
+
+  inputDescripcion.addEventListener("blur", completarUbicacion);
+
+  inputDescripcion.addEventListener("keydown", function(evento) {
+    if (evento.key === "Enter") {
+      evento.preventDefault();
+      completarUbicacion();
+      inputUbicacion.focus();
+    }
+  });
+
+  inputDescripcion.addEventListener("input", function() {
+    inputUbicacion.classList.remove("ubicacion-auto");
+    actualizarTotal();
+  });
+
+  inputUbicacion.addEventListener("input", actualizarTotal);
+
+  botonBorrar.addEventListener("click", function() {
+    fila.remove();
+    actualizarTotal();
+  });
+
+  fila.appendChild(inputDescripcion);
+  fila.appendChild(inputUbicacion);
+  fila.appendChild(botonBorrar);
+
+  lista.appendChild(fila);
+  actualizarTotal();
+
+  return fila;
+}
+
+/* =========================================
+   CONTADOR DE FILAS
+========================================= */
+
+function actualizarTotal() {
+  total.textContent = lista.querySelectorAll(".fila").length;
+}
+
+/* =========================================
+   AÑADIR FILAS
+========================================= */
+
+document.getElementById("btnAnadir").addEventListener("click", function() {
+  const fila = crearFila();
+  fila.querySelector("input").focus();
+});
+
+/* Empezar con cuatro filas vacías */
+crearFila();
+crearFila();
+crearFila();
+crearFila();
+
+/* =========================================
+   RECOGER REGISTROS RELLENOS
+========================================= */
+
+function obtenerRegistros() {
+  const filas = Array.from(lista.querySelectorAll(".fila"));
+  const registros = [];
+
+  filas.forEach(function(fila) {
+    const campos = fila.querySelectorAll("input");
+    const descripcion = campos[0].value.trim();
+    const ubicacion = campos[1].value.trim();
+
+    if (descripcion || ubicacion) {
+      registros.push({
+        descripcion: descripcion || "—",
+        ubicacion: ubicacion || "—"
+      });
+    }
+  });
+
+  return registros;
+}
+
+/* =========================================
+   CREAR IMAGEN PNG
+========================================= */
+
+function crearCanvas(registros) {
+  return new Promise(function(resolve, reject) {
+    const ancho = 1000;
+    const altoCabecera = 250;
+    const altoFila = 70;
+    const altoPie = 100;
+    const alto = altoCabecera + Math.max(registros.length, 1) * altoFila + altoPie;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = ancho;
+    canvas.height = alto;
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+      reject(new Error("No se pudo crear la imagen."));
+      return;
+    }
+
+    /* Fondo */
+    ctx.fillStyle = "#f2f5f9";
+    ctx.fillRect(0, 0, ancho, alto);
+
+    /* Cabecera azul */
+    const degradado = ctx.createLinearGradient(0, 0, ancho, altoCabecera);
+    degradado.addColorStop(0, "#102d4b");
+    degradado.addColorStop(1, "#1e5685");
+
+    ctx.fillStyle = degradado;
+    ctx.fillRect(0, 0, ancho, altoCabecera);
+
+    /* SONOCO en texto */
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "center";
+    ctx.font = "900 34px Arial, sans-serif";
+    ctx.fillText("SONOCO", ancho / 2, 48);
+
+    ctx.fillStyle = "#83c6f6";
+    ctx.fillRect(ancho / 2 - 40, 63, 80, 3);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 29px Arial, sans-serif";
+    ctx.fillText("CONTROL DE BARNICES", ancho / 2, 105);
+
+    ctx.fillStyle = "#d4e8f8";
+    ctx.font = "15px Arial, sans-serif";
+    ctx.fillText("REGISTRO DE UBICACIONES", ancho / 2, 135);
+
+    /* Firma incorporada a la imagen */
+    ctx.fillStyle = "#d9edff";
+    ctx.font = "bold 15px Arial, sans-serif";
+    ctx.fillText("By Rubén D. 268", ancho / 2, 166);
+
+    /* Fecha y hora */
+    const ahora = new Date();
+
+    const fecha = ahora.toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+
+    const hora = ahora.toLocaleTimeString("es-ES", {
       hour: "2-digit",
       minute: "2-digit",
       hour12: false
     });
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 16px Arial, sans-serif";
+    ctx.fillText("FECHA: " + fecha + "     HORA: " + hora, ancho / 2, 211);
+
+    /* Tabla */
+    const margen = 35;
+    const tablaY = altoCabecera + 20;
+    const tablaAncho = ancho - margen * 2;
+    const colDescripcion = Math.round(tablaAncho * 0.63);
+    const colUbicacion = tablaAncho - colDescripcion;
+
+    /* Encabezado tabla */
+    ctx.fillStyle = "#dceaf7";
+    ctx.fillRect(margen, tablaY, tablaAncho, 52);
+
+    ctx.fillStyle = "#12365a";
+    ctx.textAlign = "left";
+    ctx.font = "bold 18px Arial, sans-serif";
+    ctx.fillText("DESCRIPCIÓN / BARNIZ", margen + 18, tablaY + 32);
+
+    ctx.fillText(
+      "UBICACIÓN",
+      margen + colDescripcion + 18,
+      tablaY + 32
+    );
+
+    /* Filas */
+    let y = tablaY + 52;
+
+    const datos = registros.length ? registros : [{
+      descripcion: "Sin registros",
+      ubicacion: "—"
+    }];
+
+    datos.forEach(function(registro, indice) {
+      ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f6f9fc";
+      ctx.fillRect(margen, y, tablaAncho, altoFila);
+
+      ctx.strokeStyle = "#d8e1eb";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(margen, y, tablaAncho, altoFila);
+
+      ctx.beginPath();
+      ctx.moveTo(margen + colDescripcion, y);
+      ctx.lineTo(margen + colDescripcion, y + altoFila);
+      ctx.stroke();
+
+      ctx.fillStyle = "#203247";
+      ctx.textAlign = "left";
+      ctx.font = "bold 19px Arial, sans-serif";
+
+      escribirTextoAjustado(
+        ctx,
+        registro.descripcion,
+        margen + 18,
+        y + 28,
+        colDescripcion - 32,
+        22
+      );
+
+      ctx.fillStyle = "#126c42";
+      ctx.font = "bold 20px Arial, sans-serif";
+
+      escribirTextoAjustado(
+        ctx,
+        registro.ubicacion,
+        margen + colDescripcion + 18,
+        y + 28,
+        colUbicacion - 32,
+        22
+      );
+
+      y += altoFila;
+    });
+
+    /* Pie de imagen */
+    const pieY = y + 28;
+
+    ctx.fillStyle = "#68798b";
+    ctx.textAlign = "center";
+    ctx.font = "15px Arial, sans-serif";
+    ctx.fillText(
+      "CONTROL DE BARNICES · Registro del turno",
+      ancho / 2,
+      pieY
+    );
+
+    ctx.fillStyle = "#1e5685";
+    ctx.font = "bold 16px Arial, sans-serif";
+    ctx.fillText("By Rubén D. 268", ancho / 2, pieY + 29);
+
+    canvas.toBlob(function(blob) {
+      if (!blob) {
+        reject(new Error("No se pudo generar el archivo de imagen."));
+        return;
+      }
+
+      resolve({
+        canvas: canvas,
+        blob: blob
+      });
+    }, "image/png");
+  });
 }
 
-function anadirFila(descripcion = "", ubicacion = "") {
-  const contenedor = document.getElementById("filas");
-  const fila = document.createElement("div");
-  fila.className = "fila";
+/* Ajustar textos largos para que no se salgan de la celda */
+function escribirTextoAjustado(ctx, texto, x, y, anchoMaximo, altoLinea) {
+  const palabras = String(texto).split(/\s+/);
+  const lineas = [];
+  let linea = "";
 
-  const numero = document.createElement("span");
-  numero.className = "numero";
+  palabras.forEach(function(palabra) {
+    const prueba = linea ? linea + " " + palabra : palabra;
 
-  const barniz = document.createElement("input");
-  barniz.placeholder = "Barniz...";
-  barniz.value = descripcion;
-
-  const calle = document.createElement("input");
-  calle.placeholder = "Ubicación...";
-  calle.className = "ubicacion";
-  calle.value = ubicacion;
-
-  barniz.addEventListener("blur", function() {
-    const codigo = normalizar(barniz.value);
-
-    if (ubicaciones[codigo]) {
-      calle.value = ubicaciones[codigo];
+    if (ctx.measureText(prueba).width > anchoMaximo && linea) {
+      lineas.push(linea);
+      linea = palabra;
+    } else {
+      linea = prueba;
     }
   });
 
-  const eliminar = document.createElement("button");
-  eliminar.className = "eliminar";
-  eliminar.textContent = "✕";
-
-  eliminar.onclick = function() {
-    fila.remove();
-    renumerar();
-  };
-
-  fila.append(numero, barniz, calle, eliminar);
-  contenedor.appendChild(fila);
-
-  renumerar();
-}
-
-function renumerar() {
-  document.querySelectorAll(".fila").forEach(function(fila, i) {
-    fila.querySelector(".numero").textContent =
-      String(i + 1).padStart(2, "0");
-  });
-}
-
-function limpiarTodo() {
-  if (!confirm("¿Quieres borrar todas las filas?")) return;
-
-  document.getElementById("filas").innerHTML = "";
-  for (let i = 0; i < 5; i++) anadirFila();
-
-  document.getElementById("resultado").style.display = "none";
-}
-
-function obtenerDatos() {
-  return [...document.querySelectorAll(".fila")]
-    .map(function(fila) {
-      const campos = fila.querySelectorAll("input");
-
-      return {
-        barniz: campos[0].value.trim(),
-        ubicacion: campos[1].value.trim()
-      };
-    })
-    .filter(d => d.barniz || d.ubicacion);
-}
-
-function generarImagen() {
-  actualizarFechaHora();
-
-  const datos = obtenerDatos();
-  const cuerpo = document.getElementById("contenidoCaptura");
-
-  cuerpo.innerHTML = "";
-
-  datos.forEach(function(d, i) {
-    const fila = document.createElement("tr");
-
-    [
-      String(i + 1).padStart(2, "0"),
-      d.barniz,
-      d.ubicacion
-    ].forEach(function(valor) {
-      const celda = document.createElement("td");
-      celda.textContent = valor;
-      fila.appendChild(celda);
-    });
-
-    cuerpo.appendChild(fila);
-  });
-
-  document.getElementById("fechaCaptura").textContent =
-    document.getElementById("fecha").textContent;
-
-  document.getElementById("horaCaptura").textContent =
-    document.getElementById("hora").textContent;
-
-  document.getElementById("resultado").style.display = "block";
-
-  document.getElementById("resultado").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-function crearCanvas() {
-  const datos = obtenerDatos();
-  const ahora = new Date();
-
-  const fecha = ahora.toLocaleDateString("es-ES");
-  const hora = ahora.toLocaleTimeString("es-ES", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  });
-
-  const ancho = 900;
-  const alto = 230 + Math.max(datos.length, 1) * 55;
-
-  const canvas = document.createElement("canvas");
-  canvas.width = ancho;
-  canvas.height = alto;
-
-  const ctx = canvas.getContext("2d");
-
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, ancho, alto);
-
-  ctx.fillStyle = "#073b70";
-  ctx.fillRect(0, 0, ancho, 170);
-
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 25px Arial";
-  ctx.fillText("SONOCO", 30, 40);
-
-  ctx.font = "bold 34px Arial";
-  ctx.fillText("CONTROL DE BARNICES", 30, 90);
-
-  ctx.font = "20px Arial";
-  ctx.fillText("FECHA: " + fecha + "     HORA: " + hora, 30, 135);
-
-  const cabeceraY = 190;
-  const columnas = [0, 90, 570, 900];
-
-  ctx.fillStyle = "#07549a";
-  ctx.fillRect(0, cabeceraY, ancho, 40);
-
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 18px Arial";
-  ctx.fillText("Nº", 20, cabeceraY + 26);
-  ctx.fillText("DESCRIPCIÓN / BARNIZ", 110, cabeceraY + 26);
-  ctx.fillText("UBICACIÓN", 650, cabeceraY + 26);
-
-  datos.forEach(function(d, i) {
-    const y = cabeceraY + 40 + i * 55;
-
-    ctx.fillStyle = i % 2 ? "#f0f5f9" : "#ffffff";
-    ctx.fillRect(0, y, ancho, 55);
-
-    ctx.strokeStyle = "#c6d2dc";
-    ctx.strokeRect(0, y, ancho, 55);
-
-    ctx.beginPath();
-    ctx.moveTo(columnas[1], y);
-    ctx.lineTo(columnas[1], y + 55);
-    ctx.moveTo(columnas[2], y);
-    ctx.lineTo(columnas[2], y + 55);
-    ctx.stroke();
-
-    ctx.fillStyle = "#172b3e";
-    ctx.font = "bold 18px Arial";
-    ctx.fillText(String(i + 1).padStart(2, "0"), 20, y + 33);
-    ctx.fillText(d.barniz.slice(0, 35), 110, y + 33);
-
-    ctx.fillStyle = "#073b70";
-    ctx.fillText(d.ubicacion.slice(0, 20), 650, y + 33);
-  });
-
-  return new Promise(resolve => canvas.toBlob(resolve, "image/png"));
-}
-
-async function guardarImagen() {
-  const blob = await crearCanvas();
-
-  if (!blob) {
-    alert("No se pudo crear la imagen.");
-    return;
+  if (linea) {
+    lineas.push(linea);
   }
 
-  const url = URL.createObjectURL(blob);
-  const enlace = document.createElement("a");
+  const maxLineas = 2;
 
-  enlace.href = url;
-  enlace.download = "control-barnices.png";
-  enlace.click();
+  lineas.slice(0, maxLineas).forEach(function(textoLinea, indice) {
+    let mostrar = textoLinea;
 
-  setTimeout(() => URL.revokeObjectURL(url), 3000);
+    while (
+      ctx.measureText(mostrar).width > anchoMaximo &&
+      mostrar.length > 3
+    ) {
+      mostrar = mostrar.slice(0, -2) + "…";
+    }
 
-  document.getElementById("mensaje").textContent =
-    "Imagen preparada. En iPhone, si no se guarda directamente, utiliza las opciones de compartir de Safari.";
+    ctx.fillText(mostrar, x, y + indice * altoLinea);
+  });
 }
 
-async function compartir() {
-  const blob = await crearCanvas();
+/* =========================================
+   GENERAR Y MOSTRAR IMAGEN
+========================================= */
+
+async function generarImagen() {
+  const registros = obtenerRegistros();
+
+  if (registros.length === 0) {
+    alert("Introduce al menos un barniz o una ubicación antes de generar la imagen.");
+    return null;
+  }
+
+  const boton = document.getElementById("btnGenerar");
+  const textoOriginal = boton.textContent;
+
+  boton.disabled = true;
+  boton.textContent = "Generando imagen...";
+
+  try {
+    const resultadoCanvas = await crearCanvas(registros);
+
+    imagenGenerada = resultadoCanvas.blob;
+
+    const url = URL.createObjectURL(imagenGenerada);
+    imagenResultado.src = url;
+
+    resultado.style.display = "block";
+    resultado.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    return imagenGenerada;
+
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo generar la imagen. Inténtalo de nuevo.");
+    return null;
+
+  } finally {
+    boton.disabled = false;
+    boton.textContent = textoOriginal;
+  }
+}
+
+document.getElementById("btnGenerar").addEventListener("click", generarImagen);
+
+/* =========================================
+   COMPARTIR IMAGEN
+   En iPhone permite elegir WhatsApp,
+   contactos u otras opciones disponibles.
+========================================= */
+
+document.getElementById("btnCompartir").addEventListener("click", async function() {
+  let blob = imagenGenerada;
 
   if (!blob) {
-    alert("No se pudo crear la imagen.");
+    blob = await generarImagen();
+  }
+
+  if (!blob) {
     return;
   }
 
@@ -582,35 +878,103 @@ async function compartir() {
   );
 
   try {
-    if (navigator.canShare && navigator.canShare({ files: [archivo] })) {
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({ files: [archivo] })
+    ) {
       await navigator.share({
         files: [archivo],
-        title: "Control de barnices"
+        title: "Control de Barnices",
+        text: "Registro de ubicaciones de barnices."
       });
-    } else {
-      await guardarImagen();
 
-      document.getElementById("mensaje").textContent =
-        "Adjunta la imagen descargada en el chat de WhatsApp que elijas.";
+      return;
     }
+
+    descargarImagen(blob);
+
+    alert(
+      "La imagen se ha preparado para descargar. " +
+      "Después podrás abrirla y compartirla por WhatsApp."
+    );
+
   } catch (error) {
-    if (error.name !== "AbortError") {
-      alert("Puedes guardar la imagen y adjuntarla manualmente en WhatsApp.");
+    if (error.name === "AbortError") {
+      return;
     }
+
+    console.error(error);
+
+    descargarImagen(blob);
+
+    alert(
+      "No se pudo abrir el menú de compartir. " +
+      "Se ha preparado la descarga de la imagen."
+    );
   }
+});
+
+/* =========================================
+   DESCARGAR IMAGEN
+========================================= */
+
+function descargarImagen(blob) {
+  const url = URL.createObjectURL(blob);
+  const enlace = document.createElement("a");
+
+  enlace.href = url;
+  enlace.download = "control-barnices.png";
+  document.body.appendChild(enlace);
+  enlace.click();
+  enlace.remove();
+
+  setTimeout(function() {
+    URL.revokeObjectURL(url);
+  }, 10000);
 }
 
-function volverEditar() {
-  document.getElementById("resultado").style.display = "none";
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+/* =========================================
+   LIMPIAR REGISTRO ACTUAL
+========================================= */
 
-for (let i = 0; i < 5; i++) {
-  anadirFila();
-}
+document.getElementById("btnLimpiar").addEventListener("click", function() {
+  const confirmar = confirm(
+    "¿Quieres borrar todas las filas del registro actual?"
+  );
 
-actualizarFechaHora();
-setInterval(actualizarFechaHora, 15000);
+  if (!confirmar) {
+    return;
+  }
+
+  lista.innerHTML = "";
+
+  crearFila();
+  crearFila();
+  crearFila();
+  crearFila();
+
+  imagenGenerada = null;
+  imagenResultado.removeAttribute("src");
+  resultado.style.display = "none";
+
+  actualizarTotal();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+/* =========================================
+   NO SE GUARDA HISTORIAL
+   Los datos existen solo en esta sesión.
+========================================= */
+
+window.addEventListener("beforeunload", function() {
+  /* Intencionadamente no se guarda ningún registro. */
+});
+
 </script>
 
 </body>
