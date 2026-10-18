@@ -3,21 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#12365a">
-<title>Sonoco | Control de Barnices</title>
+<meta name="theme-color" content="#103b68">
+<title>SONOCO | Control de Barnices</title>
 
 <style>
 :root {
-  --azul: #12365a;
-  --azul2: #1e5685;
-  --azul3: #eaf3fb;
+  --azul: #103b68;
+  --azul2: #1768a8;
+  --azul-claro: #eaf2fa;
   --fondo: #f2f5f9;
-  --blanco: #ffffff;
-  --texto: #203247;
-  --gris: #68798b;
+  --texto: #233448;
   --borde: #d8e1eb;
-  --verde: #168653;
-  --rojo: #c73939;
+  --blanco: #ffffff;
 }
 
 * {
@@ -26,302 +23,367 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Arial, sans-serif;
+  padding: 16px;
   background: var(--fondo);
   color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Arial, sans-serif;
 }
 
-header {
-  background: linear-gradient(135deg, #102d4b, #1e5685);
+.app {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--blanco);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(20, 48, 78, 0.09);
+}
+
+/* CABECERA */
+
+.cabecera {
+  background: linear-gradient(135deg, #10345c, #174e80);
   color: white;
-  text-align: center;
-  padding: 25px 16px 22px;
-  border-bottom: 4px solid #77b6e7;
+  padding: 24px 20px 19px;
 }
 
-.logo {
-  font-size: 27px;
+.logo-texto {
+  font-size: 23px;
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 1.5px;
   margin-bottom: 13px;
 }
 
-.logo-line {
-  width: 65px;
-  height: 3px;
-  background: #83c6f6;
-  margin: 0 auto 14px;
-  border-radius: 5px;
-}
-
-h1 {
+.cabecera h1 {
+  font-size: clamp(22px, 5vw, 32px);
+  line-height: 1.15;
   margin: 0;
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-weight: 850;
+  letter-spacing: 0.3px;
 }
 
-.subtitle {
+.subtitulo {
+  font-size: 13px;
+  letter-spacing: 1.2px;
   margin-top: 9px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #d4e8f8;
+  color: #dceafa;
+  font-weight: 600;
 }
 
 .firma {
-  margin-top: 14px;
+  margin-top: 15px;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #d9edff;
+  color: #b9d7f1;
+  letter-spacing: 0.5px;
 }
 
-.contenedor {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 17px 13px 35px;
+/* FOTOGRAFÍAS */
+
+.foto-seccion {
+  padding: 17px 17px 0;
 }
 
-.tarjeta {
-  background: var(--blanco);
-  border-radius: 15px;
-  padding: 17px;
-  margin-bottom: 16px;
-  box-shadow: 0 3px 12px rgba(19, 48, 78, 0.07);
-  border: 1px solid #e3eaf1;
+.foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #e1e7ee;
+  object-fit: contain;
+  background: #f5f7fa;
 }
 
-.fecha-cabecera {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.etiqueta {
+.foto-etiqueta {
+  color: #62778c;
   font-size: 11px;
-  color: var(--gris);
-  font-weight: 800;
+  font-weight: 750;
   letter-spacing: 1px;
-  margin-bottom: 6px;
+  margin: 0 0 9px 2px;
 }
 
-.fecha {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--azul);
+/* FECHA Y HORA */
+
+.fecha-panel {
+  margin: 18px 17px 0;
+  padding: 13px 15px;
+  border-radius: 12px;
+  background: #f0f5fa;
+  border: 1px solid #dfe8f1;
 }
 
-.hora {
-  font-size: 14px;
-  color: var(--gris);
-  margin-top: 4px;
-}
-
-.estado {
-  background: #e7f7ee;
-  color: #137447;
-  border-radius: 20px;
-  padding: 8px 11px;
+.fecha-titulo {
   font-size: 11px;
   font-weight: 800;
+  letter-spacing: 1px;
+  color: #617c98;
+  margin-bottom: 5px;
 }
 
-.titulo-seccion {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 13px;
-}
-
-.titulo-seccion h2 {
-  margin: 0;
-  font-size: 16px;
+.fecha-valor {
   color: var(--azul);
+  font-size: 15px;
+  font-weight: 750;
 }
 
-.contador {
-  background: var(--azul3);
+/* REGISTRO */
+
+.registro {
+  padding: 23px 17px 18px;
+}
+
+.registro h2 {
   color: var(--azul);
-  border-radius: 20px;
-  padding: 6px 10px;
+  font-size: 20px;
+  margin: 0 0 5px;
+  font-weight: 850;
+}
+
+.instruccion {
   font-size: 12px;
-  font-weight: 800;
+  color: #718196;
+  margin: 0 0 16px;
+  line-height: 1.5;
 }
 
-.encabezados {
+.columnas {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 35px;
-  gap: 8px;
-  padding: 0 2px 8px;
-}
-
-.encabezados div {
-  font-size: 10px;
-  color: var(--gris);
-  font-weight: 800;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 10px;
+  padding: 13px 12px;
+  background: var(--azul-claro);
+  border-radius: 10px;
+  color: var(--azul);
+  font-size: 11px;
+  font-weight: 850;
   letter-spacing: 0.5px;
 }
 
 .fila {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 35px;
-  gap: 8px;
-  margin-bottom: 9px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  margin-top: 8px;
   align-items: center;
+  background: white;
 }
 
-input {
+.fila input {
   width: 100%;
   min-width: 0;
-  border: 1px solid var(--borde);
-  border-radius: 9px;
-  padding: 12px 9px;
-  font-size: 14px;
+  padding: 11px 9px;
+  border: 1px solid #dce4ed;
+  border-radius: 8px;
+  background: #fbfcfe;
   color: var(--texto);
-  background: #fff;
+  font-size: 15px;
+  font-family: inherit;
   outline: none;
 }
 
-input:focus {
+.fila input:focus {
   border-color: var(--azul2);
-  box-shadow: 0 0 0 3px rgba(30, 86, 133, 0.1);
+  box-shadow: 0 0 0 2px rgba(23, 104, 168, 0.10);
 }
 
-input::placeholder {
-  color: #a0adba;
+.fila input::placeholder {
+  color: #a2adba;
+  font-size: 13px;
 }
 
-input.ubicacion-auto {
-  background: #eef8f2;
-  border-color: #b7e0c8;
-  color: #126c42;
-  font-weight: 800;
+.fila .ubicacion {
+  font-weight: 750;
+  text-transform: uppercase;
 }
 
-.boton-borrar {
-  width: 35px;
-  height: 42px;
-  border: 1px solid #f0cccc;
-  background: #fff2f2;
-  color: var(--rojo);
-  border-radius: 9px;
-  font-size: 19px;
-  font-weight: 800;
+.boton-quitar {
+  grid-column: 1 / -1;
+  justify-self: end;
+  border: 0;
+  background: transparent;
+  color: #a64b4b;
+  font-size: 12px;
+  padding: 3px 0;
   cursor: pointer;
+}
+
+.botones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .boton {
   width: 100%;
-  border: none;
+  border: 0;
   border-radius: 11px;
-  padding: 14px 15px;
+  padding: 15px 12px;
   font-size: 14px;
   font-weight: 800;
+  font-family: inherit;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  transition: opacity 0.15s;
+}
+
+.boton:active {
+  opacity: 0.8;
 }
 
 .boton-anadir {
-  background: var(--azul3);
   color: var(--azul);
-  border: 1px dashed #8eafcf;
-  margin-top: 6px;
-}
-
-.boton-generar {
-  background: linear-gradient(135deg, #12365a, #1e5685);
-  color: white;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(18, 54, 90, 0.18);
+  background: #eaf2fa;
+  border: 1px solid #d4e3f1;
 }
 
 .boton-compartir {
-  background: var(--verde);
   color: white;
-  margin-bottom: 10px;
-}
-
-.boton-limpiar {
-  background: white;
-  color: var(--gris);
-  border: 1px solid var(--borde);
-}
-
-.aviso {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--gris);
-  margin: 12px 2px 0;
-}
-
-.aviso strong {
-  color: var(--azul);
-}
-
-#resultado {
-  display: none;
-}
-
-#resultado h2 {
-  color: var(--azul);
-  font-size: 16px;
-  margin: 0 0 12px;
-}
-
-.previsualizacion {
-  border: 1px solid var(--borde);
-  border-radius: 10px;
-  overflow: hidden;
-  background: white;
-}
-
-.previsualizacion img {
-  display: block;
-  width: 100%;
-  height: auto;
+  background: linear-gradient(135deg, #1768a8, #104a7d);
+  box-shadow: 0 3px 8px rgba(16, 59, 104, 0.15);
 }
 
 .pie {
-  text-align: center;
-  color: #8593a1;
+  padding: 0 17px 20px;
   font-size: 11px;
-  padding: 7px 0 4px;
+  line-height: 1.5;
+  color: #8795a5;
+  text-align: center;
 }
 
-@media (max-width: 390px) {
-  .contenedor {
+/* CAPTURA GENERADA */
+
+#zonaCaptura {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 800px;
+  background: white;
+  z-index: -1;
+}
+
+.captura-cabecera {
+  background: #103b68;
+  color: white;
+  padding: 30px;
+}
+
+.captura-logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 13px;
+}
+
+.captura-titulo {
+  font-size: 30px;
+  font-weight: 850;
+  margin-bottom: 8px;
+}
+
+.captura-subtitulo {
+  font-size: 14px;
+  color: #dceafa;
+  letter-spacing: 1px;
+}
+
+.captura-firma {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #b9d7f1;
+}
+
+.captura-contenido {
+  padding: 24px 30px 30px;
+}
+
+.captura-foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+  margin-bottom: 18px;
+}
+
+.captura-fecha {
+  background: #f0f5fa;
+  padding: 15px;
+  border-radius: 9px;
+  margin: 20px 0;
+  color: #103b68;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.captura-seccion-titulo {
+  font-size: 20px;
+  font-weight: 850;
+  color: #103b68;
+  margin: 22px 0 12px;
+}
+
+.captura-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.captura-tabla th {
+  text-align: left;
+  background: #eaf2fa;
+  color: #103b68;
+  padding: 14px 12px;
+  font-size: 12px;
+  border-bottom: 2px solid #d7e4f1;
+}
+
+.captura-tabla td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #dce4ed;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.captura-tabla td:last-child {
+  font-weight: 800;
+  color: #103b68;
+}
+
+.captura-pie {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #8795a5;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 8px;
+  }
+
+  .cabecera {
+    padding: 20px 15px 16px;
+  }
+
+  .foto-seccion {
+    padding: 13px 12px 0;
+  }
+
+  .registro {
+    padding: 20px 12px 15px;
+  }
+
+  .columnas,
+  .fila {
+    gap: 7px;
     padding-left: 9px;
     padding-right: 9px;
   }
 
-  .tarjeta {
-    padding: 12px;
-  }
-
-  .fila,
-  .encabezados {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 32px;
-    gap: 5px;
-  }
-
-  input {
-    padding: 11px 7px;
-    font-size: 13px;
-  }
-
-  .boton-borrar {
-    width: 32px;
-  }
-
-  h1 {
-    font-size: 21px;
+  .fila input {
+    font-size: 14px;
+    padding: 10px 7px;
   }
 }
 </style>
@@ -329,92 +391,86 @@ input.ubicacion-auto {
 
 <body>
 
-<header>
-  <div class="logo">SONOCO</div>
-  <div class="logo-line"></div>
-  <h1>CONTROL DE BARNICES</h1>
-  <div class="subtitle">REGISTRO DE UBICACIONES</div>
-  <div class="firma">By Rubén D. 268</div>
-</header>
+<div class="app">
 
-<main class="contenedor">
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <div class="logo-texto">SONOCO</div>
+    <h1>CONTROL DE BARNICES</h1>
+    <div class="subtitulo">REGISTRO DE UBICACIONES</div>
+    <div class="firma">By Rubén D. 268</div>
+  </header>
 
-  <section class="tarjeta">
-    <div class="fecha-cabecera">
-      <div>
-        <div class="etiqueta">FECHA DEL REGISTRO</div>
-        <div class="fecha" id="fecha">--/--/----</div>
-        <div class="hora" id="hora">Hora: --:--</div>
-      </div>
-      <div class="estado">● REGISTRO ACTUAL</div>
-    </div>
+  <!-- PRIMERA FOTO: ARRIBA -->
+  <section class="foto-seccion">
+    <div class="foto-etiqueta">VISTA GENERAL DEL ALMACÉN</div>
+    <img
+      class="foto"
+      src="IMG_5503.jpeg"
+      alt="Vista general real del almacén de barnices"
+    >
   </section>
 
-  <section class="tarjeta">
-    <div class="titulo-seccion">
-      <h2>Ubicación de barnices</h2>
-      <div class="contador"><span id="total">0</span> filas</div>
-    </div>
+  <!-- FECHA Y HORA DEL TELÉFONO -->
+  <section class="fecha-panel">
+    <div class="fecha-titulo">FECHA Y HORA DEL REGISTRO</div>
+    <div class="fecha-valor" id="fechaHora">Cargando fecha...</div>
+  </section>
 
-    <div class="encabezados">
+  <!-- REGISTRO -->
+  <main class="registro">
+    <h2>Registro de barnices</h2>
+    <p class="instruccion">
+      Introduce la descripción del barniz. Para los códigos conocidos,
+      la ubicación se completará automáticamente.
+    </p>
+
+    <div class="columnas">
       <div>DESCRIPCIÓN / BARNIZ</div>
       <div>UBICACIÓN</div>
-      <div></div>
     </div>
 
-    <div id="lista"></div>
+    <div id="filas"></div>
 
-    <button type="button" class="boton boton-anadir" id="btnAnadir">
-      ＋ Añadir otra fila
-    </button>
+    <div class="botones">
+      <button class="boton boton-anadir" id="btnAnadir" type="button">
+        + AÑADIR FILA
+      </button>
 
-    <p class="aviso">
-      <strong>Ubicación automática:</strong> escribe el código o nombre
-      del barniz y, si está reconocido, la ubicación se completará sola.
-      Para otras ubicaciones, puedes escribirla manualmente.
-    </p>
-  </section>
-
-  <section class="tarjeta">
-    <button type="button" class="boton boton-generar" id="btnGenerar">
-      ▧ Generar imagen del registro
-    </button>
-
-    <button type="button" class="boton boton-compartir" id="btnCompartir">
-      ↗ Compartir imagen por WhatsApp
-    </button>
-
-    <button type="button" class="boton boton-limpiar" id="btnLimpiar">
-      Limpiar registro actual
-    </button>
-
-    <p class="aviso">
-      El registro no se guarda como historial. Al cerrar o recargar
-      la aplicación, los datos introducidos se perderán.
-    </p>
-  </section>
-
-  <section class="tarjeta" id="resultado">
-    <h2>Vista previa de la imagen</h2>
-    <div class="previsualizacion">
-      <img id="imagenResultado" alt="Imagen del registro de barnices">
+      <button class="boton boton-compartir" id="btnCompartir" type="button">
+        GENERAR IMAGEN Y COMPARTIR
+      </button>
     </div>
-    <p class="aviso">
-      Puedes compartir la imagen o guardarla en tu dispositivo.
-    </p>
+  </main>
+
+  <!-- SEGUNDA FOTO: DEBAJO DEL REGISTRO -->
+  <section class="foto-seccion" style="padding-bottom: 20px;">
+    <div class="foto-etiqueta">REFERENCIA DE ESTANTERÍAS</div>
+    <img
+      class="foto"
+      src="IMG_5504.jpeg"
+      alt="Fotografía real de las estanterías del almacén"
+    >
   </section>
 
-  <div class="pie">CONTROL DE BARNICES · By Rubén D. 268</div>
+  <footer class="pie">
+    Registro de ubicaciones · SONOCO<br>
+    By Rubén D. 268
+  </footer>
 
-</main>
+</div>
+
+<!-- CONTENIDO UTILIZADO PARA CREAR LA IMAGEN COMPARTIBLE -->
+<div id="zonaCaptura" aria-hidden="true"></div>
 
 <script>
 "use strict";
 
-/* =========================================
-   UBICACIONES CONOCIDAS
-   Se ignoran puntos, espacios y mayúsculas.
-========================================= */
+/*
+  NOMBRES EXACTOS DE LAS FOTOGRAFÍAS SUBIDAS A GITHUB:
+  IMG_5503.jpeg = fotografía superior
+  IMG_5504.jpeg = fotografía inferior
+*/
 
 const ubicaciones = {
   "814449": "W02008",
@@ -428,18 +484,21 @@ const ubicaciones = {
   "814509": "W02002"
 };
 
-const lista = document.getElementById("lista");
-const total = document.getElementById("total");
-const resultado = document.getElementById("resultado");
-const imagenResultado = document.getElementById("imagenResultado");
+const filas = document.getElementById("filas");
+const fechaHora = document.getElementById("fechaHora");
+const btnAnadir = document.getElementById("btnAnadir");
+const btnCompartir = document.getElementById("btnCompartir");
 
-let imagenGenerada = null;
+/* Normaliza códigos para reconocer puntos, espacios y guiones. */
+function normalizar(valor) {
+  return valor
+    .trim()
+    .toUpperCase()
+    .replace(/[.\s-]/g, "");
+}
 
-/* =========================================
-   FECHA Y HORA AUTOMÁTICAS
-========================================= */
-
-function actualizarFechaHora() {
+/* Fecha y hora local del teléfono. */
+function obtenerFechaHora() {
   const ahora = new Date();
 
   const fecha = ahora.toLocaleDateString("es-ES", {
@@ -455,526 +514,347 @@ function actualizarFechaHora() {
     hour12: false
   });
 
-  document.getElementById("fecha").textContent = fecha;
-  document.getElementById("hora").textContent = "Hora: " + hora;
+  return fecha + " · " + hora;
+}
+
+function actualizarFechaHora() {
+  fechaHora.textContent = obtenerFechaHora();
 }
 
 actualizarFechaHora();
 setInterval(actualizarFechaHora, 1000);
 
-/* =========================================
-   NORMALIZAR CÓDIGOS
-========================================= */
-
-function normalizar(texto) {
-  return String(texto || "")
-    .toUpperCase()
-    .trim()
-    .replace(/[.\s-]/g, "");
-}
-
-/* =========================================
-   CREAR FILA
-========================================= */
-
+/* Crea una fila de descripción y ubicación. */
 function crearFila(descripcion = "", ubicacion = "") {
   const fila = document.createElement("div");
   fila.className = "fila";
 
   const inputDescripcion = document.createElement("input");
   inputDescripcion.type = "text";
-  inputDescripcion.placeholder = "Código o nombre";
-  inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
+  inputDescripcion.placeholder = "Código o barniz";
   inputDescripcion.autocomplete = "off";
+  inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
   inputDescripcion.value = descripcion;
 
   const inputUbicacion = document.createElement("input");
   inputUbicacion.type = "text";
   inputUbicacion.placeholder = "Ubicación";
-  inputUbicacion.setAttribute("aria-label", "Ubicación del barniz");
   inputUbicacion.autocomplete = "off";
+  inputUbicacion.className = "ubicacion";
+  inputUbicacion.setAttribute("aria-label", "Ubicación");
   inputUbicacion.value = ubicacion;
 
-  const botonBorrar = document.createElement("button");
-  botonBorrar.type = "button";
-  botonBorrar.className = "boton-borrar";
-  botonBorrar.textContent = "×";
-  botonBorrar.setAttribute("aria-label", "Eliminar fila");
+  const botonQuitar = document.createElement("button");
+  botonQuitar.type = "button";
+  botonQuitar.className = "boton-quitar";
+  botonQuitar.textContent = "Eliminar fila";
 
-  function completarUbicacion() {
+  /*
+    Al salir del campo de descripción:
+    - Reconoce códigos con o sin puntos.
+    - Completa la ubicación si el código está en la lista.
+    - No borra una ubicación manual si el código es desconocido.
+  */
+  inputDescripcion.addEventListener("blur", function () {
     const clave = normalizar(inputDescripcion.value);
 
-    if (ubicaciones[clave]) {
+    if (clave && Object.prototype.hasOwnProperty.call(ubicaciones, clave)) {
       inputUbicacion.value = ubicaciones[clave];
-      inputUbicacion.classList.add("ubicacion-auto");
-    } else {
-      inputUbicacion.classList.remove("ubicacion-auto");
-    }
-
-    actualizarTotal();
-  }
-
-  inputDescripcion.addEventListener("blur", completarUbicacion);
-
-  inputDescripcion.addEventListener("keydown", function(evento) {
-    if (evento.key === "Enter") {
-      evento.preventDefault();
-      completarUbicacion();
-      inputUbicacion.focus();
     }
   });
 
-  inputDescripcion.addEventListener("input", function() {
-    inputUbicacion.classList.remove("ubicacion-auto");
-    actualizarTotal();
+  /*
+    Si se modifica el código después de haber reconocido otro,
+    se deja que el usuario decida la nueva ubicación cuando el código
+    no sea conocido. Para un código conocido se completa automáticamente.
+  */
+  inputDescripcion.addEventListener("change", function () {
+    const clave = normalizar(inputDescripcion.value);
+
+    if (clave && Object.prototype.hasOwnProperty.call(ubicaciones, clave)) {
+      inputUbicacion.value = ubicaciones[clave];
+    }
   });
 
-  inputUbicacion.addEventListener("input", actualizarTotal);
-
-  botonBorrar.addEventListener("click", function() {
+  botonQuitar.addEventListener("click", function () {
     fila.remove();
-    actualizarTotal();
+
+    if (filas.querySelectorAll(".fila").length === 0) {
+      crearFila();
+    }
   });
 
   fila.appendChild(inputDescripcion);
   fila.appendChild(inputUbicacion);
-  fila.appendChild(botonBorrar);
+  fila.appendChild(botonQuitar);
 
-  lista.appendChild(fila);
-  actualizarTotal();
-
-  return fila;
+  filas.appendChild(fila);
 }
 
-/* =========================================
-   CONTADOR DE FILAS
-========================================= */
-
-function actualizarTotal() {
-  total.textContent = lista.querySelectorAll(".fila").length;
+function anadirFila() {
+  crearFila();
 }
 
-/* =========================================
-   AÑADIR FILAS
-========================================= */
+btnAnadir.addEventListener("click", anadirFila);
 
-document.getElementById("btnAnadir").addEventListener("click", function() {
-  const fila = crearFila();
-  fila.querySelector("input").focus();
-});
+/* Empezamos con cuatro filas vacías. */
+for (let i = 0; i < 4; i++) {
+  crearFila();
+}
 
-/* Empezar con cuatro filas vacías */
-crearFila();
-crearFila();
-crearFila();
-crearFila();
+/* Espera a que una imagen esté completamente cargada. */
+function esperarImagen(img) {
+  return new Promise(function (resolve, reject) {
+    if (img.complete && img.naturalWidth > 0) {
+      resolve();
+      return;
+    }
 
-/* =========================================
-   RECOGER REGISTROS RELLENOS
-========================================= */
+    img.onload = function () {
+      resolve();
+    };
 
+    img.onerror = function () {
+      reject(new Error("No se pudo cargar una de las fotografías."));
+    };
+  });
+}
+
+/* Escapa texto para insertarlo de forma segura en la captura. */
+function escaparHTML(valor) {
+  return String(valor)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+/* Obtiene solamente las filas que contienen algún dato. */
 function obtenerRegistros() {
-  const filas = Array.from(lista.querySelectorAll(".fila"));
-  const registros = [];
+  const resultado = [];
 
-  filas.forEach(function(fila) {
+  filas.querySelectorAll(".fila").forEach(function (fila) {
     const campos = fila.querySelectorAll("input");
     const descripcion = campos[0].value.trim();
     const ubicacion = campos[1].value.trim();
 
     if (descripcion || ubicacion) {
-      registros.push({
+      resultado.push({
         descripcion: descripcion || "—",
         ubicacion: ubicacion || "—"
       });
     }
   });
 
-  return registros;
+  return resultado;
 }
 
-/* =========================================
-   CREAR IMAGEN PNG
-========================================= */
+/* Prepara la composición vertical de la imagen para compartir. */
+async function prepararCaptura() {
+  const zona = document.getElementById("zonaCaptura");
+  const imagenes = [
+    document.querySelector('img[src="IMG_5503.jpeg"]'),
+    document.querySelector('img[src="IMG_5504.jpeg"]')
+  ];
 
-function crearCanvas(registros) {
-  return new Promise(function(resolve, reject) {
-    const ancho = 1000;
-    const altoCabecera = 250;
-    const altoFila = 70;
-    const altoPie = 100;
-    const alto = altoCabecera + Math.max(registros.length, 1) * altoFila + altoPie;
+  for (const img of imagenes) {
+    await esperarImagen(img);
+  }
 
-    const canvas = document.createElement("canvas");
-    canvas.width = ancho;
-    canvas.height = alto;
+  const registros = obtenerRegistros();
+  const fechaCaptura = obtenerFechaHora();
 
-    const ctx = canvas.getContext("2d");
+  let filasHTML = "";
 
-    if (!ctx) {
-      reject(new Error("No se pudo crear la imagen."));
-      return;
-    }
+  if (registros.length === 0) {
+    filasHTML = `
+      <tr>
+        <td colspan="2" style="text-align:center;color:#78889a;">
+          No hay barnices registrados.
+        </td>
+      </tr>
+    `;
+  } else {
+    filasHTML = registros.map(function (registro) {
+      return `
+        <tr>
+          <td>${escaparHTML(registro.descripcion)}</td>
+          <td>${escaparHTML(registro.ubicacion)}</td>
+        </tr>
+      `;
+    }).join("");
+  }
 
-    /* Fondo */
-    ctx.fillStyle = "#f2f5f9";
-    ctx.fillRect(0, 0, ancho, alto);
+  zona.innerHTML = `
+    <div class="captura-cabecera">
+      <div class="captura-logo">SONOCO</div>
+      <div class="captura-titulo">CONTROL DE BARNICES</div>
+      <div class="captura-subtitulo">REGISTRO DE UBICACIONES</div>
+      <div class="captura-firma">By Rubén D. 268</div>
+    </div>
 
-    /* Cabecera azul */
-    const degradado = ctx.createLinearGradient(0, 0, ancho, altoCabecera);
-    degradado.addColorStop(0, "#102d4b");
-    degradado.addColorStop(1, "#1e5685");
+    <div class="captura-contenido">
 
-    ctx.fillStyle = degradado;
-    ctx.fillRect(0, 0, ancho, altoCabecera);
+      <img
+        class="captura-foto"
+        src="IMG_5503.jpeg"
+        alt="Vista general del almacén"
+      >
 
-    /* SONOCO en texto */
-    ctx.fillStyle = "#ffffff";
-    ctx.textAlign = "center";
-    ctx.font = "900 34px Arial, sans-serif";
-    ctx.fillText("SONOCO", ancho / 2, 48);
+      <div class="captura-fecha">
+        FECHA Y HORA DEL REGISTRO<br>
+        <span style="font-size:17px;">${escaparHTML(fechaCaptura)}</span>
+      </div>
 
-    ctx.fillStyle = "#83c6f6";
-    ctx.fillRect(ancho / 2 - 40, 63, 80, 3);
+      <div class="captura-seccion-titulo">REGISTRO DE BARNICES</div>
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 29px Arial, sans-serif";
-    ctx.fillText("CONTROL DE BARNICES", ancho / 2, 105);
+      <table class="captura-tabla">
+        <thead>
+          <tr>
+            <th style="width:60%;">DESCRIPCIÓN / BARNIZ</th>
+            <th style="width:40%;">UBICACIÓN</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${filasHTML}
+        </tbody>
+      </table>
 
-    ctx.fillStyle = "#d4e8f8";
-    ctx.font = "15px Arial, sans-serif";
-    ctx.fillText("REGISTRO DE UBICACIONES", ancho / 2, 135);
+      <div style="height:24px;"></div>
 
-    /* Firma incorporada a la imagen */
-    ctx.fillStyle = "#d9edff";
-    ctx.font = "bold 15px Arial, sans-serif";
-    ctx.fillText("By Rubén D. 268", ancho / 2, 166);
+      <div style="font-size:12px;font-weight:800;color:#62778c;margin-bottom:10px;">
+        REFERENCIA DE ESTANTERÍAS
+      </div>
 
-    /* Fecha y hora */
-    const ahora = new Date();
+      <img
+        class="captura-foto"
+        src="IMG_5504.jpeg"
+        alt="Referencia de estanterías"
+      >
 
-    const fecha = ahora.toLocaleDateString("es-ES", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
+      <div class="captura-pie">
+        SONOCO · CONTROL DE BARNICES<br>
+        By Rubén D. 268
+      </div>
+    </div>
+  `;
 
-    const hora = ahora.toLocaleTimeString("es-ES", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false
-    });
+  /*
+    Las imágenes se copian desde los archivos del propio repositorio.
+    No se crean fotografías artificiales.
+  */
+  return zona;
+}
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 16px Arial, sans-serif";
-    ctx.fillText("FECHA: " + fecha + "     HORA: " + hora, ancho / 2, 211);
+/*
+  Genera un PNG con el contenido de la captura.
+  html2canvas se carga desde un CDN público.
+*/
+async function generarPNG() {
+  const zona = await prepararCaptura();
 
-    /* Tabla */
-    const margen = 35;
-    const tablaY = altoCabecera + 20;
-    const tablaAncho = ancho - margen * 2;
-    const colDescripcion = Math.round(tablaAncho * 0.63);
-    const colUbicacion = tablaAncho - colDescripcion;
-
-    /* Encabezado tabla */
-    ctx.fillStyle = "#dceaf7";
-    ctx.fillRect(margen, tablaY, tablaAncho, 52);
-
-    ctx.fillStyle = "#12365a";
-    ctx.textAlign = "left";
-    ctx.font = "bold 18px Arial, sans-serif";
-    ctx.fillText("DESCRIPCIÓN / BARNIZ", margen + 18, tablaY + 32);
-
-    ctx.fillText(
-      "UBICACIÓN",
-      margen + colDescripcion + 18,
-      tablaY + 32
+  if (typeof window.html2canvas !== "function") {
+    throw new Error(
+      "No se ha podido cargar el generador de imágenes. Comprueba la conexión e inténtalo de nuevo."
     );
+  }
 
-    /* Filas */
-    let y = tablaY + 52;
+  const lienzo = await window.html2canvas(zona, {
+    scale: 2,
+    backgroundColor: "#ffffff",
+    useCORS: true,
+    logging: false,
+    width: 800,
+    windowWidth: 800
+  });
 
-    const datos = registros.length ? registros : [{
-      descripcion: "Sin registros",
-      ubicacion: "—"
-    }];
-
-    datos.forEach(function(registro, indice) {
-      ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f6f9fc";
-      ctx.fillRect(margen, y, tablaAncho, altoFila);
-
-      ctx.strokeStyle = "#d8e1eb";
-      ctx.lineWidth = 1;
-      ctx.strokeRect(margen, y, tablaAncho, altoFila);
-
-      ctx.beginPath();
-      ctx.moveTo(margen + colDescripcion, y);
-      ctx.lineTo(margen + colDescripcion, y + altoFila);
-      ctx.stroke();
-
-      ctx.fillStyle = "#203247";
-      ctx.textAlign = "left";
-      ctx.font = "bold 19px Arial, sans-serif";
-
-      escribirTextoAjustado(
-        ctx,
-        registro.descripcion,
-        margen + 18,
-        y + 28,
-        colDescripcion - 32,
-        22
-      );
-
-      ctx.fillStyle = "#126c42";
-      ctx.font = "bold 20px Arial, sans-serif";
-
-      escribirTextoAjustado(
-        ctx,
-        registro.ubicacion,
-        margen + colDescripcion + 18,
-        y + 28,
-        colUbicacion - 32,
-        22
-      );
-
-      y += altoFila;
-    });
-
-    /* Pie de imagen */
-    const pieY = y + 28;
-
-    ctx.fillStyle = "#68798b";
-    ctx.textAlign = "center";
-    ctx.font = "15px Arial, sans-serif";
-    ctx.fillText(
-      "CONTROL DE BARNICES · Registro del turno",
-      ancho / 2,
-      pieY
-    );
-
-    ctx.fillStyle = "#1e5685";
-    ctx.font = "bold 16px Arial, sans-serif";
-    ctx.fillText("By Rubén D. 268", ancho / 2, pieY + 29);
-
-    canvas.toBlob(function(blob) {
-      if (!blob) {
-        reject(new Error("No se pudo generar el archivo de imagen."));
-        return;
+  return new Promise(function (resolve, reject) {
+    lienzo.toBlob(function (blob) {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error("No se pudo crear la imagen."));
       }
-
-      resolve({
-        canvas: canvas,
-        blob: blob
-      });
     }, "image/png");
   });
 }
 
-/* Ajustar textos largos para que no se salgan de la celda */
-function escribirTextoAjustado(ctx, texto, x, y, anchoMaximo, altoLinea) {
-  const palabras = String(texto).split(/\s+/);
-  const lineas = [];
-  let linea = "";
+/* Genera la imagen y abre la opción de compartir del teléfono. */
+btnCompartir.addEventListener("click", async function () {
+  const textoOriginal = btnCompartir.textContent;
 
-  palabras.forEach(function(palabra) {
-    const prueba = linea ? linea + " " + palabra : palabra;
-
-    if (ctx.measureText(prueba).width > anchoMaximo && linea) {
-      lineas.push(linea);
-      linea = palabra;
-    } else {
-      linea = prueba;
-    }
-  });
-
-  if (linea) {
-    lineas.push(linea);
-  }
-
-  const maxLineas = 2;
-
-  lineas.slice(0, maxLineas).forEach(function(textoLinea, indice) {
-    let mostrar = textoLinea;
-
-    while (
-      ctx.measureText(mostrar).width > anchoMaximo &&
-      mostrar.length > 3
-    ) {
-      mostrar = mostrar.slice(0, -2) + "…";
-    }
-
-    ctx.fillText(mostrar, x, y + indice * altoLinea);
-  });
-}
-
-/* =========================================
-   GENERAR Y MOSTRAR IMAGEN
-========================================= */
-
-async function generarImagen() {
-  const registros = obtenerRegistros();
-
-  if (registros.length === 0) {
-    alert("Introduce al menos un barniz o una ubicación antes de generar la imagen.");
-    return null;
-  }
-
-  const boton = document.getElementById("btnGenerar");
-  const textoOriginal = boton.textContent;
-
-  boton.disabled = true;
-  boton.textContent = "Generando imagen...";
+  btnCompartir.disabled = true;
+  btnCompartir.textContent = "PREPARANDO IMAGEN…";
 
   try {
-    const resultadoCanvas = await crearCanvas(registros);
+    const blob = await generarPNG();
+    const archivo = new File(
+      [blob],
+      "control-de-barnices.png",
+      { type: "image/png" }
+    );
 
-    imagenGenerada = resultadoCanvas.blob;
-
-    const url = URL.createObjectURL(imagenGenerada);
-    imagenResultado.src = url;
-
-    resultado.style.display = "block";
-    resultado.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    return imagenGenerada;
-
-  } catch (error) {
-    console.error(error);
-    alert("No se pudo generar la imagen. Inténtalo de nuevo.");
-    return null;
-
-  } finally {
-    boton.disabled = false;
-    boton.textContent = textoOriginal;
-  }
-}
-
-document.getElementById("btnGenerar").addEventListener("click", generarImagen);
-
-/* =========================================
-   COMPARTIR IMAGEN
-   En iPhone permite elegir WhatsApp,
-   contactos u otras opciones disponibles.
-========================================= */
-
-document.getElementById("btnCompartir").addEventListener("click", async function() {
-  let blob = imagenGenerada;
-
-  if (!blob) {
-    blob = await generarImagen();
-  }
-
-  if (!blob) {
-    return;
-  }
-
-  const archivo = new File(
-    [blob],
-    "control-barnices.png",
-    { type: "image/png" }
-  );
-
-  try {
+    /*
+      En iPhone y Android se abre el menú nativo para que el usuario
+      elija WhatsApp, un contacto o cualquier otra aplicación disponible.
+    */
     if (
       navigator.share &&
       navigator.canShare &&
       navigator.canShare({ files: [archivo] })
     ) {
       await navigator.share({
-        files: [archivo],
-        title: "Control de Barnices",
-        text: "Registro de ubicaciones de barnices."
+        title: "Control de Barnices - SONOCO",
+        text: "Registro de barnices y ubicaciones.",
+        files: [archivo]
       });
+    } else {
+      /*
+        Alternativa si el navegador no permite compartir archivos:
+        descargar el PNG para enviarlo después desde Fotos o Archivos.
+      */
+      const url = URL.createObjectURL(blob);
+      const enlace = document.createElement("a");
 
-      return;
+      enlace.href = url;
+      enlace.download = "control-de-barnices.png";
+      document.body.appendChild(enlace);
+      enlace.click();
+      enlace.remove();
+
+      setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 10000);
+
+      alert(
+        "La imagen se ha preparado. Si no se abre el menú para compartir, busca el archivo descargado y envíalo por WhatsApp."
+      );
     }
-
-    descargarImagen(blob);
-
-    alert(
-      "La imagen se ha preparado para descargar. " +
-      "Después podrás abrirla y compartirla por WhatsApp."
-    );
-
   } catch (error) {
-    if (error.name === "AbortError") {
-      return;
+    if (error && error.name === "AbortError") {
+      /* El usuario ha cerrado el menú de compartir. */
+    } else {
+      console.error(error);
+      alert(
+        "No se ha podido generar la imagen. Comprueba que las dos fotografías estén subidas al repositorio y que tengas conexión a Internet."
+      );
     }
-
-    console.error(error);
-
-    descargarImagen(blob);
-
-    alert(
-      "No se pudo abrir el menú de compartir. " +
-      "Se ha preparado la descarga de la imagen."
-    );
+  } finally {
+    btnCompartir.disabled = false;
+    btnCompartir.textContent = textoOriginal;
   }
 });
 
-/* =========================================
-   DESCARGAR IMAGEN
-========================================= */
+/*
+  El generador se carga desde un CDN.
+  No guarda los registros en el navegador ni crea historial.
+*/
+</script>
 
-function descargarImagen(blob) {
-  const url = URL.createObjectURL(blob);
-  const enlace = document.createElement("a");
-
-  enlace.href = url;
-  enlace.download = "control-barnices.png";
-  document.body.appendChild(enlace);
-  enlace.click();
-  enlace.remove();
-
-  setTimeout(function() {
-    URL.revokeObjectURL(url);
-  }, 10000);
-}
-
-/* =========================================
-   LIMPIAR REGISTRO ACTUAL
-========================================= */
-
-document.getElementById("btnLimpiar").addEventListener("click", function() {
-  const confirmar = confirm(
-    "¿Quieres borrar todas las filas del registro actual?"
-  );
-
-  if (!confirmar) {
-    return;
-  }
-
-  lista.innerHTML = "";
-
-  crearFila();
-  crearFila();
-  crearFila();
-  crearFila();
-
-  imagenGenerada = null;
-  imagenResultado.removeAttribute("src");
-  resultado.style.display = "none";
-
-  actualizarTotal();
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-/* =========================================
-   NO SE GUARDA HISTORIAL
-   Los datos existen solo en esta sesión.
-========================================= */
-
-window.addEventListener("beforeunload", function() {
-  /* Intencionadamente no se guarda ningún registro. */
-});
-
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+  crossorigin="anonymous">
 </script>
 
 </body>
