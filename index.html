@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#103b68">
-<title>SONOCO | Control de Barnices</title>
+<meta name="theme-color" content="#073b70">
+<title>CONTROL DE BARNICES</title>
 
 <style>
 :root {
-  --azul: #103b68;
-  --azul2: #1768a8;
-  --azul-claro: #eaf2fa;
-  --fondo: #f2f5f9;
-  --texto: #233448;
-  --borde: #d8e1eb;
+  --azul: #073b70;
+  --azul2: #0866ad;
+  --azul-claro: #e5f1ff;
+  --borde: #d8e4f0;
+  --texto: #173b5d;
   --blanco: #ffffff;
 }
 
@@ -23,367 +22,375 @@
 
 body {
   margin: 0;
-  padding: 16px;
-  background: var(--fondo);
+  padding: 14px;
+  background: #edf4fb;
   color: var(--texto);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .app {
-  max-width: 850px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   background: var(--blanco);
+  border: 1px solid #d9e7f6;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 25px rgba(20, 48, 78, 0.09);
+  box-shadow: 0 5px 22px rgba(7, 59, 112, 0.08);
 }
 
 /* CABECERA */
 
 .cabecera {
-  background: linear-gradient(135deg, #10345c, #174e80);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  background: linear-gradient(110deg, #073b70, #07549a);
   color: white;
-  padding: 24px 20px 19px;
 }
 
-.logo-texto {
-  font-size: 23px;
+.logo {
+  width: 145px;
+  min-width: 145px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  max-width: 110px;
+  max-height: 100px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.logo-fallback {
+  display: none;
+  text-align: center;
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: 1.5px;
-  margin-bottom: 13px;
+  letter-spacing: -1px;
+  color: white;
 }
 
-.cabecera h1 {
-  font-size: clamp(22px, 5vw, 32px);
-  line-height: 1.15;
+.titulos {
+  min-width: 0;
+}
+
+.titulos h1 {
   margin: 0;
-  font-weight: 850;
-  letter-spacing: 0.3px;
+  font-size: clamp(22px, 4vw, 38px);
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: 0.2px;
 }
 
 .subtitulo {
-  font-size: 13px;
-  letter-spacing: 1.2px;
-  margin-top: 9px;
-  color: #dceafa;
-  font-weight: 600;
+  margin-top: 7px;
+  font-size: clamp(14px, 2.4vw, 22px);
+  color: #d9eaff;
+  letter-spacing: 0.4px;
 }
 
 .firma {
-  margin-top: 15px;
-  font-size: 12px;
-  color: #b9d7f1;
-  letter-spacing: 0.5px;
+  margin-top: 9px;
+  color: #c7e2ff;
+  font-size: 15px;
+  letter-spacing: 0.3px;
 }
 
-/* FOTOGRAFÍAS */
+/* CONTENIDO */
 
-.foto-seccion {
-  padding: 17px 17px 0;
+.contenido {
+  padding: 14px 20px 18px;
 }
 
-.foto {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  border: 1px solid #e1e7ee;
-  object-fit: contain;
-  background: #f5f7fa;
-}
-
-.foto-etiqueta {
-  color: #62778c;
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 1px;
-  margin: 0 0 9px 2px;
-}
-
-/* FECHA Y HORA */
-
-.fecha-panel {
-  margin: 18px 17px 0;
-  padding: 13px 15px;
-  border-radius: 12px;
-  background: #f0f5fa;
-  border: 1px solid #dfe8f1;
-}
-
-.fecha-titulo {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #617c98;
-  margin-bottom: 5px;
-}
-
-.fecha-valor {
+.etiqueta-foto {
+  margin: 0 0 7px;
   color: var(--azul);
   font-size: 15px;
-  font-weight: 750;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+/* FOTOGRAFÍAS: SIEMPRE RECORTADAS */
+
+.foto-franja {
+  width: 100%;
+  height: 108px;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #e3ebf3;
+  border: 1px solid #d9e4ee;
+  margin-bottom: 12px;
+}
+
+.foto-franja img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* FECHA */
+
+.fecha {
+  margin: 5px 0 15px;
+  font-size: 14px;
+  color: #315779;
+  line-height: 1.5;
 }
 
 /* REGISTRO */
 
-.registro {
-  padding: 23px 17px 18px;
-}
-
-.registro h2 {
+h2 {
+  margin: 12px 0 8px;
   color: var(--azul);
-  font-size: 20px;
-  margin: 0 0 5px;
-  font-weight: 850;
+  font-size: 23px;
+  font-weight: 900;
 }
 
-.instruccion {
-  font-size: 12px;
-  color: #718196;
-  margin: 0 0 16px;
-  line-height: 1.5;
-}
-
-.columnas {
+.cabecera-tabla {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.9fr) 95px;
   gap: 10px;
-  padding: 13px 12px;
+  padding: 12px 14px;
   background: var(--azul-claro);
-  border-radius: 10px;
   color: var(--azul);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: 0.5px;
+  font-weight: 900;
+  border-radius: 11px;
+}
+
+.lista-filas {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px;
 }
 
 .fila {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--borde);
-  border-radius: 10px;
-  margin-top: 8px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.9fr) 95px;
   align-items: center;
-  background: white;
+  gap: 10px;
+  padding: 5px 8px;
+  border: 1px solid #e7edf4;
+  border-radius: 9px;
+  background: #fff;
 }
 
 .fila input {
   width: 100%;
   min-width: 0;
-  padding: 11px 9px;
-  border: 1px solid #dce4ed;
+  height: 40px;
+  border: 1px solid #d3e0ed;
   border-radius: 8px;
-  background: #fbfcfe;
-  color: var(--texto);
-  font-size: 15px;
-  font-family: inherit;
+  padding: 0 12px;
+  font-size: 16px;
+  color: #173b5d;
+  background: white;
   outline: none;
 }
 
 .fila input:focus {
-  border-color: var(--azul2);
-  box-shadow: 0 0 0 2px rgba(23, 104, 168, 0.10);
+  border-color: #1680d1;
+  box-shadow: 0 0 0 2px rgba(22,128,209,0.10);
 }
 
 .fila input::placeholder {
-  color: #a2adba;
-  font-size: 13px;
+  color: #98a5b3;
 }
 
 .fila .ubicacion {
-  font-weight: 750;
-  text-transform: uppercase;
-}
-
-.boton-quitar {
-  grid-column: 1 / -1;
-  justify-self: end;
-  border: 0;
-  background: transparent;
-  color: #a64b4b;
-  font-size: 12px;
-  padding: 3px 0;
-  cursor: pointer;
-}
-
-.botones {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.boton {
-  width: 100%;
-  border: 0;
-  border-radius: 11px;
-  padding: 15px 12px;
-  font-size: 14px;
-  font-weight: 800;
-  font-family: inherit;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-
-.boton:active {
-  opacity: 0.8;
-}
-
-.boton-anadir {
-  color: var(--azul);
-  background: #eaf2fa;
-  border: 1px solid #d4e3f1;
-}
-
-.boton-compartir {
-  color: white;
-  background: linear-gradient(135deg, #1768a8, #104a7d);
-  box-shadow: 0 3px 8px rgba(16, 59, 104, 0.15);
-}
-
-.pie {
-  padding: 0 17px 20px;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #8795a5;
-  text-align: center;
-}
-
-/* CAPTURA GENERADA */
-
-#zonaCaptura {
-  position: fixed;
-  left: -10000px;
-  top: 0;
-  width: 800px;
-  background: white;
-  z-index: -1;
-}
-
-.captura-cabecera {
-  background: #103b68;
-  color: white;
-  padding: 30px;
-}
-
-.captura-logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  margin-bottom: 13px;
-}
-
-.captura-titulo {
-  font-size: 30px;
-  font-weight: 850;
-  margin-bottom: 8px;
-}
-
-.captura-subtitulo {
-  font-size: 14px;
-  color: #dceafa;
-  letter-spacing: 1px;
-}
-
-.captura-firma {
-  margin-top: 14px;
-  font-size: 12px;
-  color: #b9d7f1;
-}
-
-.captura-contenido {
-  padding: 24px 30px 30px;
-}
-
-.captura-foto {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 9px;
-  margin-bottom: 18px;
-}
-
-.captura-fecha {
-  background: #f0f5fa;
-  padding: 15px;
-  border-radius: 9px;
-  margin: 20px 0;
-  color: #103b68;
-  font-size: 14px;
   font-weight: 700;
 }
 
-.captura-seccion-titulo {
-  font-size: 20px;
-  font-weight: 850;
-  color: #103b68;
-  margin: 22px 0 12px;
+.btn-eliminar {
+  border: none;
+  background: transparent;
+  color: #d71920;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 0;
+  cursor: pointer;
 }
 
-.captura-tabla {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
+/* BOTONES */
+
+.botones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 13px 0 19px;
 }
 
-.captura-tabla th {
-  text-align: left;
-  background: #eaf2fa;
-  color: #103b68;
-  padding: 14px 12px;
+button {
+  font-family: inherit;
+}
+
+.btn {
+  min-height: 54px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.btn-anadir {
+  background: #e4f1ff;
+  color: var(--azul);
+}
+
+.btn-generar {
+  background: linear-gradient(110deg, #0866ad, #07549a);
+  color: white;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.aviso {
+  margin: 8px 0 14px;
+  color: #56728b;
   font-size: 12px;
-  border-bottom: 2px solid #d7e4f1;
+  line-height: 1.45;
 }
 
-.captura-tabla td {
-  padding: 14px 12px;
-  border-bottom: 1px solid #dce4ed;
-  font-size: 15px;
-  overflow-wrap: anywhere;
+/* FOTO INFERIOR */
+
+.foto-inferior {
+  margin-top: 3px;
 }
 
-.captura-tabla td:last-child {
-  font-weight: 800;
-  color: #103b68;
+.foto-inferior .foto-franja {
+  height: 125px;
+  margin-bottom: 0;
 }
 
-.captura-pie {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 11px;
-  color: #8795a5;
-}
+/* ADAPTACIÓN A MÓVILES */
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   body {
-    padding: 8px;
+    padding: 7px;
+  }
+
+  .app {
+    border-radius: 14px;
   }
 
   .cabecera {
-    padding: 20px 15px 16px;
+    gap: 12px;
+    padding: 15px 12px;
   }
 
-  .foto-seccion {
-    padding: 13px 12px 0;
+  .logo {
+    width: 88px;
+    min-width: 88px;
+    min-height: 72px;
+    padding-right: 10px;
   }
 
-  .registro {
-    padding: 20px 12px 15px;
+  .logo img {
+    max-width: 70px;
+    max-height: 72px;
   }
 
-  .columnas,
+  .logo-fallback {
+    font-size: 19px;
+  }
+
+  .titulos h1 {
+    font-size: 21px;
+  }
+
+  .subtitulo {
+    font-size: 13px;
+  }
+
+  .firma {
+    font-size: 12px;
+  }
+
+  .contenido {
+    padding: 12px 10px;
+  }
+
+  .foto-franja {
+    height: 82px;
+  }
+
+  .foto-inferior .foto-franja {
+    height: 95px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  .cabecera-tabla,
   .fila {
-    gap: 7px;
-    padding-left: 9px;
-    padding-right: 9px;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) 65px;
+    gap: 5px;
+  }
+
+  .cabecera-tabla {
+    padding: 10px 7px;
+    font-size: 11px;
+  }
+
+  .fila {
+    padding: 5px 4px;
   }
 
   .fila input {
+    height: 39px;
+    padding: 0 7px;
     font-size: 14px;
-    padding: 10px 7px;
+  }
+
+  .btn-eliminar {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+
+  .botones {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .btn {
+    min-height: 48px;
+    font-size: 14px;
+  }
+}
+
+/* VISTA PARA LA CAPTURA COMPARTIDA */
+
+@media print {
+  body {
+    padding: 0;
+    background: white;
+  }
+
+  .app {
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .acciones,
+  .btn-eliminar {
+    display: none !important;
   }
 }
 </style>
@@ -391,114 +398,151 @@ body {
 
 <body>
 
-<div class="app">
+<div class="app" id="app">
 
   <!-- CABECERA -->
+
   <header class="cabecera">
-    <div class="logo-texto">SONOCO</div>
-    <h1>CONTROL DE BARNICES</h1>
-    <div class="subtitulo">REGISTRO DE UBICACIONES</div>
-    <div class="firma">By Rubén D. 268</div>
-  </header>
 
-  <!-- PRIMERA FOTO: ARRIBA -->
-  <section class="foto-seccion">
-    <div class="foto-etiqueta">VISTA GENERAL DEL ALMACÉN</div>
-    <img
-      class="foto"
-      src="IMG_5503.jpeg"
-      alt="Vista general real del almacén de barnices"
-    >
-  </section>
-
-  <!-- FECHA Y HORA DEL TELÉFONO -->
-  <section class="fecha-panel">
-    <div class="fecha-titulo">FECHA Y HORA DEL REGISTRO</div>
-    <div class="fecha-valor" id="fechaHora">Cargando fecha...</div>
-  </section>
-
-  <!-- REGISTRO -->
-  <main class="registro">
-    <h2>Registro de barnices</h2>
-    <p class="instruccion">
-      Introduce la descripción del barniz. Para los códigos conocidos,
-      la ubicación se completará automáticamente.
-    </p>
-
-    <div class="columnas">
-      <div>DESCRIPCIÓN / BARNIZ</div>
-      <div>UBICACIÓN</div>
+    <div class="logo">
+      <img
+        id="logoSonoco"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
+        alt="SONOCO"
+        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
+      >
+      <div class="logo-fallback" id="logoFallback">SONOCO</div>
     </div>
 
-    <div id="filas"></div>
+    <div class="titulos">
+      <h1>CONTROL DE BARNICES</h1>
+      <div class="subtitulo">REGISTRO DE UBICACIONES</div>
+      <div class="firma">By Rubén D. 268</div>
+    </div>
 
-    <div class="botones">
-      <button class="boton boton-anadir" id="btnAnadir" type="button">
+  </header>
+
+  <main class="contenido">
+
+    <!-- FOTO SUPERIOR -->
+
+    <div class="etiqueta-foto">VISTA GENERAL DEL ALMACÉN</div>
+
+    <div class="foto-franja">
+      <img
+        id="fotoSuperior"
+        src="IMG_5503.jpeg"
+        alt="Vista general del almacén"
+      >
+    </div>
+
+    <!-- FECHA Y HORA -->
+
+    <div class="fecha">
+      <strong>FECHA DEL REGISTRO:</strong>
+      <span id="fechaRegistro"></span>
+    </div>
+
+    <!-- TABLA DE BARNICES -->
+
+    <h2>REGISTRO DE BARNICES</h2>
+
+    <div class="cabecera-tabla">
+      <div>DESCRIPCIÓN / BARNIZ</div>
+      <div>UBICACIÓN</div>
+      <div></div>
+    </div>
+
+    <div class="lista-filas" id="listaFilas"></div>
+
+    <!-- BOTONES -->
+
+    <div class="botones acciones">
+
+      <button
+        type="button"
+        class="btn btn-anadir"
+        onclick="anadirFila()"
+      >
         + AÑADIR FILA
       </button>
 
-      <button class="boton boton-compartir" id="btnCompartir" type="button">
+      <button
+        type="button"
+        class="btn btn-generar"
+        onclick="generarYCompartir()"
+      >
         GENERAR IMAGEN Y COMPARTIR
       </button>
+
     </div>
+
+    <div class="aviso">
+      Escribe el código o nombre del barniz. Si está en la lista de códigos
+      conocidos, su ubicación se rellenará automáticamente. También puedes
+      escribir la ubicación manualmente.
+    </div>
+
+    <!-- FOTO INFERIOR -->
+
+    <div class="foto-inferior">
+      <div class="etiqueta-foto">VISTA DE ESTANTERÍAS</div>
+
+      <div class="foto-franja">
+        <img
+          id="fotoInferior"
+          src="IMG_5504.jpeg"
+          alt="Vista de las estanterías"
+        >
+      </div>
+    </div>
+
   </main>
-
-  <!-- SEGUNDA FOTO: DEBAJO DEL REGISTRO -->
-  <section class="foto-seccion" style="padding-bottom: 20px;">
-    <div class="foto-etiqueta">REFERENCIA DE ESTANTERÍAS</div>
-    <img
-      class="foto"
-      src="IMG_5504.jpeg"
-      alt="Fotografía real de las estanterías del almacén"
-    >
-  </section>
-
-  <footer class="pie">
-    Registro de ubicaciones · SONOCO<br>
-    By Rubén D. 268
-  </footer>
-
 </div>
 
-<!-- CONTENIDO UTILIZADO PARA CREAR LA IMAGEN COMPARTIBLE -->
-<div id="zonaCaptura" aria-hidden="true"></div>
-
 <script>
-"use strict";
 
-/*
-  NOMBRES EXACTOS DE LAS FOTOGRAFÍAS SUBIDAS A GITHUB:
-  IMG_5503.jpeg = fotografía superior
-  IMG_5504.jpeg = fotografía inferior
-*/
+/* UBICACIONES PREDEFINIDAS */
 
 const ubicaciones = {
-  "814449": "W02008",
+  "814.449": "W02008",
   "MKB113T": "W02009",
-  "818083": "W02007",
-  "110496": "W02010",
+  "818.083": "W02007",
+  "110.496": "W02010",
   "DISOLVENTE": "W02006",
   "MKW1301T": "W02005",
-  "450148": "W02004",
-  "816621": "W02003",
-  "814509": "W02002"
+  "450.148": "W02004",
+  "816.621": "W02003",
+  "814.509": "W02002"
 };
 
-const filas = document.getElementById("filas");
-const fechaHora = document.getElementById("fechaHora");
-const btnAnadir = document.getElementById("btnAnadir");
-const btnCompartir = document.getElementById("btnCompartir");
+/* NORMALIZAR CÓDIGOS */
 
-/* Normaliza códigos para reconocer puntos, espacios y guiones. */
-function normalizar(valor) {
-  return valor
+function normalizar(texto) {
+  return String(texto || "")
     .trim()
     .toUpperCase()
-    .replace(/[.\s-]/g, "");
+    .replace(/\s+/g, "")
+    .replace(/-/g, "");
 }
 
-/* Fecha y hora local del teléfono. */
-function obtenerFechaHora() {
+/* BUSCAR UBICACIÓN */
+
+function buscarUbicacion(texto) {
+  const codigo = normalizar(texto);
+
+  for (const clave in ubicaciones) {
+    if (normalizar(clave) === codigo) {
+      return ubicaciones[clave];
+    }
+  }
+
+  return "";
+}
+
+/* FECHA Y HORA */
+
+function actualizarFecha() {
   const ahora = new Date();
 
   const fecha = ahora.toLocaleDateString("es-ES", {
@@ -509,352 +553,463 @@ function obtenerFechaHora() {
 
   const hora = ahora.toLocaleTimeString("es-ES", {
     hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false
+    minute: "2-digit"
   });
 
-  return fecha + " · " + hora;
+  document.getElementById("fechaRegistro").textContent =
+    fecha + " - " + hora;
 }
 
-function actualizarFechaHora() {
-  fechaHora.textContent = obtenerFechaHora();
-}
+actualizarFecha();
 
-actualizarFechaHora();
-setInterval(actualizarFechaHora, 1000);
+/* CREAR FILAS */
 
-/* Crea una fila de descripción y ubicación. */
-function crearFila(descripcion = "", ubicacion = "") {
+const listaFilas = document.getElementById("listaFilas");
+
+function anadirFila(descripcion = "", ubicacion = "") {
   const fila = document.createElement("div");
   fila.className = "fila";
 
-  const inputDescripcion = document.createElement("input");
-  inputDescripcion.type = "text";
-  inputDescripcion.placeholder = "Código o barniz";
-  inputDescripcion.autocomplete = "off";
-  inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
-  inputDescripcion.value = descripcion;
+  const campoDescripcion = document.createElement("input");
+  campoDescripcion.type = "text";
+  campoDescripcion.placeholder = "Código o barniz";
+  campoDescripcion.value = descripcion;
+  campoDescripcion.autocomplete = "off";
+  campoDescripcion.setAttribute("aria-label", "Descripción o barniz");
 
-  const inputUbicacion = document.createElement("input");
-  inputUbicacion.type = "text";
-  inputUbicacion.placeholder = "Ubicación";
-  inputUbicacion.autocomplete = "off";
-  inputUbicacion.className = "ubicacion";
-  inputUbicacion.setAttribute("aria-label", "Ubicación");
-  inputUbicacion.value = ubicacion;
+  const campoUbicacion = document.createElement("input");
+  campoUbicacion.type = "text";
+  campoUbicacion.placeholder = "UBICACIÓN";
+  campoUbicacion.value = ubicacion;
+  campoUbicacion.className = "ubicacion";
+  campoUbicacion.autocomplete = "off";
+  campoUbicacion.setAttribute("aria-label", "Ubicación");
 
-  const botonQuitar = document.createElement("button");
-  botonQuitar.type = "button";
-  botonQuitar.className = "boton-quitar";
-  botonQuitar.textContent = "Eliminar fila";
+  const botonEliminar = document.createElement("button");
+  botonEliminar.type = "button";
+  botonEliminar.className = "btn-eliminar";
+  botonEliminar.textContent = "Eliminar fila";
 
-  /*
-    Al salir del campo de descripción:
-    - Reconoce códigos con o sin puntos.
-    - Completa la ubicación si el código está en la lista.
-    - No borra una ubicación manual si el código es desconocido.
-  */
-  inputDescripcion.addEventListener("blur", function () {
-    const clave = normalizar(inputDescripcion.value);
+  campoDescripcion.addEventListener("input", function() {
+    const encontrada = buscarUbicacion(campoDescripcion.value);
 
-    if (clave && Object.prototype.hasOwnProperty.call(ubicaciones, clave)) {
-      inputUbicacion.value = ubicaciones[clave];
+    if (encontrada) {
+      campoUbicacion.value = encontrada;
+    } else if (
+      Object.keys(ubicaciones).some(
+        codigo => normalizar(codigo) === normalizar(campoDescripcion.value)
+      )
+    ) {
+      campoUbicacion.value = "";
     }
   });
 
-  /*
-    Si se modifica el código después de haber reconocido otro,
-    se deja que el usuario decida la nueva ubicación cuando el código
-    no sea conocido. Para un código conocido se completa automáticamente.
-  */
-  inputDescripcion.addEventListener("change", function () {
-    const clave = normalizar(inputDescripcion.value);
-
-    if (clave && Object.prototype.hasOwnProperty.call(ubicaciones, clave)) {
-      inputUbicacion.value = ubicaciones[clave];
-    }
-  });
-
-  botonQuitar.addEventListener("click", function () {
+  botonEliminar.addEventListener("click", function() {
     fila.remove();
 
-    if (filas.querySelectorAll(".fila").length === 0) {
-      crearFila();
+    if (listaFilas.children.length === 0) {
+      anadirFila();
     }
   });
 
-  fila.appendChild(inputDescripcion);
-  fila.appendChild(inputUbicacion);
-  fila.appendChild(botonQuitar);
+  fila.appendChild(campoDescripcion);
+  fila.appendChild(campoUbicacion);
+  fila.appendChild(botonEliminar);
 
-  filas.appendChild(fila);
+  listaFilas.appendChild(fila);
 }
 
-function anadirFila() {
-  crearFila();
-}
+/* CUATRO FILAS INICIALES */
 
-btnAnadir.addEventListener("click", anadirFila);
-
-/* Empezamos con cuatro filas vacías. */
 for (let i = 0; i < 4; i++) {
-  crearFila();
+  anadirFila();
 }
 
-/* Espera a que una imagen esté completamente cargada. */
-function esperarImagen(img) {
-  return new Promise(function (resolve, reject) {
-    if (img.complete && img.naturalWidth > 0) {
-      resolve();
-      return;
+/* ESPERAR A QUE LAS IMÁGENES CARGUEN */
+
+function cargarImagen(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    if (url.startsWith("http")) {
+      img.crossOrigin = "anonymous";
     }
 
-    img.onload = function () {
-      resolve();
-    };
-
-    img.onerror = function () {
-      reject(new Error("No se pudo cargar una de las fotografías."));
-    };
-  });
-}
-
-/* Escapa texto para insertarlo de forma segura en la captura. */
-function escaparHTML(valor) {
-  return String(valor)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-/* Obtiene solamente las filas que contienen algún dato. */
-function obtenerRegistros() {
-  const resultado = [];
-
-  filas.querySelectorAll(".fila").forEach(function (fila) {
-    const campos = fila.querySelectorAll("input");
-    const descripcion = campos[0].value.trim();
-    const ubicacion = campos[1].value.trim();
-
-    if (descripcion || ubicacion) {
-      resultado.push({
-        descripcion: descripcion || "—",
-        ubicacion: ubicacion || "—"
-      });
-    }
-  });
-
-  return resultado;
-}
-
-/* Prepara la composición vertical de la imagen para compartir. */
-async function prepararCaptura() {
-  const zona = document.getElementById("zonaCaptura");
-  const imagenes = [
-    document.querySelector('img[src="IMG_5503.jpeg"]'),
-    document.querySelector('img[src="IMG_5504.jpeg"]')
-  ];
-
-  for (const img of imagenes) {
-    await esperarImagen(img);
-  }
-
-  const registros = obtenerRegistros();
-  const fechaCaptura = obtenerFechaHora();
-
-  let filasHTML = "";
-
-  if (registros.length === 0) {
-    filasHTML = `
-      <tr>
-        <td colspan="2" style="text-align:center;color:#78889a;">
-          No hay barnices registrados.
-        </td>
-      </tr>
-    `;
-  } else {
-    filasHTML = registros.map(function (registro) {
-      return `
-        <tr>
-          <td>${escaparHTML(registro.descripcion)}</td>
-          <td>${escaparHTML(registro.ubicacion)}</td>
-        </tr>
-      `;
-    }).join("");
-  }
-
-  zona.innerHTML = `
-    <div class="captura-cabecera">
-      <div class="captura-logo">SONOCO</div>
-      <div class="captura-titulo">CONTROL DE BARNICES</div>
-      <div class="captura-subtitulo">REGISTRO DE UBICACIONES</div>
-      <div class="captura-firma">By Rubén D. 268</div>
-    </div>
-
-    <div class="captura-contenido">
-
-      <img
-        class="captura-foto"
-        src="IMG_5503.jpeg"
-        alt="Vista general del almacén"
-      >
-
-      <div class="captura-fecha">
-        FECHA Y HORA DEL REGISTRO<br>
-        <span style="font-size:17px;">${escaparHTML(fechaCaptura)}</span>
-      </div>
-
-      <div class="captura-seccion-titulo">REGISTRO DE BARNICES</div>
-
-      <table class="captura-tabla">
-        <thead>
-          <tr>
-            <th style="width:60%;">DESCRIPCIÓN / BARNIZ</th>
-            <th style="width:40%;">UBICACIÓN</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${filasHTML}
-        </tbody>
-      </table>
-
-      <div style="height:24px;"></div>
-
-      <div style="font-size:12px;font-weight:800;color:#62778c;margin-bottom:10px;">
-        REFERENCIA DE ESTANTERÍAS
-      </div>
-
-      <img
-        class="captura-foto"
-        src="IMG_5504.jpeg"
-        alt="Referencia de estanterías"
-      >
-
-      <div class="captura-pie">
-        SONOCO · CONTROL DE BARNICES<br>
-        By Rubén D. 268
-      </div>
-    </div>
-  `;
-
-  /*
-    Las imágenes se copian desde los archivos del propio repositorio.
-    No se crean fotografías artificiales.
-  */
-  return zona;
-}
-
-/*
-  Genera un PNG con el contenido de la captura.
-  html2canvas se carga desde un CDN público.
-*/
-async function generarPNG() {
-  const zona = await prepararCaptura();
-
-  if (typeof window.html2canvas !== "function") {
-    throw new Error(
-      "No se ha podido cargar el generador de imágenes. Comprueba la conexión e inténtalo de nuevo."
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(
+      new Error("No se pudo cargar la imagen: " + url)
     );
+
+    img.src = url;
+  });
+}
+
+/* DIBUJAR UNA IMAGEN RECORTADA EN EL CANVAS */
+
+function dibujarRecorte(ctx, img, x, y, ancho, alto) {
+  const anchoOriginal = img.naturalWidth || img.width;
+  const altoOriginal = img.naturalHeight || img.height;
+
+  const escala = Math.max(
+    ancho / anchoOriginal,
+    alto / altoOriginal
+  );
+
+  const anchoRecorte = ancho / escala;
+  const altoRecorte = alto / escala;
+
+  const sx = (anchoOriginal - anchoRecorte) / 2;
+  const sy = (altoOriginal - altoRecorte) / 2;
+
+  ctx.drawImage(
+    img,
+    sx,
+    sy,
+    anchoRecorte,
+    altoRecorte,
+    x,
+    y,
+    ancho,
+    alto
+  );
+}
+
+/* GENERAR CAPTURA */
+
+async function generarImagen() {
+
+  const filas = Array.from(listaFilas.querySelectorAll(".fila"))
+    .map(fila => {
+      const campos = fila.querySelectorAll("input");
+
+      return {
+        descripcion: campos[0].value.trim(),
+        ubicacion: campos[1].value.trim()
+      };
+    })
+    .filter(fila => fila.descripcion || fila.ubicacion);
+
+  if (filas.length === 0) {
+    alert("Escribe al menos un barniz o una ubicación antes de generar la imagen.");
+    return null;
   }
 
-  const lienzo = await window.html2canvas(zona, {
-    scale: 2,
-    backgroundColor: "#ffffff",
-    useCORS: true,
-    logging: false,
-    width: 800,
-    windowWidth: 800
+  let fotoSuperior;
+  let fotoInferior;
+  let logo;
+
+  try {
+    fotoSuperior = await cargarImagen("IMG_5503.jpeg");
+  } catch (e) {
+    alert("No se encuentra IMG_5503.jpeg. Comprueba que está en la misma carpeta que index.html.");
+    return null;
+  }
+
+  try {
+    fotoInferior = await cargarImagen("IMG_5504.jpeg");
+  } catch (e) {
+    alert("No se encuentra IMG_5504.jpeg. Comprueba que está en la misma carpeta que index.html.");
+    return null;
+  }
+
+  try {
+    logo = await cargarImagen(
+      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
+    );
+  } catch (e) {
+    logo = null;
+  }
+
+  const ancho = 1200;
+  const margen = 28;
+  const anchoInterior = ancho - margen * 2;
+
+  const altoCabecera = 150;
+  const altoFotoSuperior = 105;
+  const altoFila = 52;
+  const altoCabeceraTabla = 43;
+  const altoFotoInferior = 115;
+
+  const altoContenido =
+    25 +
+    altoFotoSuperior +
+    44 +
+    35 +
+    altoCabeceraTabla +
+    filas.length * altoFila +
+    25 +
+    altoFotoInferior +
+    28;
+
+  const alto = altoCabecera + altoContenido;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = ancho;
+  canvas.height = alto;
+
+  const ctx = canvas.getContext("2d");
+
+  /* FONDO */
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, ancho, alto);
+
+  /* CABECERA AZUL */
+
+  const gradiente = ctx.createLinearGradient(0, 0, ancho, 0);
+  gradiente.addColorStop(0, "#073b70");
+  gradiente.addColorStop(1, "#07549a");
+
+  ctx.fillStyle = gradiente;
+  ctx.fillRect(0, 0, ancho, altoCabecera);
+
+  /* LOGO */
+
+  if (logo) {
+    const logoAncho = 105;
+    const logoAlto = 105;
+
+    ctx.save();
+    ctx.filter = "brightness(0) invert(1)";
+
+    const proporcion = Math.min(
+      logoAncho / logo.width,
+      logoAlto / logo.height
+    );
+
+    const dibAncho = logo.width * proporcion;
+    const dibAlto = logo.height * proporcion;
+
+    ctx.drawImage(
+      logo,
+      28 + (logoAncho - dibAncho) / 2,
+      18 + (logoAlto - dibAlto) / 2,
+      dibAncho,
+      dibAlto
+    );
+
+    ctx.restore();
+  } else {
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 24px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("SONOCO", 80, 80);
+    ctx.textAlign = "left";
+  }
+
+  /* SEPARADOR */
+
+  ctx.fillStyle = "rgba(255,255,255,0.55)";
+  ctx.fillRect(150, 20, 1, 110);
+
+  /* TÍTULOS */
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 35px Arial";
+  ctx.fillText("CONTROL DE BARNICES", 180, 62);
+
+  ctx.fillStyle = "#d9eaff";
+  ctx.font = "24px Arial";
+  ctx.fillText("REGISTRO DE UBICACIONES", 182, 95);
+
+  ctx.font = "17px Arial";
+  ctx.fillStyle = "#c7e2ff";
+  ctx.fillText("By Rubén D. 268", 182, 123);
+
+  /* FOTO SUPERIOR */
+
+  let y = altoCabecera + 22;
+
+  ctx.fillStyle = "#073b70";
+  ctx.font = "bold 18px Arial";
+  ctx.fillText("VISTA GENERAL DEL ALMACÉN", margen, y);
+
+  y += 10;
+
+  dibujarRecorte(
+    ctx,
+    fotoSuperior,
+    margen,
+    y,
+    anchoInterior,
+    altoFotoSuperior
+  );
+
+  y += altoFotoSuperior + 27;
+
+  /* FECHA */
+
+  ctx.fillStyle = "#315779";
+  ctx.font = "17px Arial";
+
+  const fecha = new Date().toLocaleString("es-ES", {
+    dateStyle: "short",
+    timeStyle: "short"
   });
 
-  return new Promise(function (resolve, reject) {
-    lienzo.toBlob(function (blob) {
-      if (blob) {
-        resolve(blob);
-      } else {
-        reject(new Error("No se pudo crear la imagen."));
+  ctx.fillText("FECHA DEL REGISTRO: " + fecha, margen, y);
+
+  y += 36;
+
+  /* TABLA */
+
+  ctx.fillStyle = "#073b70";
+  ctx.font = "bold 24px Arial";
+  ctx.fillText("REGISTRO DE BARNICES", margen, y);
+
+  y += 13;
+
+  const xDescripcion = margen;
+  const xUbicacion = margen + anchoInterior * 0.63;
+  const anchoDescripcion = anchoInterior * 0.61;
+  const anchoUbicacion = anchoInterior * 0.25;
+
+  /* CABECERA DE TABLA */
+
+  y += 15;
+
+  ctx.fillStyle = "#e5f1ff";
+  ctx.fillRect(margen, y, anchoInterior, altoCabeceraTabla);
+
+  ctx.fillStyle = "#073b70";
+  ctx.font = "bold 17px Arial";
+  ctx.fillText("DESCRIPCIÓN / BARNIZ", xDescripcion + 12, y + 27);
+  ctx.fillText("UBICACIÓN", xUbicacion + 10, y + 27);
+
+  y += altoCabeceraTabla;
+
+  /* FILAS */
+
+  filas.forEach((fila, indice) => {
+
+    ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f7faff";
+    ctx.fillRect(margen, y, anchoInterior, altoFila);
+
+    ctx.strokeStyle = "#d8e4f0";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(margen, y, anchoInterior, altoFila);
+
+    ctx.fillStyle = "#173b5d";
+    ctx.font = "18px Arial";
+
+    ctx.fillText(
+      fila.descripcion || "—",
+      xDescripcion + 12,
+      y + 32,
+      anchoDescripcion - 18
+    );
+
+    ctx.font = "bold 18px Arial";
+
+    ctx.fillText(
+      fila.ubicacion || "—",
+      xUbicacion + 10,
+      y + 32,
+      anchoUbicacion - 10
+    );
+
+    y += altoFila;
+  });
+
+  y += 25;
+
+  /* FOTO INFERIOR */
+
+  ctx.fillStyle = "#073b70";
+  ctx.font = "bold 18px Arial";
+  ctx.fillText("VISTA DE ESTANTERÍAS", margen, y);
+
+  y += 10;
+
+  dibujarRecorte(
+    ctx,
+    fotoInferior,
+    margen,
+    y,
+    anchoInterior,
+    altoFotoInferior
+  );
+
+  return new Promise(resolve => {
+    canvas.toBlob(blob => {
+      if (!blob) {
+        alert("No se ha podido generar la imagen.");
+        resolve(null);
+        return;
       }
+
+      resolve(blob);
     }, "image/png");
   });
 }
 
-/* Genera la imagen y abre la opción de compartir del teléfono. */
-btnCompartir.addEventListener("click", async function () {
-  const textoOriginal = btnCompartir.textContent;
+/* GENERAR Y COMPARTIR */
 
-  btnCompartir.disabled = true;
-  btnCompartir.textContent = "PREPARANDO IMAGEN…";
+async function generarYCompartir() {
+
+  const boton = document.querySelector(".btn-generar");
+  const textoOriginal = boton.textContent;
+
+  boton.disabled = true;
+  boton.textContent = "GENERANDO IMAGEN...";
 
   try {
-    const blob = await generarPNG();
+    const blob = await generarImagen();
+
+    if (!blob) {
+      return;
+    }
+
     const archivo = new File(
       [blob],
-      "control-de-barnices.png",
+      "control-barnices.png",
       { type: "image/png" }
     );
 
-    /*
-      En iPhone y Android se abre el menú nativo para que el usuario
-      elija WhatsApp, un contacto o cualquier otra aplicación disponible.
-    */
     if (
       navigator.share &&
       navigator.canShare &&
       navigator.canShare({ files: [archivo] })
     ) {
       await navigator.share({
-        title: "Control de Barnices - SONOCO",
-        text: "Registro de barnices y ubicaciones.",
-        files: [archivo]
+        files: [archivo],
+        title: "Control de barnices",
+        text: "Registro de ubicaciones de barnices"
       });
+
     } else {
-      /*
-        Alternativa si el navegador no permite compartir archivos:
-        descargar el PNG para enviarlo después desde Fotos o Archivos.
-      */
       const url = URL.createObjectURL(blob);
       const enlace = document.createElement("a");
 
       enlace.href = url;
-      enlace.download = "control-de-barnices.png";
+      enlace.download = "control-barnices.png";
+
       document.body.appendChild(enlace);
       enlace.click();
       enlace.remove();
 
-      setTimeout(function () {
-        URL.revokeObjectURL(url);
-      }, 10000);
+      setTimeout(() => URL.revokeObjectURL(url), 3000);
 
       alert(
-        "La imagen se ha preparado. Si no se abre el menú para compartir, busca el archivo descargado y envíalo por WhatsApp."
+        "La imagen se ha descargado. Abre la imagen desde Archivos o Fotos y utiliza Compartir para enviarla por WhatsApp."
       );
     }
+
   } catch (error) {
-    if (error && error.name === "AbortError") {
-      /* El usuario ha cerrado el menú de compartir. */
-    } else {
+
+    if (error.name !== "AbortError") {
       console.error(error);
       alert(
-        "No se ha podido generar la imagen. Comprueba que las dos fotografías estén subidas al repositorio y que tengas conexión a Internet."
+        "No se ha podido compartir la imagen. Comprueba que las fotos estén cargadas e inténtalo de nuevo."
       );
     }
+
   } finally {
-    btnCompartir.disabled = false;
-    btnCompartir.textContent = textoOriginal;
+    boton.disabled = false;
+    boton.textContent = textoOriginal;
   }
-});
+}
 
-/*
-  El generador se carga desde un CDN.
-  No guarda los registros en el navegador ni crea historial.
-*/
-</script>
-
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-  crossorigin="anonymous">
 </script>
 
 </body>
