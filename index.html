@@ -3,1012 +3,1012 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#073b70">
+<meta name="theme-color" content="#104d83">
 <title>CONTROL DE BARNICES</title>
 
 <style>
 :root {
-  --azul: #073b70;
-  --azul2: #0866ad;
-  --azul-claro: #e5f1ff;
-  --borde: #d8e4f0;
-  --texto: #173b5d;
-  --blanco: #ffffff;
+    --azul: #104d83;
+    --azul-oscuro: #123d67;
+    --azul-claro: #e5f0ff;
+    --borde: #dce5ef;
+    --fondo: #f5f8fc;
+    --texto: #203b56;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 14px;
-  background: #edf4fb;
-  color: var(--texto);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.app {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: var(--blanco);
-  border: 1px solid #d9e7f6;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 5px 22px rgba(7, 59, 112, 0.08);
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
 }
 
 /* CABECERA */
 
 .cabecera {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 18px 24px;
-  background: linear-gradient(110deg, #073b70, #07549a);
-  color: white;
+    background: linear-gradient(110deg, #104477, #12609c);
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 150px;
 }
 
 .logo {
-  width: 145px;
-  min-width: 145px;
-  min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 20px;
-  border-right: 1px solid rgba(255,255,255,0.5);
+    min-width: 122px;
+    min-height: 95px;
+    padding-right: 18px;
+    border-right: 1px solid rgba(255,255,255,.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo img {
-  display: block;
-  width: 100%;
-  max-width: 110px;
-  max-height: 100px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+    width: 105px;
+    max-height: 75px;
+    object-fit: contain;
 }
 
-.logo-fallback {
-  display: none;
-  text-align: center;
-  font-size: 26px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  color: white;
-}
-
-.titulos {
-  min-width: 0;
+.logo-texto {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .5px;
 }
 
 .titulos h1 {
-  margin: 0;
-  font-size: clamp(22px, 4vw, 38px);
-  line-height: 1.15;
-  font-weight: 900;
-  letter-spacing: 0.2px;
+    margin: 0 0 5px;
+    font-size: clamp(23px, 4vw, 36px);
+    line-height: 1.1;
 }
 
 .subtitulo {
-  margin-top: 7px;
-  font-size: clamp(14px, 2.4vw, 22px);
-  color: #d9eaff;
-  letter-spacing: 0.4px;
+    font-size: clamp(15px, 2.6vw, 24px);
+    margin-bottom: 8px;
+    color: #e6eff9;
 }
 
 .firma {
-  margin-top: 9px;
-  color: #c7e2ff;
-  font-size: 15px;
-  letter-spacing: 0.3px;
+    font-size: 15px;
+    color: #bcd8f5;
+}
+
+/* FOTOGRAFÍAS: SIN TÍTULOS NI DESCRIPCIONES */
+
+.foto-contenedor {
+    padding: 0 28px;
+    background: white;
+}
+
+.foto {
+    display: block;
+    width: 100%;
+    height: 105px;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* CONTENIDO */
 
 .contenido {
-  padding: 14px 20px 18px;
+    padding: 15px 28px 25px;
 }
-
-.etiqueta-foto {
-  margin: 0 0 7px;
-  color: var(--azul);
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-/* FOTOGRAFÍAS: SIEMPRE RECORTADAS */
-
-.foto-franja {
-  width: 100%;
-  height: 108px;
-  overflow: hidden;
-  border-radius: 13px;
-  background: #e3ebf3;
-  border: 1px solid #d9e4ee;
-  margin-bottom: 12px;
-}
-
-.foto-franja img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-/* FECHA */
 
 .fecha {
-  margin: 5px 0 15px;
-  font-size: 14px;
-  color: #315779;
-  line-height: 1.5;
+    color: #526b83;
+    font-size: 15px;
+    margin: 0 0 10px;
 }
-
-/* REGISTRO */
 
 h2 {
-  margin: 12px 0 8px;
-  color: var(--azul);
-  font-size: 23px;
-  font-weight: 900;
+    color: var(--azul-oscuro);
+    font-size: 24px;
+    margin: 0 0 20px;
 }
 
-.cabecera-tabla {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 0.9fr) 95px;
-  gap: 10px;
-  padding: 12px 14px;
-  background: var(--azul-claro);
-  color: var(--azul);
-  font-weight: 900;
-  border-radius: 11px;
+/* TABLA */
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1px solid var(--borde);
 }
 
-.lista-filas {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: 5px;
+.tabla th {
+    background: var(--azul-claro);
+    color: #234a72;
+    padding: 13px 11px;
+    text-align: left;
+    font-size: 15px;
 }
 
-.fila {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 0.9fr) 95px;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 8px;
-  border: 1px solid #e7edf4;
-  border-radius: 9px;
-  background: #fff;
+.tabla th:first-child {
+    width: 63%;
 }
 
-.fila input {
-  width: 100%;
-  min-width: 0;
-  height: 40px;
-  border: 1px solid #d3e0ed;
-  border-radius: 8px;
-  padding: 0 12px;
-  font-size: 16px;
-  color: #173b5d;
-  background: white;
-  outline: none;
+.tabla th:last-child {
+    width: 37%;
 }
 
-.fila input:focus {
-  border-color: #1680d1;
-  box-shadow: 0 0 0 2px rgba(22,128,209,0.10);
+.tabla td {
+    border-top: 1px solid var(--borde);
+    padding: 5px 10px;
+    height: 49px;
 }
 
-.fila input::placeholder {
-  color: #98a5b3;
+.tabla tbody tr:nth-child(even) {
+    background: #f7f9fd;
 }
 
-.fila .ubicacion {
-  font-weight: 700;
+.campo-barniz {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 9px 1px;
+    font-size: 16px;
+    color: var(--texto);
+    font-family: inherit;
+    min-width: 0;
 }
 
-.btn-eliminar {
-  border: none;
-  background: transparent;
-  color: #d71920;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 0;
-  cursor: pointer;
+.campo-barniz:focus {
+    box-shadow: inset 0 -2px 0 #2583ce;
+}
+
+.campo-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+}
+
+.prefijo {
+    min-width: 15px;
+    font-weight: 800;
+}
+
+.numero-ubicacion {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--azul-oscuro);
+    font-size: 16px;
+    font-weight: 800;
+    font-family: inherit;
+    padding: 9px 0;
+}
+
+.numero-ubicacion:focus {
+    box-shadow: inset 0 -2px 0 #2583ce;
 }
 
 /* BOTONES */
 
 .botones {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin: 13px 0 19px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 22px;
 }
 
-button {
-  font-family: inherit;
+.boton {
+    border: none;
+    border-radius: 7px;
+    padding: 13px 17px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
 }
 
-.btn {
-  min-height: 54px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 900;
-  cursor: pointer;
+.boton-azul {
+    background: var(--azul);
+    color: white;
 }
 
-.btn-anadir {
-  background: #e4f1ff;
-  color: var(--azul);
+.boton-claro {
+    background: #e8eff8;
+    color: var(--azul-oscuro);
 }
 
-.btn-generar {
-  background: linear-gradient(110deg, #0866ad, #07549a);
-  color: white;
+.boton-rojo {
+    background: #fff0f0;
+    color: #a72c2c;
 }
 
-.btn:active {
-  transform: scale(0.99);
+.boton:active {
+    transform: scale(.98);
 }
 
-.aviso {
-  margin: 8px 0 14px;
-  color: #56728b;
-  font-size: 12px;
-  line-height: 1.45;
+/* PIE */
+
+.pie {
+    text-align: center;
+    padding: 16px;
+    color: #71849a;
+    font-size: 12px;
+    border-top: 1px solid #e5ebf2;
 }
 
-/* FOTO INFERIOR */
-
-.foto-inferior {
-  margin-top: 3px;
-}
-
-.foto-inferior .foto-franja {
-  height: 125px;
-  margin-bottom: 0;
-}
-
-/* ADAPTACIÓN A MÓVILES */
+/* VISTA EN MÓVIL */
 
 @media (max-width: 600px) {
-  body {
-    padding: 7px;
-  }
+    .cabecera {
+        padding: 16px 13px;
+        gap: 12px;
+        min-height: 125px;
+    }
 
-  .app {
-    border-radius: 14px;
-  }
+    .logo {
+        min-width: 91px;
+        padding-right: 10px;
+        min-height: 80px;
+    }
 
-  .cabecera {
-    gap: 12px;
-    padding: 15px 12px;
-  }
+    .logo img {
+        width: 78px;
+    }
 
-  .logo {
-    width: 88px;
-    min-width: 88px;
-    min-height: 72px;
-    padding-right: 10px;
-  }
+    .logo-texto {
+        font-size: 17px;
+    }
 
-  .logo img {
-    max-width: 70px;
-    max-height: 72px;
-  }
+    .titulos h1 {
+        font-size: 23px;
+    }
 
-  .logo-fallback {
-    font-size: 19px;
-  }
+    .subtitulo {
+        font-size: 15px;
+    }
 
-  .titulos h1 {
-    font-size: 21px;
-  }
+    .firma {
+        font-size: 13px;
+    }
 
-  .subtitulo {
-    font-size: 13px;
-  }
+    .foto-contenedor {
+        padding: 0 12px;
+    }
 
-  .firma {
-    font-size: 12px;
-  }
+    .foto {
+        height: 85px;
+    }
 
-  .contenido {
-    padding: 12px 10px;
-  }
+    .contenido {
+        padding: 13px 12px 20px;
+    }
 
-  .foto-franja {
-    height: 82px;
-  }
+    h2 {
+        font-size: 21px;
+    }
 
-  .foto-inferior .foto-franja {
-    height: 95px;
-  }
+    .tabla th {
+        font-size: 13px;
+        padding: 11px 7px;
+    }
 
-  h2 {
-    font-size: 19px;
-  }
+    .tabla th:first-child {
+        width: 61%;
+    }
 
-  .cabecera-tabla,
-  .fila {
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) 65px;
-    gap: 5px;
-  }
+    .tabla th:last-child {
+        width: 39%;
+    }
 
-  .cabecera-tabla {
-    padding: 10px 7px;
-    font-size: 11px;
-  }
+    .tabla td {
+        padding: 4px 7px;
+        height: 47px;
+    }
 
-  .fila {
-    padding: 5px 4px;
-  }
+    .campo-barniz,
+    .numero-ubicacion,
+    .campo-ubicacion {
+        font-size: 15px;
+    }
 
-  .fila input {
-    height: 39px;
-    padding: 0 7px;
-    font-size: 14px;
-  }
-
-  .btn-eliminar {
-    font-size: 11px;
-    padding: 5px 0;
-  }
-
-  .botones {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .btn {
-    min-height: 48px;
-    font-size: 14px;
-  }
+    .boton {
+        padding: 12px;
+        font-size: 13px;
+    }
 }
 
-/* VISTA PARA LA CAPTURA COMPARTIDA */
+/* IMPRESIÓN */
 
 @media print {
-  body {
-    padding: 0;
-    background: white;
-  }
+    body {
+        background: white;
+    }
 
-  .app {
-    max-width: none;
-    box-shadow: none;
-    border-radius: 0;
-  }
+    .botones {
+        display: none;
+    }
 
-  .acciones,
-  .btn-eliminar {
-    display: none !important;
-  }
+    .contenedor {
+        max-width: none;
+    }
+
+    .campo-barniz,
+    .numero-ubicacion {
+        box-shadow: none !important;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="app" id="app">
+<div class="contenedor">
 
-  <!-- CABECERA -->
+    <header class="cabecera">
 
-  <header class="cabecera">
+        <div class="logo">
+            <img
+                id="logoSonoco"
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
+                alt="SONOCO"
+                onerror="this.style.display='none';document.getElementById('logoTexto').style.display='block';"
+            >
 
-    <div class="logo">
-      <img
-        id="logoSonoco"
-        src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
-        alt="SONOCO"
-        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
-      >
-      <div class="logo-fallback" id="logoFallback">SONOCO</div>
-    </div>
+            <span id="logoTexto" class="logo-texto" style="display:none;">
+                SONOCO
+            </span>
+        </div>
 
-    <div class="titulos">
-      <h1>CONTROL DE BARNICES</h1>
-      <div class="subtitulo">REGISTRO DE UBICACIONES</div>
-      <div class="firma">By Rubén D. 268</div>
-    </div>
+        <div class="titulos">
+            <h1>CONTROL DE BARNICES</h1>
+            <div class="subtitulo">REGISTRO DE UBICACIONES</div>
+            <div class="firma">By Rubén D. 268</div>
+        </div>
 
-  </header>
+    </header>
 
-  <main class="contenido">
+    <!-- PRIMERA FOTO: SOLO IMAGEN -->
 
-    <!-- FOTO SUPERIOR -->
-
-    <div class="etiqueta-foto">VISTA GENERAL DEL ALMACÉN</div>
-
-    <div class="foto-franja">
-      <img
-        id="fotoSuperior"
-        src="IMG_5503.jpeg"
-        alt="Vista general del almacén"
-      >
-    </div>
-
-    <!-- FECHA Y HORA -->
-
-    <div class="fecha">
-      <strong>FECHA DEL REGISTRO:</strong>
-      <span id="fechaRegistro"></span>
-    </div>
-
-    <!-- TABLA DE BARNICES -->
-
-    <h2>REGISTRO DE BARNICES</h2>
-
-    <div class="cabecera-tabla">
-      <div>DESCRIPCIÓN / BARNIZ</div>
-      <div>UBICACIÓN</div>
-      <div></div>
-    </div>
-
-    <div class="lista-filas" id="listaFilas"></div>
-
-    <!-- BOTONES -->
-
-    <div class="botones acciones">
-
-      <button
-        type="button"
-        class="btn btn-anadir"
-        onclick="anadirFila()"
-      >
-        + AÑADIR FILA
-      </button>
-
-      <button
-        type="button"
-        class="btn btn-generar"
-        onclick="generarYCompartir()"
-      >
-        GENERAR IMAGEN Y COMPARTIR
-      </button>
-
-    </div>
-
-    <div class="aviso">
-      Escribe el código o nombre del barniz. Si está en la lista de códigos
-      conocidos, su ubicación se rellenará automáticamente. También puedes
-      escribir la ubicación manualmente.
-    </div>
-
-    <!-- FOTO INFERIOR -->
-
-    <div class="foto-inferior">
-      <div class="etiqueta-foto">VISTA DE ESTANTERÍAS</div>
-
-      <div class="foto-franja">
+    <div class="foto-contenedor">
         <img
-          id="fotoInferior"
-          src="IMG_5504.jpeg"
-          alt="Vista de las estanterías"
+            class="foto"
+            src="IMG_5503.jpeg"
+            alt=""
         >
-      </div>
     </div>
 
-  </main>
+    <main class="contenido">
+
+        <p class="fecha">
+            FECHA DEL REGISTRO:
+            <span id="fechaRegistro"></span>
+        </p>
+
+        <h2>REGISTRO DE BARNICES</h2>
+
+        <table class="tabla">
+
+            <thead>
+                <tr>
+                    <th>DESCRIPCIÓN / BARNIZ</th>
+                    <th>UBICACIÓN</th>
+                </tr>
+            </thead>
+
+            <tbody id="filas"></tbody>
+
+        </table>
+
+        <div class="botones">
+
+            <button
+                class="boton boton-azul"
+                type="button"
+                onclick="anadirFila(true)"
+            >
+                + AÑADIR FILA
+            </button>
+
+            <button
+                class="boton boton-claro"
+                type="button"
+                onclick="compartirRegistro()"
+            >
+                COMPARTIR REGISTRO
+            </button>
+
+            <button
+                class="boton boton-claro"
+                type="button"
+                onclick="descargarRegistro()"
+            >
+                GUARDAR IMAGEN
+            </button>
+
+            <button
+                class="boton boton-rojo"
+                type="button"
+                onclick="limpiarRegistro()"
+            >
+                LIMPIAR REGISTRO
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- SEGUNDA FOTO: SOLO IMAGEN -->
+
+    <div class="foto-contenedor">
+        <img
+            class="foto"
+            src="IMG_5504.jpeg"
+            alt=""
+        >
+    </div>
+
+    <footer class="pie">
+        CONTROL DE BARNICES · SONOCO
+    </footer>
+
 </div>
 
 <script>
 
-/* UBICACIONES PREDEFINIDAS */
+/* UBICACIONES CONOCIDAS */
 
 const ubicaciones = {
-  "814.449": "W02008",
-  "MKB113T": "W02009",
-  "818.083": "W02007",
-  "110.496": "W02010",
-  "DISOLVENTE": "W02006",
-  "MKW1301T": "W02005",
-  "450.148": "W02004",
-  "816.621": "W02003",
-  "814.509": "W02002"
+    "814.449": "W02008",
+    "MKB113T": "W02009",
+    "818.083": "W02007",
+    "110.496": "W02010",
+    "DISOLVENTE": "W02006",
+    "MKW1301T": "W02005",
+    "450.148": "W02004",
+    "816.621": "W02003",
+    "814.509": "W02002"
 };
 
-/* NORMALIZAR CÓDIGOS */
+/* NORMALIZAR CÓDIGOS:
+   RECONOCE EL CÓDIGO CON O SIN PUNTOS,
+   ESPACIOS O GUIONES. */
 
 function normalizar(texto) {
-  return String(texto || "")
-    .trim()
-    .toUpperCase()
-    .replace(/\s+/g, "")
-    .replace(/-/g, "");
+    return String(texto || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[.\s-]/g, "");
 }
 
 /* BUSCAR UBICACIÓN */
 
-function buscarUbicacion(texto) {
-  const codigo = normalizar(texto);
+function buscarUbicacion(descripcion) {
+    const codigo = normalizar(descripcion);
 
-  for (const clave in ubicaciones) {
-    if (normalizar(clave) === codigo) {
-      return ubicaciones[clave];
+    for (const clave in ubicaciones) {
+        if (normalizar(clave) === codigo) {
+            return ubicaciones[clave];
+        }
     }
-  }
 
-  return "";
+    return null;
 }
 
 /* FECHA Y HORA */
 
 function actualizarFecha() {
-  const ahora = new Date();
+    const ahora = new Date();
 
-  const fecha = ahora.toLocaleDateString("es-ES", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-  });
+    const fecha = ahora.toLocaleDateString("es-ES", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit"
+    });
 
-  const hora = ahora.toLocaleTimeString("es-ES", {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+    const hora = ahora.toLocaleTimeString("es-ES", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+    });
 
-  document.getElementById("fechaRegistro").textContent =
-    fecha + " - " + hora;
+    document.getElementById("fechaRegistro").textContent =
+        fecha + ", " + hora;
 }
 
 actualizarFecha();
 
-/* CREAR FILAS */
+/* CREAR FILA */
 
-const listaFilas = document.getElementById("listaFilas");
+function anadirFila(enfocar = false) {
 
-function anadirFila(descripcion = "", ubicacion = "") {
-  const fila = document.createElement("div");
-  fila.className = "fila";
+    const tbody = document.getElementById("filas");
+    const fila = document.createElement("tr");
 
-  const campoDescripcion = document.createElement("input");
-  campoDescripcion.type = "text";
-  campoDescripcion.placeholder = "Código o barniz";
-  campoDescripcion.value = descripcion;
-  campoDescripcion.autocomplete = "off";
-  campoDescripcion.setAttribute("aria-label", "Descripción o barniz");
+    fila.innerHTML = `
+        <td>
+            <input
+                class="campo-barniz"
+                type="text"
+                placeholder=""
+                autocomplete="off"
+                aria-label="Descripción o código del barniz"
+            >
+        </td>
 
-  const campoUbicacion = document.createElement("input");
-  campoUbicacion.type = "text";
-  campoUbicacion.placeholder = "UBICACIÓN";
-  campoUbicacion.value = ubicacion;
-  campoUbicacion.className = "ubicacion";
-  campoUbicacion.autocomplete = "off";
-  campoUbicacion.setAttribute("aria-label", "Ubicación");
+        <td>
+            <div class="campo-ubicacion">
+                <span class="prefijo">A</span>
 
-  const botonEliminar = document.createElement("button");
-  botonEliminar.type = "button";
-  botonEliminar.className = "btn-eliminar";
-  botonEliminar.textContent = "Eliminar fila";
+                <input
+                    class="numero-ubicacion"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    placeholder=""
+                    autocomplete="off"
+                    aria-label="Número de ubicación"
+                >
+            </div>
+        </td>
+    `;
 
-  campoDescripcion.addEventListener("input", function() {
-    const encontrada = buscarUbicacion(campoDescripcion.value);
+    tbody.appendChild(fila);
 
-    if (encontrada) {
-      campoUbicacion.value = encontrada;
-    } else if (
-      Object.keys(ubicaciones).some(
-        codigo => normalizar(codigo) === normalizar(campoDescripcion.value)
-      )
-    ) {
-      campoUbicacion.value = "";
+    const descripcion = fila.querySelector(".campo-barniz");
+    const prefijo = fila.querySelector(".prefijo");
+    const numero = fila.querySelector(".numero-ubicacion");
+
+    /* AL ESCRIBIR EL BARNIZ */
+
+    descripcion.addEventListener("input", function() {
+
+        const ubicacion = buscarUbicacion(this.value);
+
+        if (ubicacion) {
+
+            prefijo.textContent = ubicacion.charAt(0);
+            numero.value = ubicacion.substring(1);
+
+        } else if (this.value.trim() !== "") {
+
+            /* BARNIZ NO REGISTRADO: UBICACIÓN TIPO A */
+
+            prefijo.textContent = "A";
+
+        } else {
+
+            prefijo.textContent = "A";
+            numero.value = "";
+
+        }
+
+    });
+
+    /* SOLO DÍGITOS EN EL NÚMERO DE UBICACIÓN */
+
+    numero.addEventListener("input", function() {
+        this.value = this.value.replace(/\D/g, "");
+    });
+
+    /* AL AÑADIR FILA, PREPARAR LA NUEVA DESCRIPCIÓN */
+
+    if (enfocar) {
+        setTimeout(function() {
+            descripcion.focus();
+        }, 100);
     }
-  });
 
-  botonEliminar.addEventListener("click", function() {
-    fila.remove();
-
-    if (listaFilas.children.length === 0) {
-      anadirFila();
-    }
-  });
-
-  fila.appendChild(campoDescripcion);
-  fila.appendChild(campoUbicacion);
-  fila.appendChild(botonEliminar);
-
-  listaFilas.appendChild(fila);
+    return fila;
 }
 
 /* CUATRO FILAS INICIALES */
 
 for (let i = 0; i < 4; i++) {
-  anadirFila();
+    anadirFila(false);
 }
 
-/* ESPERAR A QUE LAS IMÁGENES CARGUEN */
+/* OBTENER LOS DATOS */
 
-function cargarImagen(url) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
+function obtenerDatos() {
 
-    if (url.startsWith("http")) {
-      img.crossOrigin = "anonymous";
-    }
+    const filas = document.querySelectorAll("#filas tr");
+    const datos = [];
 
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(
-      new Error("No se pudo cargar la imagen: " + url)
-    );
+    filas.forEach(function(fila) {
 
-    img.src = url;
-  });
+        const descripcion =
+            fila.querySelector(".campo-barniz").value.trim();
+
+        const prefijo =
+            fila.querySelector(".prefijo").textContent;
+
+        const numero =
+            fila.querySelector(".numero-ubicacion").value.trim();
+
+        if (descripcion !== "" || numero !== "") {
+            datos.push({
+                descripcion: descripcion,
+                ubicacion: prefijo + numero
+            });
+        }
+
+    });
+
+    return datos;
 }
 
-/* DIBUJAR UNA IMAGEN RECORTADA EN EL CANVAS */
+/* DIBUJAR EL REGISTRO COMO IMAGEN */
 
-function dibujarRecorte(ctx, img, x, y, ancho, alto) {
-  const anchoOriginal = img.naturalWidth || img.width;
-  const altoOriginal = img.naturalHeight || img.height;
+async function crearImagenRegistro() {
 
-  const escala = Math.max(
-    ancho / anchoOriginal,
-    alto / altoOriginal
-  );
+    const ancho = 1200;
+    const margen = 28;
+    const anchoInterior = ancho - margen * 2;
+    const altoCabecera = 150;
+    const altoFoto = 105;
+    const altoFecha = 40;
+    const altoTitulo = 55;
+    const altoEncabezado = 44;
+    const altoFila = 50;
+    const altoBotones = 20;
 
-  const anchoRecorte = ancho / escala;
-  const altoRecorte = alto / escala;
+    const datos = obtenerDatos();
 
-  const sx = (anchoOriginal - anchoRecorte) / 2;
-  const sy = (altoOriginal - altoRecorte) / 2;
+    const altoTabla =
+        altoEncabezado + Math.max(datos.length, 1) * altoFila;
 
-  ctx.drawImage(
-    img,
-    sx,
-    sy,
-    anchoRecorte,
-    altoRecorte,
-    x,
-    y,
-    ancho,
-    alto
-  );
-}
+    const alto =
+        altoCabecera +
+        altoFoto +
+        altoFecha +
+        altoTitulo +
+        altoTabla +
+        altoBotones +
+        altoFoto +
+        30;
 
-/* GENERAR CAPTURA */
+    const canvas = document.createElement("canvas");
+    canvas.width = ancho;
+    canvas.height = alto;
 
-async function generarImagen() {
+    const ctx = canvas.getContext("2d");
 
-  const filas = Array.from(listaFilas.querySelectorAll(".fila"))
-    .map(fila => {
-      const campos = fila.querySelectorAll("input");
-
-      return {
-        descripcion: campos[0].value.trim(),
-        ubicacion: campos[1].value.trim()
-      };
-    })
-    .filter(fila => fila.descripcion || fila.ubicacion);
-
-  if (filas.length === 0) {
-    alert("Escribe al menos un barniz o una ubicación antes de generar la imagen.");
-    return null;
-  }
-
-  let fotoSuperior;
-  let fotoInferior;
-  let logo;
-
-  try {
-    fotoSuperior = await cargarImagen("IMG_5503.jpeg");
-  } catch (e) {
-    alert("No se encuentra IMG_5503.jpeg. Comprueba que está en la misma carpeta que index.html.");
-    return null;
-  }
-
-  try {
-    fotoInferior = await cargarImagen("IMG_5504.jpeg");
-  } catch (e) {
-    alert("No se encuentra IMG_5504.jpeg. Comprueba que está en la misma carpeta que index.html.");
-    return null;
-  }
-
-  try {
-    logo = await cargarImagen(
-      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
-    );
-  } catch (e) {
-    logo = null;
-  }
-
-  const ancho = 1200;
-  const margen = 28;
-  const anchoInterior = ancho - margen * 2;
-
-  const altoCabecera = 150;
-  const altoFotoSuperior = 105;
-  const altoFila = 52;
-  const altoCabeceraTabla = 43;
-  const altoFotoInferior = 115;
-
-  const altoContenido =
-    25 +
-    altoFotoSuperior +
-    44 +
-    35 +
-    altoCabeceraTabla +
-    filas.length * altoFila +
-    25 +
-    altoFotoInferior +
-    28;
-
-  const alto = altoCabecera + altoContenido;
-
-  const canvas = document.createElement("canvas");
-  canvas.width = ancho;
-  canvas.height = alto;
-
-  const ctx = canvas.getContext("2d");
-
-  /* FONDO */
-
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, ancho, alto);
-
-  /* CABECERA AZUL */
-
-  const gradiente = ctx.createLinearGradient(0, 0, ancho, 0);
-  gradiente.addColorStop(0, "#073b70");
-  gradiente.addColorStop(1, "#07549a");
-
-  ctx.fillStyle = gradiente;
-  ctx.fillRect(0, 0, ancho, altoCabecera);
-
-  /* LOGO */
-
-  if (logo) {
-    const logoAncho = 105;
-    const logoAlto = 105;
-
-    ctx.save();
-    ctx.filter = "brightness(0) invert(1)";
-
-    const proporcion = Math.min(
-      logoAncho / logo.width,
-      logoAlto / logo.height
-    );
-
-    const dibAncho = logo.width * proporcion;
-    const dibAlto = logo.height * proporcion;
-
-    ctx.drawImage(
-      logo,
-      28 + (logoAncho - dibAncho) / 2,
-      18 + (logoAlto - dibAlto) / 2,
-      dibAncho,
-      dibAlto
-    );
-
-    ctx.restore();
-  } else {
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 24px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("SONOCO", 80, 80);
-    ctx.textAlign = "left";
-  }
+    ctx.fillRect(0, 0, ancho, alto);
 
-  /* SEPARADOR */
+    /* CABECERA */
 
-  ctx.fillStyle = "rgba(255,255,255,0.55)";
-  ctx.fillRect(150, 20, 1, 110);
+    const gradiente = ctx.createLinearGradient(0, 0, ancho, 0);
+    gradiente.addColorStop(0, "#104477");
+    gradiente.addColorStop(1, "#12609c");
 
-  /* TÍTULOS */
+    ctx.fillStyle = gradiente;
+    ctx.fillRect(0, 0, ancho, altoCabecera);
 
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 35px Arial";
-  ctx.fillText("CONTROL DE BARNICES", 180, 62);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 25px Arial";
+    ctx.fillText("SONOCO", 28, 78);
 
-  ctx.fillStyle = "#d9eaff";
-  ctx.font = "24px Arial";
-  ctx.fillText("REGISTRO DE UBICACIONES", 182, 95);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 36px Arial";
+    ctx.fillText("CONTROL DE BARNICES", 180, 61);
 
-  ctx.font = "17px Arial";
-  ctx.fillStyle = "#c7e2ff";
-  ctx.fillText("By Rubén D. 268", 182, 123);
+    ctx.fillStyle = "#e6eff9";
+    ctx.font = "24px Arial";
+    ctx.fillText("REGISTRO DE UBICACIONES", 182, 95);
 
-  /* FOTO SUPERIOR */
+    ctx.fillStyle = "#bcd8f5";
+    ctx.font = "15px Arial";
+    ctx.fillText("By Rubén D. 268", 182, 124);
 
-  let y = altoCabecera + 22;
+    let y = altoCabecera;
 
-  ctx.fillStyle = "#073b70";
-  ctx.font = "bold 18px Arial";
-  ctx.fillText("VISTA GENERAL DEL ALMACÉN", margen, y);
+    /* CARGAR FOTOGRAFÍAS */
 
-  y += 10;
+    async function cargarFoto(ruta) {
 
-  dibujarRecorte(
-    ctx,
-    fotoSuperior,
-    margen,
-    y,
-    anchoInterior,
-    altoFotoSuperior
-  );
+        return new Promise(function(resolve) {
 
-  y += altoFotoSuperior + 27;
+            const img = new Image();
 
-  /* FECHA */
+            img.onload = function() {
+                resolve(img);
+            };
 
-  ctx.fillStyle = "#315779";
-  ctx.font = "17px Arial";
+            img.onerror = function() {
+                resolve(null);
+            };
 
-  const fecha = new Date().toLocaleString("es-ES", {
-    dateStyle: "short",
-    timeStyle: "short"
-  });
+            img.src = ruta;
 
-  ctx.fillText("FECHA DEL REGISTRO: " + fecha, margen, y);
+        });
 
-  y += 36;
+    }
 
-  /* TABLA */
+    function dibujarFoto(img, x, yFoto, w, h) {
 
-  ctx.fillStyle = "#073b70";
-  ctx.font = "bold 24px Arial";
-  ctx.fillText("REGISTRO DE BARNICES", margen, y);
+        if (!img) {
+            return;
+        }
 
-  y += 13;
+        const escala = Math.max(
+            w / img.width,
+            h / img.height
+        );
 
-  const xDescripcion = margen;
-  const xUbicacion = margen + anchoInterior * 0.63;
-  const anchoDescripcion = anchoInterior * 0.61;
-  const anchoUbicacion = anchoInterior * 0.25;
+        const sw = w / escala;
+        const sh = h / escala;
 
-  /* CABECERA DE TABLA */
+        const sx = (img.width - sw) / 2;
+        const sy = (img.height - sh) / 2;
 
-  y += 15;
+        ctx.drawImage(
+            img,
+            sx, sy, sw, sh,
+            x, yFoto, w, h
+        );
 
-  ctx.fillStyle = "#e5f1ff";
-  ctx.fillRect(margen, y, anchoInterior, altoCabeceraTabla);
+    }
 
-  ctx.fillStyle = "#073b70";
-  ctx.font = "bold 17px Arial";
-  ctx.fillText("DESCRIPCIÓN / BARNIZ", xDescripcion + 12, y + 27);
-  ctx.fillText("UBICACIÓN", xUbicacion + 10, y + 27);
+    const foto1 = await cargarFoto("IMG_5503.jpeg");
 
-  y += altoCabeceraTabla;
-
-  /* FILAS */
-
-  filas.forEach((fila, indice) => {
-
-    ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f7faff";
-    ctx.fillRect(margen, y, anchoInterior, altoFila);
-
-    ctx.strokeStyle = "#d8e4f0";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(margen, y, anchoInterior, altoFila);
-
-    ctx.fillStyle = "#173b5d";
-    ctx.font = "18px Arial";
-
-    ctx.fillText(
-      fila.descripcion || "—",
-      xDescripcion + 12,
-      y + 32,
-      anchoDescripcion - 18
+    dibujarFoto(
+        foto1,
+        margen,
+        y,
+        anchoInterior,
+        altoFoto
     );
 
-    ctx.font = "bold 18px Arial";
+    y += altoFoto + 22;
+
+    /* FECHA */
+
+    actualizarFecha();
+
+    ctx.fillStyle = "#526b83";
+    ctx.font = "16px Arial";
 
     ctx.fillText(
-      fila.ubicacion || "—",
-      xUbicacion + 10,
-      y + 32,
-      anchoUbicacion - 10
+        "FECHA DEL REGISTRO: " +
+        document.getElementById("fechaRegistro").textContent,
+        margen,
+        y
     );
 
-    y += altoFila;
-  });
+    y += altoFecha;
 
-  y += 25;
+    /* TÍTULO DEL REGISTRO */
 
-  /* FOTO INFERIOR */
+    ctx.fillStyle = "#123d67";
+    ctx.font = "bold 25px Arial";
+    ctx.fillText("REGISTRO DE BARNICES", margen, y);
 
-  ctx.fillStyle = "#073b70";
-  ctx.font = "bold 18px Arial";
-  ctx.fillText("VISTA DE ESTANTERÍAS", margen, y);
+    y += 27;
 
-  y += 10;
+    /* ENCABEZADO DE TABLA */
 
-  dibujarRecorte(
-    ctx,
-    fotoInferior,
-    margen,
-    y,
-    anchoInterior,
-    altoFotoInferior
-  );
+    ctx.fillStyle = "#e5f0ff";
+    ctx.fillRect(margen, y, anchoInterior, altoEncabezado);
 
-  return new Promise(resolve => {
-    canvas.toBlob(blob => {
-      if (!blob) {
-        alert("No se ha podido generar la imagen.");
-        resolve(null);
+    ctx.fillStyle = "#234a72";
+    ctx.font = "bold 16px Arial";
+
+    ctx.fillText(
+        "DESCRIPCIÓN / BARNIZ",
+        margen + 12,
+        y + 28
+    );
+
+    ctx.fillText(
+        "UBICACIÓN",
+        margen + anchoInterior * 0.63 + 12,
+        y + 28
+    );
+
+    y += altoEncabezado;
+
+    /* FILAS */
+
+    const cantidad = Math.max(datos.length, 1);
+
+    for (let i = 0; i < cantidad; i++) {
+
+        const dato = datos[i] || {
+            descripcion: "",
+            ubicacion: ""
+        };
+
+        ctx.fillStyle = i % 2 === 0 ? "#ffffff" : "#f7f9fd";
+
+        ctx.fillRect(
+            margen,
+            y,
+            anchoInterior,
+            altoFila
+        );
+
+        ctx.strokeStyle = "#dce5ef";
+        ctx.lineWidth = 1;
+
+        ctx.strokeRect(
+            margen,
+            y,
+            anchoInterior,
+            altoFila
+        );
+
+        ctx.fillStyle = "#203b56";
+        ctx.font = "17px Arial";
+
+        ctx.fillText(
+            dato.descripcion,
+            margen + 12,
+            y + 31
+        );
+
+        ctx.fillStyle = "#123d67";
+        ctx.font = "bold 17px Arial";
+
+        ctx.fillText(
+            dato.ubicacion,
+            margen + anchoInterior * 0.63 + 12,
+            y + 31
+        );
+
+        y += altoFila;
+
+    }
+
+    y += 20;
+
+    /* SEGUNDA FOTO SIN TEXTO */
+
+    const foto2 = await cargarFoto("IMG_5504.jpeg");
+
+    dibujarFoto(
+        foto2,
+        margen,
+        y,
+        anchoInterior,
+        altoFoto
+    );
+
+    return canvas;
+}
+
+/* DESCARGAR IMAGEN */
+
+async function descargarRegistro() {
+
+    try {
+
+        const canvas = await crearImagenRegistro();
+
+        const enlace = document.createElement("a");
+
+        enlace.download = "control-barnices.png";
+        enlace.href = canvas.toDataURL("image/png");
+
+        enlace.click();
+
+    } catch (error) {
+
+        alert("No se pudo crear la imagen. Inténtalo de nuevo.");
+
+    }
+
+}
+
+/* COMPARTIR REGISTRO */
+
+async function compartirRegistro() {
+
+    try {
+
+        const canvas = await crearImagenRegistro();
+
+        const blob = await new Promise(function(resolve) {
+            canvas.toBlob(resolve, "image/png");
+        });
+
+        if (!blob) {
+            throw new Error("No se pudo generar la imagen");
+        }
+
+        const archivo = new File(
+            [blob],
+            "control-barnices.png",
+            { type: "image/png" }
+        );
+
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [archivo] })
+        ) {
+
+            await navigator.share({
+                files: [archivo],
+                title: "Control de barnices"
+            });
+
+        } else {
+
+            const url = URL.createObjectURL(blob);
+            const enlace = document.createElement("a");
+
+            enlace.href = url;
+            enlace.download = "control-barnices.png";
+            enlace.click();
+
+            setTimeout(function() {
+                URL.revokeObjectURL(url);
+            }, 3000);
+
+            alert(
+                "La imagen se ha descargado. " +
+                "Puedes abrirla en Fotos y compartirla por WhatsApp."
+            );
+
+        }
+
+    } catch (error) {
+
+        if (error.name !== "AbortError") {
+            alert(
+                "No se pudo compartir el registro. " +
+                "Prueba con GUARDAR IMAGEN."
+            );
+        }
+
+    }
+
+}
+
+/* LIMPIAR REGISTRO */
+
+function limpiarRegistro() {
+
+    const confirmar = confirm(
+        "¿Quieres borrar todas las filas del registro?"
+    );
+
+    if (!confirmar) {
         return;
-      }
+    }
 
-      resolve(blob);
-    }, "image/png");
-  });
+    document.getElementById("filas").innerHTML = "";
+
+    for (let i = 0; i < 4; i++) {
+        anadirFila(false);
+    }
+
+    actualizarFecha();
+
 }
 
-/* GENERAR Y COMPARTIR */
+/* ACTUALIZAR FECHA AL VOLVER A LA APP */
 
-async function generarYCompartir() {
+document.addEventListener("visibilitychange", function() {
 
-  const boton = document.querySelector(".btn-generar");
-  const textoOriginal = boton.textContent;
-
-  boton.disabled = true;
-  boton.textContent = "GENERANDO IMAGEN...";
-
-  try {
-    const blob = await generarImagen();
-
-    if (!blob) {
-      return;
+    if (!document.hidden) {
+        actualizarFecha();
     }
 
-    const archivo = new File(
-      [blob],
-      "control-barnices.png",
-      { type: "image/png" }
-    );
-
-    if (
-      navigator.share &&
-      navigator.canShare &&
-      navigator.canShare({ files: [archivo] })
-    ) {
-      await navigator.share({
-        files: [archivo],
-        title: "Control de barnices",
-        text: "Registro de ubicaciones de barnices"
-      });
-
-    } else {
-      const url = URL.createObjectURL(blob);
-      const enlace = document.createElement("a");
-
-      enlace.href = url;
-      enlace.download = "control-barnices.png";
-
-      document.body.appendChild(enlace);
-      enlace.click();
-      enlace.remove();
-
-      setTimeout(() => URL.revokeObjectURL(url), 3000);
-
-      alert(
-        "La imagen se ha descargado. Abre la imagen desde Archivos o Fotos y utiliza Compartir para enviarla por WhatsApp."
-      );
-    }
-
-  } catch (error) {
-
-    if (error.name !== "AbortError") {
-      console.error(error);
-      alert(
-        "No se ha podido compartir la imagen. Comprueba que las fotos estén cargadas e inténtalo de nuevo."
-      );
-    }
-
-  } finally {
-    boton.disabled = false;
-    boton.textContent = textoOriginal;
-  }
-}
+});
 
 </script>
 
