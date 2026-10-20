@@ -85,7 +85,7 @@ body {
     color: #bcd8f5;
 }
 
-/* FOTOGRAFÍAS: SIN TÍTULOS NI DESCRIPCIONES */
+/* FOTOGRAFÍAS */
 
 .foto-contenedor {
     padding: 0 28px;
@@ -248,7 +248,7 @@ h2 {
     border-top: 1px solid #e5ebf2;
 }
 
-/* VISTA EN MÓVIL */
+/* MÓVIL */
 
 @media (max-width: 600px) {
     .cabecera {
@@ -329,8 +329,6 @@ h2 {
     }
 }
 
-/* IMPRESIÓN */
-
 @media print {
     body {
         background: white;
@@ -357,7 +355,6 @@ h2 {
 <div class="contenedor">
 
     <header class="cabecera">
-
         <div class="logo">
             <img
                 id="logoSonoco"
@@ -365,7 +362,6 @@ h2 {
                 alt="SONOCO"
                 onerror="this.style.display='none';document.getElementById('logoTexto').style.display='block';"
             >
-
             <span id="logoTexto" class="logo-texto" style="display:none;">
                 SONOCO
             </span>
@@ -376,17 +372,12 @@ h2 {
             <div class="subtitulo">REGISTRO DE UBICACIONES</div>
             <div class="firma">By Rubén D. 268</div>
         </div>
-
     </header>
 
-    <!-- PRIMERA FOTO: SOLO IMAGEN -->
+    <!-- PRIMERA FOTOGRAFÍA -->
 
     <div class="foto-contenedor">
-        <img
-            class="foto"
-            src="IMG_5503.jpeg"
-            alt=""
-        >
+        <img class="foto" src="IMG_5503.jpeg" alt="">
     </div>
 
     <main class="contenido">
@@ -399,16 +390,13 @@ h2 {
         <h2>REGISTRO DE BARNICES</h2>
 
         <table class="tabla">
-
             <thead>
                 <tr>
                     <th>DESCRIPCIÓN / BARNIZ</th>
                     <th>UBICACIÓN</th>
                 </tr>
             </thead>
-
             <tbody id="filas"></tbody>
-
         </table>
 
         <div class="botones">
@@ -417,46 +405,34 @@ h2 {
                 class="boton boton-azul"
                 type="button"
                 onclick="anadirFila(true)"
-            >
-                + AÑADIR FILA
-            </button>
+            >+ AÑADIR FILA</button>
 
             <button
                 class="boton boton-claro"
                 type="button"
                 onclick="compartirRegistro()"
-            >
-                COMPARTIR REGISTRO
-            </button>
+            >COMPARTIR REGISTRO</button>
 
             <button
                 class="boton boton-claro"
                 type="button"
                 onclick="descargarRegistro()"
-            >
-                GUARDAR IMAGEN
-            </button>
+            >GUARDAR IMAGEN</button>
 
             <button
                 class="boton boton-rojo"
                 type="button"
                 onclick="limpiarRegistro()"
-            >
-                LIMPIAR REGISTRO
-            </button>
+            >LIMPIAR REGISTRO</button>
 
         </div>
 
     </main>
 
-    <!-- SEGUNDA FOTO: SOLO IMAGEN -->
+    <!-- SEGUNDA FOTOGRAFÍA -->
 
     <div class="foto-contenedor">
-        <img
-            class="foto"
-            src="IMG_5504.jpeg"
-            alt=""
-        >
+        <img class="foto" src="IMG_5504.jpeg" alt="">
     </div>
 
     <footer class="pie">
@@ -467,7 +443,7 @@ h2 {
 
 <script>
 
-/* UBICACIONES CONOCIDAS */
+/* BARNICES Y UBICACIONES CONOCIDAS */
 
 const ubicaciones = {
     "814.449": "W02008",
@@ -481,9 +457,8 @@ const ubicaciones = {
     "814.509": "W02002"
 };
 
-/* NORMALIZAR CÓDIGOS:
-   RECONOCE EL CÓDIGO CON O SIN PUNTOS,
-   ESPACIOS O GUIONES. */
+/* RECONOCER CÓDIGOS CON O SIN PUNTOS,
+   ESPACIOS O GUIONES */
 
 function normalizar(texto) {
     return String(texto || "")
@@ -492,10 +467,12 @@ function normalizar(texto) {
         .replace(/[.\s-]/g, "");
 }
 
-/* BUSCAR UBICACIÓN */
-
 function buscarUbicacion(descripcion) {
     const codigo = normalizar(descripcion);
+
+    if (!codigo) {
+        return null;
+    }
 
     for (const clave in ubicaciones) {
         if (normalizar(clave) === codigo) {
@@ -532,7 +509,6 @@ actualizarFecha();
 /* CREAR FILA */
 
 function anadirFila(enfocar = false) {
-
     const tbody = document.getElementById("filas");
     const fila = document.createElement("tr");
 
@@ -541,22 +517,18 @@ function anadirFila(enfocar = false) {
             <input
                 class="campo-barniz"
                 type="text"
-                placeholder=""
                 autocomplete="off"
                 aria-label="Descripción o código del barniz"
             >
         </td>
-
         <td>
             <div class="campo-ubicacion">
-                <span class="prefijo">A</span>
-
+                <span class="prefijo"></span>
                 <input
                     class="numero-ubicacion"
                     type="text"
                     inputmode="numeric"
                     pattern="[0-9]*"
-                    placeholder=""
                     autocomplete="off"
                     aria-label="Número de ubicación"
                 >
@@ -570,39 +542,34 @@ function anadirFila(enfocar = false) {
     const prefijo = fila.querySelector(".prefijo");
     const numero = fila.querySelector(".numero-ubicacion");
 
-    /* AL ESCRIBIR EL BARNIZ */
+    /* CORRECCIÓN: FILAS VACÍAS SIN LETRA */
 
     descripcion.addEventListener("input", function() {
+        const texto = this.value.trim();
+        const ubicacion = buscarUbicacion(texto);
 
-        const ubicacion = buscarUbicacion(this.value);
-
-        if (ubicacion) {
-
+        if (texto === "") {
+            /* SI SE BORRA EL BARNIZ, SE BORRA LA UBICACIÓN */
+            prefijo.textContent = "";
+            numero.value = "";
+        } else if (ubicacion) {
+            /* BARNIZ CONOCIDO: UBICACIÓN AUTOMÁTICA */
             prefijo.textContent = ubicacion.charAt(0);
             numero.value = ubicacion.substring(1);
-
-        } else if (this.value.trim() !== "") {
-
-            /* BARNIZ NO REGISTRADO: UBICACIÓN TIPO A */
-
-            prefijo.textContent = "A";
-
         } else {
-
+            /* BARNIZ DESCONOCIDO: PREFIJO A */
             prefijo.textContent = "A";
-            numero.value = "";
 
+            /* IMPORTANTE:
+               NO BORRAR EL NÚMERO QUE SE HAYA ESCRITO */
         }
-
     });
 
-    /* SOLO DÍGITOS EN EL NÚMERO DE UBICACIÓN */
+    /* ACEPTAR ÚNICAMENTE NÚMEROS EN LA UBICACIÓN */
 
     numero.addEventListener("input", function() {
         this.value = this.value.replace(/\D/g, "");
     });
-
-    /* AL AÑADIR FILA, PREPARAR LA NUEVA DESCRIPCIÓN */
 
     if (enfocar) {
         setTimeout(function() {
@@ -613,21 +580,19 @@ function anadirFila(enfocar = false) {
     return fila;
 }
 
-/* CUATRO FILAS INICIALES */
+/* CUATRO FILAS VACÍAS AL ABRIR */
 
 for (let i = 0; i < 4; i++) {
     anadirFila(false);
 }
 
-/* OBTENER LOS DATOS */
+/* RECOGER DATOS */
 
 function obtenerDatos() {
-
     const filas = document.querySelectorAll("#filas tr");
     const datos = [];
 
     filas.forEach(function(fila) {
-
         const descripcion =
             fila.querySelector(".campo-barniz").value.trim();
 
@@ -643,41 +608,35 @@ function obtenerDatos() {
                 ubicacion: prefijo + numero
             });
         }
-
     });
 
     return datos;
 }
 
-/* DIBUJAR EL REGISTRO COMO IMAGEN */
+/* CREAR IMAGEN DEL REGISTRO */
 
 async function crearImagenRegistro() {
-
     const ancho = 1200;
     const margen = 28;
     const anchoInterior = ancho - margen * 2;
     const altoCabecera = 150;
     const altoFoto = 105;
     const altoFecha = 40;
-    const altoTitulo = 55;
     const altoEncabezado = 44;
     const altoFila = 50;
-    const altoBotones = 20;
 
     const datos = obtenerDatos();
-
-    const altoTabla =
-        altoEncabezado + Math.max(datos.length, 1) * altoFila;
+    const cantidad = Math.max(datos.length, 1);
 
     const alto =
         altoCabecera +
-        altoFoto +
+        altoFoto + 22 +
         altoFecha +
-        altoTitulo +
-        altoTabla +
-        altoBotones +
-        altoFoto +
-        30;
+        27 +
+        altoEncabezado +
+        cantidad * altoFila +
+        20 +
+        altoFoto + 30;
 
     const canvas = document.createElement("canvas");
     canvas.width = ancho;
@@ -701,7 +660,6 @@ async function crearImagenRegistro() {
     ctx.font = "bold 25px Arial";
     ctx.fillText("SONOCO", 28, 78);
 
-    ctx.fillStyle = "#ffffff";
     ctx.font = "bold 36px Arial";
     ctx.fillText("CONTROL DE BARNICES", 180, 61);
 
@@ -717,10 +675,8 @@ async function crearImagenRegistro() {
 
     /* CARGAR FOTOGRAFÍAS */
 
-    async function cargarFoto(ruta) {
-
+    function cargarFoto(ruta) {
         return new Promise(function(resolve) {
-
             const img = new Image();
 
             img.onload = function() {
@@ -732,25 +688,17 @@ async function crearImagenRegistro() {
             };
 
             img.src = ruta;
-
         });
-
     }
 
     function dibujarFoto(img, x, yFoto, w, h) {
-
         if (!img) {
             return;
         }
 
-        const escala = Math.max(
-            w / img.width,
-            h / img.height
-        );
-
+        const escala = Math.max(w / img.width, h / img.height);
         const sw = w / escala;
         const sh = h / escala;
-
         const sx = (img.width - sw) / 2;
         const sy = (img.height - sh) / 2;
 
@@ -759,18 +707,11 @@ async function crearImagenRegistro() {
             sx, sy, sw, sh,
             x, yFoto, w, h
         );
-
     }
 
     const foto1 = await cargarFoto("IMG_5503.jpeg");
 
-    dibujarFoto(
-        foto1,
-        margen,
-        y,
-        anchoInterior,
-        altoFoto
-    );
+    dibujarFoto(foto1, margen, y, anchoInterior, altoFoto);
 
     y += altoFoto + 22;
 
@@ -790,7 +731,7 @@ async function crearImagenRegistro() {
 
     y += altoFecha;
 
-    /* TÍTULO DEL REGISTRO */
+    /* TÍTULO */
 
     ctx.fillStyle = "#123d67";
     ctx.font = "bold 25px Arial";
@@ -798,7 +739,7 @@ async function crearImagenRegistro() {
 
     y += 27;
 
-    /* ENCABEZADO DE TABLA */
+    /* ENCABEZADOS */
 
     ctx.fillStyle = "#e5f0ff";
     ctx.fillRect(margen, y, anchoInterior, altoEncabezado);
@@ -806,11 +747,7 @@ async function crearImagenRegistro() {
     ctx.fillStyle = "#234a72";
     ctx.font = "bold 16px Arial";
 
-    ctx.fillText(
-        "DESCRIPCIÓN / BARNIZ",
-        margen + 12,
-        y + 28
-    );
+    ctx.fillText("DESCRIPCIÓN / BARNIZ", margen + 12, y + 28);
 
     ctx.fillText(
         "UBICACIÓN",
@@ -820,44 +757,24 @@ async function crearImagenRegistro() {
 
     y += altoEncabezado;
 
-    /* FILAS */
-
-    const cantidad = Math.max(datos.length, 1);
+    /* FILAS DEL REGISTRO */
 
     for (let i = 0; i < cantidad; i++) {
-
         const dato = datos[i] || {
             descripcion: "",
             ubicacion: ""
         };
 
         ctx.fillStyle = i % 2 === 0 ? "#ffffff" : "#f7f9fd";
-
-        ctx.fillRect(
-            margen,
-            y,
-            anchoInterior,
-            altoFila
-        );
+        ctx.fillRect(margen, y, anchoInterior, altoFila);
 
         ctx.strokeStyle = "#dce5ef";
         ctx.lineWidth = 1;
-
-        ctx.strokeRect(
-            margen,
-            y,
-            anchoInterior,
-            altoFila
-        );
+        ctx.strokeRect(margen, y, anchoInterior, altoFila);
 
         ctx.fillStyle = "#203b56";
         ctx.font = "17px Arial";
-
-        ctx.fillText(
-            dato.descripcion,
-            margen + 12,
-            y + 31
-        );
+        ctx.fillText(dato.descripcion, margen + 12, y + 31);
 
         ctx.fillStyle = "#123d67";
         ctx.font = "bold 17px Arial";
@@ -869,55 +786,39 @@ async function crearImagenRegistro() {
         );
 
         y += altoFila;
-
     }
 
     y += 20;
 
-    /* SEGUNDA FOTO SIN TEXTO */
+    /* SEGUNDA FOTOGRAFÍA */
 
     const foto2 = await cargarFoto("IMG_5504.jpeg");
 
-    dibujarFoto(
-        foto2,
-        margen,
-        y,
-        anchoInterior,
-        altoFoto
-    );
+    dibujarFoto(foto2, margen, y, anchoInterior, altoFoto);
 
     return canvas;
 }
 
-/* DESCARGAR IMAGEN */
+/* GUARDAR IMAGEN */
 
 async function descargarRegistro() {
-
     try {
-
         const canvas = await crearImagenRegistro();
-
         const enlace = document.createElement("a");
 
         enlace.download = "control-barnices.png";
         enlace.href = canvas.toDataURL("image/png");
-
         enlace.click();
 
     } catch (error) {
-
         alert("No se pudo crear la imagen. Inténtalo de nuevo.");
-
     }
-
 }
 
 /* COMPARTIR REGISTRO */
 
 async function compartirRegistro() {
-
     try {
-
         const canvas = await crearImagenRegistro();
 
         const blob = await new Promise(function(resolve) {
@@ -939,14 +840,11 @@ async function compartirRegistro() {
             navigator.canShare &&
             navigator.canShare({ files: [archivo] })
         ) {
-
             await navigator.share({
                 files: [archivo],
                 title: "Control de barnices"
             });
-
         } else {
-
             const url = URL.createObjectURL(blob);
             const enlace = document.createElement("a");
 
@@ -962,26 +860,21 @@ async function compartirRegistro() {
                 "La imagen se ha descargado. " +
                 "Puedes abrirla en Fotos y compartirla por WhatsApp."
             );
-
         }
 
     } catch (error) {
-
         if (error.name !== "AbortError") {
             alert(
                 "No se pudo compartir el registro. " +
                 "Prueba con GUARDAR IMAGEN."
             );
         }
-
     }
-
 }
 
 /* LIMPIAR REGISTRO */
 
 function limpiarRegistro() {
-
     const confirmar = confirm(
         "¿Quieres borrar todas las filas del registro?"
     );
@@ -997,17 +890,14 @@ function limpiarRegistro() {
     }
 
     actualizarFecha();
-
 }
 
 /* ACTUALIZAR FECHA AL VOLVER A LA APP */
 
 document.addEventListener("visibilitychange", function() {
-
     if (!document.hidden) {
         actualizarFecha();
     }
-
 });
 
 </script>
