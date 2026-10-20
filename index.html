@@ -11,7 +11,7 @@
     --azul: #104d83;
     --azul-oscuro: #123d67;
     --azul-claro: #e5f0ff;
-    --borde: #dce5ef;
+    --borde: #cbd9e8;
     --fondo: #f5f8fc;
     --texto: #203b56;
 }
@@ -30,7 +30,7 @@ body {
 .contenedor {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: #fff;
     min-height: 100vh;
 }
 
@@ -38,7 +38,7 @@ body {
 
 .cabecera {
     background: linear-gradient(110deg, #104477, #12609c);
-    color: white;
+    color: #fff;
     padding: 20px 24px;
     display: flex;
     align-items: center;
@@ -47,7 +47,8 @@ body {
 }
 
 .logo {
-    min-width: 122px;
+    width: 135px;
+    min-width: 135px;
     min-height: 95px;
     padding-right: 18px;
     border-right: 1px solid rgba(255,255,255,.55);
@@ -57,15 +58,23 @@ body {
 }
 
 .logo img {
+    display: block;
     width: 105px;
     max-height: 75px;
     object-fit: contain;
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .logo-texto {
     font-size: 22px;
     font-weight: 800;
     letter-spacing: .5px;
+}
+
+.titulos {
+    min-width: 0;
 }
 
 .titulos h1 {
@@ -89,7 +98,7 @@ body {
 
 .foto-contenedor {
     padding: 0 28px;
-    background: white;
+    background: #fff;
 }
 
 .foto {
@@ -118,13 +127,13 @@ h2 {
     margin: 0 0 20px;
 }
 
-/* TABLA */
+/* TABLA PROFESIONAL */
 
 .tabla {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    border: 1px solid var(--borde);
+    border: 1px solid #b8cce0;
 }
 
 .tabla th {
@@ -133,18 +142,29 @@ h2 {
     padding: 13px 11px;
     text-align: left;
     font-size: 15px;
+    border-top: 1px solid #b8cce0;
+    border-bottom: 2px solid var(--azul);
 }
 
-.tabla th:first-child {
+/* ANCHOS DE LAS COLUMNAS */
+
+.tabla th:first-child,
+.tabla td:first-child {
     width: 63%;
+    border-right: 3px solid var(--azul);
 }
 
-.tabla th:last-child {
+.tabla th:last-child,
+.tabla td:last-child {
     width: 37%;
+    border-left: none;
 }
+
+/* FILAS */
 
 .tabla td {
-    border-top: 1px solid var(--borde);
+    border-top: 1px solid #d5e0eb;
+    border-bottom: 1px solid #d5e0eb;
     padding: 5px 10px;
     height: 49px;
 }
@@ -152,6 +172,8 @@ h2 {
 .tabla tbody tr:nth-child(even) {
     background: #f7f9fd;
 }
+
+/* DESCRIPCIÓN */
 
 .campo-barniz {
     width: 100%;
@@ -169,6 +191,8 @@ h2 {
     box-shadow: inset 0 -2px 0 #2583ce;
 }
 
+/* UBICACIÓN */
+
 .campo-ubicacion {
     display: flex;
     align-items: center;
@@ -176,6 +200,10 @@ h2 {
     font-size: 16px;
     font-weight: bold;
     color: var(--azul-oscuro);
+    background: #edf5ff;
+    border-radius: 5px;
+    padding: 0 8px;
+    min-height: 36px;
 }
 
 .prefijo {
@@ -221,7 +249,7 @@ h2 {
 
 .boton-azul {
     background: var(--azul);
-    color: white;
+    color: #fff;
 }
 
 .boton-claro {
@@ -248,7 +276,7 @@ h2 {
     border-top: 1px solid #e5ebf2;
 }
 
-/* MÓVIL */
+/* DISEÑO PARA IPHONE */
 
 @media (max-width: 600px) {
     .cabecera {
@@ -258,6 +286,7 @@ h2 {
     }
 
     .logo {
+        width: 91px;
         min-width: 91px;
         padding-right: 10px;
         min-height: 80px;
@@ -265,6 +294,7 @@ h2 {
 
     .logo img {
         width: 78px;
+        max-height: 65px;
     }
 
     .logo-texto {
@@ -304,11 +334,13 @@ h2 {
         padding: 11px 7px;
     }
 
-    .tabla th:first-child {
+    .tabla th:first-child,
+    .tabla td:first-child {
         width: 61%;
     }
 
-    .tabla th:last-child {
+    .tabla th:last-child,
+    .tabla td:last-child {
         width: 39%;
     }
 
@@ -323,6 +355,11 @@ h2 {
         font-size: 15px;
     }
 
+    .campo-ubicacion {
+        padding: 0 5px;
+        gap: 3px;
+    }
+
     .boton {
         padding: 12px;
         font-size: 13px;
@@ -331,7 +368,7 @@ h2 {
 
 @media print {
     body {
-        background: white;
+        background: #fff;
     }
 
     .botones {
@@ -341,11 +378,6 @@ h2 {
     .contenedor {
         max-width: none;
     }
-
-    .campo-barniz,
-    .numero-ubicacion {
-        box-shadow: none !important;
-    }
 }
 </style>
 </head>
@@ -354,7 +386,10 @@ h2 {
 
 <div class="contenedor">
 
+    <!-- CABECERA CON LOGO SONOCO -->
+
     <header class="cabecera">
+
         <div class="logo">
             <img
                 id="logoSonoco"
@@ -362,9 +397,12 @@ h2 {
                 alt="SONOCO"
                 onerror="this.style.display='none';document.getElementById('logoTexto').style.display='block';"
             >
-            <span id="logoTexto" class="logo-texto" style="display:none;">
-                SONOCO
-            </span>
+
+            <span
+                id="logoTexto"
+                class="logo-texto"
+                style="display:none;"
+            >SONOCO</span>
         </div>
 
         <div class="titulos">
@@ -372,13 +410,16 @@ h2 {
             <div class="subtitulo">REGISTRO DE UBICACIONES</div>
             <div class="firma">By Rubén D. 268</div>
         </div>
+
     </header>
 
-    <!-- PRIMERA FOTOGRAFÍA -->
+    <!-- FOTOGRAFÍA SUPERIOR -->
 
     <div class="foto-contenedor">
         <img class="foto" src="IMG_5503.jpeg" alt="">
     </div>
+
+    <!-- REGISTRO -->
 
     <main class="contenido">
 
@@ -390,14 +431,19 @@ h2 {
         <h2>REGISTRO DE BARNICES</h2>
 
         <table class="tabla">
+
             <thead>
                 <tr>
                     <th>DESCRIPCIÓN / BARNIZ</th>
                     <th>UBICACIÓN</th>
                 </tr>
             </thead>
+
             <tbody id="filas"></tbody>
+
         </table>
+
+        <!-- BOTONES -->
 
         <div class="botones">
 
@@ -429,7 +475,7 @@ h2 {
 
     </main>
 
-    <!-- SEGUNDA FOTOGRAFÍA -->
+    <!-- FOTOGRAFÍA INFERIOR -->
 
     <div class="foto-contenedor">
         <img class="foto" src="IMG_5504.jpeg" alt="">
@@ -457,8 +503,7 @@ const ubicaciones = {
     "814.509": "W02002"
 };
 
-/* RECONOCER CÓDIGOS CON O SIN PUNTOS,
-   ESPACIOS O GUIONES */
+/* NORMALIZAR CÓDIGOS */
 
 function normalizar(texto) {
     return String(texto || "")
@@ -466,6 +511,8 @@ function normalizar(texto) {
         .toUpperCase()
         .replace(/[.\s-]/g, "");
 }
+
+/* BUSCAR UBICACIÓN AUTOMÁTICA */
 
 function buscarUbicacion(descripcion) {
     const codigo = normalizar(descripcion);
@@ -506,7 +553,7 @@ function actualizarFecha() {
 
 actualizarFecha();
 
-/* CREAR FILA */
+/* AÑADIR FILA */
 
 function anadirFila(enfocar = false) {
     const tbody = document.getElementById("filas");
@@ -521,9 +568,11 @@ function anadirFila(enfocar = false) {
                 aria-label="Descripción o código del barniz"
             >
         </td>
+
         <td>
             <div class="campo-ubicacion">
                 <span class="prefijo"></span>
+
                 <input
                     class="numero-ubicacion"
                     type="text"
@@ -542,30 +591,31 @@ function anadirFila(enfocar = false) {
     const prefijo = fila.querySelector(".prefijo");
     const numero = fila.querySelector(".numero-ubicacion");
 
-    /* CORRECCIÓN: FILAS VACÍAS SIN LETRA */
+    /* ACTUALIZAR LA UBICACIÓN AL ESCRIBIR */
 
     descripcion.addEventListener("input", function() {
         const texto = this.value.trim();
         const ubicacion = buscarUbicacion(texto);
 
         if (texto === "") {
-            /* SI SE BORRA EL BARNIZ, SE BORRA LA UBICACIÓN */
+            /* DESCRIPCIÓN VACÍA: UBICACIÓN VACÍA */
             prefijo.textContent = "";
             numero.value = "";
+
         } else if (ubicacion) {
             /* BARNIZ CONOCIDO: UBICACIÓN AUTOMÁTICA */
             prefijo.textContent = ubicacion.charAt(0);
             numero.value = ubicacion.substring(1);
+
         } else {
             /* BARNIZ DESCONOCIDO: PREFIJO A */
             prefijo.textContent = "A";
 
-            /* IMPORTANTE:
-               NO BORRAR EL NÚMERO QUE SE HAYA ESCRITO */
+            /* CONSERVAR EL NÚMERO INTRODUCIDO */
         }
     });
 
-    /* ACEPTAR ÚNICAMENTE NÚMEROS EN LA UBICACIÓN */
+    /* PERMITIR SOLO NÚMEROS EN LA UBICACIÓN */
 
     numero.addEventListener("input", function() {
         this.value = this.value.replace(/\D/g, "");
@@ -580,13 +630,13 @@ function anadirFila(enfocar = false) {
     return fila;
 }
 
-/* CUATRO FILAS VACÍAS AL ABRIR */
+/* CUATRO FILAS INICIALES VACÍAS */
 
 for (let i = 0; i < 4; i++) {
     anadirFila(false);
 }
 
-/* RECOGER DATOS */
+/* OBTENER LOS DATOS DEL REGISTRO */
 
 function obtenerDatos() {
     const filas = document.querySelectorAll("#filas tr");
@@ -613,7 +663,7 @@ function obtenerDatos() {
     return datos;
 }
 
-/* CREAR IMAGEN DEL REGISTRO */
+/* GENERAR IMAGEN PARA COMPARTIR O GUARDAR */
 
 async function crearImagenRegistro() {
     const ancho = 1200;
@@ -673,7 +723,7 @@ async function crearImagenRegistro() {
 
     let y = altoCabecera;
 
-    /* CARGAR FOTOGRAFÍAS */
+    /* CARGAR LAS FOTOGRAFÍAS */
 
     function cargarFoto(ruta) {
         return new Promise(function(resolve) {
@@ -739,25 +789,38 @@ async function crearImagenRegistro() {
 
     y += 27;
 
-    /* ENCABEZADOS */
+    /* ENCABEZADOS CON SEPARACIÓN VERTICAL */
+
+    const xSeparacion = margen + anchoInterior * 0.63;
 
     ctx.fillStyle = "#e5f0ff";
     ctx.fillRect(margen, y, anchoInterior, altoEncabezado);
 
+    ctx.strokeStyle = "#104d83";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(xSeparacion, y);
+    ctx.lineTo(xSeparacion, y + altoEncabezado + cantidad * altoFila);
+    ctx.stroke();
+
     ctx.fillStyle = "#234a72";
     ctx.font = "bold 16px Arial";
 
-    ctx.fillText("DESCRIPCIÓN / BARNIZ", margen + 12, y + 28);
+    ctx.fillText(
+        "DESCRIPCIÓN / BARNIZ",
+        margen + 12,
+        y + 28
+    );
 
     ctx.fillText(
         "UBICACIÓN",
-        margen + anchoInterior * 0.63 + 12,
+        xSeparacion + 12,
         y + 28
     );
 
     y += altoEncabezado;
 
-    /* FILAS DEL REGISTRO */
+    /* FILAS */
 
     for (let i = 0; i < cantidad; i++) {
         const dato = datos[i] || {
@@ -770,18 +833,27 @@ async function crearImagenRegistro() {
 
         ctx.strokeStyle = "#dce5ef";
         ctx.lineWidth = 1;
-        ctx.strokeRect(margen, y, anchoInterior, altoFila);
+
+        ctx.beginPath();
+        ctx.moveTo(margen, y + altoFila);
+        ctx.lineTo(margen + anchoInterior, y + altoFila);
+        ctx.stroke();
 
         ctx.fillStyle = "#203b56";
         ctx.font = "17px Arial";
-        ctx.fillText(dato.descripcion, margen + 12, y + 31);
+
+        ctx.fillText(
+            dato.descripcion,
+            margen + 12,
+            y + 31
+        );
 
         ctx.fillStyle = "#123d67";
         ctx.font = "bold 17px Arial";
 
         ctx.fillText(
             dato.ubicacion,
-            margen + anchoInterior * 0.63 + 12,
+            xSeparacion + 12,
             y + 31
         );
 
@@ -811,7 +883,10 @@ async function descargarRegistro() {
         enlace.click();
 
     } catch (error) {
-        alert("No se pudo crear la imagen. Inténtalo de nuevo.");
+        alert(
+            "No se pudo crear la imagen. " +
+            "Comprueba que las fotografías estén disponibles."
+        );
     }
 }
 
@@ -844,6 +919,7 @@ async function compartirRegistro() {
                 files: [archivo],
                 title: "Control de barnices"
             });
+
         } else {
             const url = URL.createObjectURL(blob);
             const enlace = document.createElement("a");
@@ -892,7 +968,7 @@ function limpiarRegistro() {
     actualizarFecha();
 }
 
-/* ACTUALIZAR FECHA AL VOLVER A LA APP */
+/* ACTUALIZAR FECHA AL VOLVER A LA APLICACIÓN */
 
 document.addEventListener("visibilitychange", function() {
     if (!document.hidden) {
