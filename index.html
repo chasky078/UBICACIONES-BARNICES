@@ -2,17 +2,16 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123d70">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#164f83">
 <title>CONTROL DE BARNICES</title>
 
 <style>
 :root {
-    --azul: #123d70;
-    --azul-claro: #2878c8;
-    --azul-fondo: #edf4fb;
-    --borde: #c8d7e7;
-    --texto: #17283b;
+    --azul: #164f83;
+    --azul-oscuro: #10375e;
+    --azul-claro: #e5effb;
+    --borde: #c7d7e8;
     --rojo: #e5232e;
 }
 
@@ -24,39 +23,49 @@ body {
     margin: 0;
     padding: 12px;
     background: #edf2f7;
-    color: var(--texto);
+    color: #20364f;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .app {
-    width: 100%;
     max-width: 850px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 16px;
+    margin: auto;
+    background: #fff;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 5px 24px rgba(15, 45, 80, .12);
+    box-shadow: 0 5px 22px rgba(15, 45, 80, .12);
 }
 
 .cabecera {
-    padding: 18px;
+    padding: 20px;
+    background: linear-gradient(120deg, #164778, #17699d);
     color: white;
-    background: linear-gradient(135deg, #10335d, #2878c8);
 }
 
 .cabecera-superior {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 17px;
+}
+
+.logo-contenedor {
+    width: 145px;
+    min-width: 100px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid rgba(255,255,255,.65);
+    padding-right: 14px;
 }
 
 .logo {
-    width: 125px;
-    height: 65px;
-    padding: 5px;
+    display: block;
+    max-width: 100%;
+    max-height: 75px;
     object-fit: contain;
     background: white;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .titulos {
@@ -67,61 +76,64 @@ body {
 .titulos h1 {
     margin: 0;
     font-size: clamp(19px, 4vw, 29px);
-    line-height: 1.15;
     font-weight: 900;
+    line-height: 1.2;
 }
 
 .titulos p {
     margin: 7px 0 0;
-    font-size: 12px;
-    letter-spacing: 1.5px;
+    font-size: clamp(11px, 2.5vw, 16px);
     font-weight: bold;
 }
 
 .firma {
     margin-top: 12px;
     text-align: right;
-    color: #b9dcff;
-    font-size: 11px;
-    letter-spacing: 1px;
+    color: #c4e1ff;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .contenido {
     padding: 16px;
 }
 
-.fecha-panel {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+.fecha {
+    margin-bottom: 16px;
     padding: 12px;
     border: 1px solid var(--borde);
-    border-radius: 10px;
-    background: #f7faff;
+    border-radius: 8px;
+    background: #f5f9fe;
 }
 
-.fecha-panel label {
-    font-weight: bold;
-    font-size: 13px;
+.fecha label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 12px;
+    font-weight: 900;
 }
 
-.fecha-panel input {
-    padding: 9px;
+.fecha input {
+    width: 100%;
+    padding: 10px;
     border: 1px solid var(--borde);
-    border-radius: 7px;
+    border-radius: 6px;
+    font-family: inherit;
     font-size: 15px;
-    color: var(--texto);
-    background: white;
+}
+
+.titulo-registro {
+    margin: 18px 0 14px;
+    color: var(--azul);
+    font-size: 25px;
+    font-weight: 900;
 }
 
 .fotos {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 16px;
+    margin: 15px 0;
 }
 
 .foto {
@@ -131,170 +143,182 @@ body {
     object-fit: cover;
     object-position: center;
     border: 1px solid var(--borde);
-    border-radius: 9px;
-    background: #f3f6fa;
+    border-radius: 5px;
+    background: #f1f5fa;
 }
 
 .tabla-contenedor {
     width: 100%;
     overflow-x: auto;
     border: 2px solid var(--azul);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 table {
     width: 100%;
     min-width: 310px;
-    table-layout: fixed;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
-col.descripcion-col {
+.col-descripcion {
     width: 56%;
 }
 
-col.aviso-col {
+.col-aviso {
     width: 15%;
 }
 
-col.ubicacion-col {
+.col-ubicacion {
     width: 29%;
 }
 
 thead th {
-    background: var(--azul);
-    color: white;
-    padding: 12px 5px;
+    padding: 13px 4px;
+    background: var(--azul-claro);
+    color: #214a75;
     font-size: 11px;
-    letter-spacing: .3px;
-    line-height: 1.3;
+    font-weight: 900;
+    line-height: 1.35;
     text-align: center;
     overflow-wrap: anywhere;
+    border-bottom: 3px solid var(--azul);
 }
 
-th, td {
-    border-right: 2px solid #367fc3;
+/* Separadores verticales visibles entre las tres columnas. */
+th + th,
+td + td {
+    border-left: 3px solid var(--azul);
+}
+
+tbody td {
+    height: 57px;
+    padding: 4px;
     border-bottom: 1px solid var(--borde);
+    background: white;
 }
 
-th:last-child, td:last-child {
-    border-right: 0;
+tbody tr:nth-child(even) td {
+    background: #f5f8fc;
 }
 
 tbody tr:last-child td {
     border-bottom: 0;
 }
 
-td {
-    height: 54px;
-    padding: 5px;
-    background: white;
-}
-
-td input {
-    display: block;
+.campo-barniz {
     width: 100%;
     min-width: 0;
-    padding: 9px 5px;
-    border: 1px solid #d5e0ec;
-    border-radius: 5px;
-    outline: none;
-    background: #fbfdff;
-    color: var(--texto);
+    padding: 10px 5px;
+    border: 1px solid #d5e0ed;
+    border-radius: 4px;
+    background: #fff;
+    color: #20364f;
     font-family: inherit;
     font-size: 14px;
 }
 
-td input:focus {
-    border-color: var(--azul-claro);
-    box-shadow: 0 0 0 2px rgba(40, 120, 200, .12);
+.campo-barniz:focus,
+.campo-numero:focus {
+    outline: 2px solid #80b8ee;
+    outline-offset: -2px;
 }
 
 .celda-aviso {
     text-align: center;
-    padding: 4px 2px;
+    padding: 3px !important;
 }
 
 .marcador {
+    width: 35px;
+    height: 35px;
+    padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border: 1px solid #c6d1de;
+    border: 1px solid #c3cfdd;
     border-radius: 50%;
-    background: #f7f9fc;
+    background: white;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
-.marcador .punto {
+.punto {
+    display: block;
     width: 19px;
     height: 19px;
+    border: 2px solid #b8c5d4;
     border-radius: 50%;
-    background: transparent;
-    border: 2px solid #b7c3d0;
+    background: white;
 }
 
 .marcador.activo .punto {
+    border-color: #c51620;
     background: var(--rojo);
-    border: 2px solid #c51620;
-    box-shadow: 0 0 0 2px rgba(229, 35, 46, .13);
 }
 
-.ubicacion-campo {
+.ubicacion {
     display: flex;
     align-items: center;
-    gap: 3px;
+    justify-content: center;
+    gap: 2px;
 }
 
 .prefijo {
     flex: 0 0 auto;
+    font-size: 13px;
     font-weight: 900;
-    font-size: 14px;
     color: var(--azul);
 }
 
-.ubicacion-campo input {
-    flex: 1;
+.campo-numero {
     width: 100%;
+    min-width: 0;
+    padding: 10px 1px;
+    border: 1px solid #d5e0ed;
+    border-radius: 4px;
     text-align: center;
-    font-weight: bold;
+    font-family: inherit;
     font-size: 14px;
+    font-weight: bold;
+    color: #20364f;
+    background: white;
 }
 
 .leyenda {
-    margin: 14px 0 18px;
-    padding: 12px;
-    border: 1px solid #f0b7bb;
+    margin: 16px 0;
+    padding: 13px;
+    border: 1px solid #efb7bb;
     border-left: 5px solid var(--rojo);
-    border-radius: 7px;
+    border-radius: 5px;
     background: #fff7f7;
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
-.leyenda-titulo {
+.leyenda strong {
+    display: block;
+    margin-bottom: 4px;
     color: #b51c25;
-    font-weight: 900;
-    margin-bottom: 3px;
+    font-size: 13px;
 }
 
 .botones {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 9px;
+    margin: 18px 0;
 }
 
 .boton {
-    min-height: 46px;
-    padding: 12px 8px;
+    min-height: 47px;
+    padding: 11px 7px;
     border: 0;
-    border-radius: 8px;
+    border-radius: 9px;
+    font-family: inherit;
     font-size: 12px;
     font-weight: 900;
     cursor: pointer;
-    font-family: inherit;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -304,78 +328,76 @@ td input:focus {
 }
 
 .boton-claro {
-    background: #e5eef8;
-    color: var(--azul);
-    border: 1px solid #c4d7eb;
+    background: #e7eff8;
+    color: #214a75;
 }
 
 .boton-rojo {
     background: #fff0f0;
-    color: #bd1f29;
-    border: 1px solid #efb6ba;
+    color: #b51c25;
+}
+
+.boton:disabled {
+    opacity: .6;
 }
 
 .pie {
-    padding: 12px;
-    background: #f2f6fb;
+    padding: 15px 8px;
+    border-top: 1px solid #e0e6ee;
+    background: #f8fafc;
+    color: #718196;
+    font-size: 12px;
     text-align: center;
-    color: #687b91;
-    font-size: 10px;
-    letter-spacing: .6px;
 }
 
 @media (max-width: 420px) {
     body {
-        padding: 7px;
-    }
-
-    .contenido {
-        padding: 10px;
+        padding: 6px;
     }
 
     .cabecera {
-        padding: 13px;
-    }
-
-    .logo {
-        width: 94px;
-        height: 57px;
+        padding: 14px 10px;
     }
 
     .cabecera-superior {
         gap: 10px;
     }
 
-    .titulos p {
-        font-size: 10px;
-        letter-spacing: .7px;
+    .logo-contenedor {
+        width: 100px;
+        min-width: 90px;
+        height: 72px;
+        padding-right: 8px;
+    }
+
+    .logo {
+        max-height: 62px;
+    }
+
+    .contenido {
+        padding: 10px;
+    }
+
+    .titulo-registro {
+        font-size: 21px;
     }
 
     .foto {
-        height: 95px;
-    }
-
-    thead th {
-        padding: 10px 3px;
-        font-size: 10px;
-    }
-
-    td input {
-        font-size: 13px;
-        padding: 9px 3px;
+        height: 100px;
     }
 
     .marcador {
-        width: 31px;
-        height: 31px;
+        width: 30px;
+        height: 30px;
     }
 
-    .marcador .punto {
+    .punto {
         width: 17px;
         height: 17px;
     }
 
-    .prefijo {
+    .campo-barniz,
+    .campo-numero {
         font-size: 12px;
     }
 
@@ -391,14 +413,17 @@ td input:focus {
 <div class="app" id="aplicacion">
 
     <header class="cabecera">
+
         <div class="cabecera-superior">
 
-            <img
-                id="logoSonoco"
-                class="logo"
-                src="IMG_5518.jpeg"
-                alt="SONOCO"
-            >
+            <div class="logo-contenedor">
+                <img
+                    id="logoSonoco"
+                    class="logo"
+                    src="./IMG_5518.jpeg"
+                    alt="Logo SONOCO"
+                >
+            </div>
 
             <div class="titulos">
                 <h1>CONTROL DE BARNICES</h1>
@@ -408,39 +433,34 @@ td input:focus {
         </div>
 
         <div class="firma">By Rubén D. 268</div>
+
     </header>
 
     <main class="contenido">
 
-        <div class="fecha-panel">
+        <div class="fecha">
             <label for="fechaRegistro">FECHA DEL REGISTRO</label>
-            <input type="date" id="fechaRegistro">
+            <input type="datetime-local" id="fechaRegistro">
         </div>
 
-        <section class="fotos" aria-label="Fotografías de referencia">
+        <h2 class="titulo-registro">REGISTRO DE BARNICES</h2>
 
+        <!-- Fotografía superior -->
+        <div class="fotos">
             <img
                 class="foto"
-                src="IMG_5503.jpeg"
-                alt="Fotografía de referencia superior"
+                src="./IMG_5503.jpeg"
+                alt="Fotografía superior de referencia"
             >
-
-            <img
-                class="foto"
-                src="IMG_5504.jpeg"
-                alt="Fotografía de referencia inferior"
-            >
-
-        </section>
+        </div>
 
         <div class="tabla-contenedor">
 
-            <table id="tablaBarnices">
-
+            <table>
                 <colgroup>
-                    <col class="descripcion-col">
-                    <col class="aviso-col">
-                    <col class="ubicacion-col">
+                    <col class="col-descripcion">
+                    <col class="col-aviso">
+                    <col class="col-ubicacion">
                 </colgroup>
 
                 <thead>
@@ -458,54 +478,44 @@ td input:focus {
         </div>
 
         <div class="leyenda">
-            <div class="leyenda-titulo">
-                🔴 AVISO DE TRASVASE
-            </div>
-
+            <strong>🔴 AVISO DE TRASVASE</strong>
             Marca con el símbolo rojo los barnices que requieren un
             trasvase de producto debido a su bajo nivel de contenido.
         </div>
 
         <div class="botones">
 
-            <button
-                class="boton boton-azul"
-                type="button"
-                id="anadirFila"
-            >
+            <button class="boton boton-azul" id="anadirFila" type="button">
                 + AÑADIR FILA
             </button>
 
-            <button
-                class="boton boton-azul"
-                type="button"
-                id="compartirRegistro"
-            >
+            <button class="boton boton-claro" id="compartirRegistro" type="button">
                 COMPARTIR REGISTRO
             </button>
 
-            <button
-                class="boton boton-claro"
-                type="button"
-                id="guardarImagen"
-            >
+            <button class="boton boton-claro" id="guardarImagen" type="button">
                 GUARDAR IMAGEN
             </button>
 
-            <button
-                class="boton boton-rojo"
-                type="button"
-                id="limpiarRegistro"
-            >
+            <button class="boton boton-rojo" id="limpiarRegistro" type="button">
                 LIMPIAR REGISTRO
             </button>
 
         </div>
 
+        <!-- Fotografía inferior -->
+        <div class="fotos">
+            <img
+                class="foto"
+                src="./IMG_5504.jpeg"
+                alt="Fotografía inferior de referencia"
+            >
+        </div>
+
     </main>
 
     <footer class="pie">
-        CONTROL INTERNO · REGISTRO DE BARNICES
+        CONTROL DE BARNICES · SONOCO
     </footer>
 
 </div>
@@ -513,11 +523,8 @@ td input:focus {
 <script>
 "use strict";
 
-/*
- * UBICACIONES CONOCIDAS
- * Se normalizan puntos, espacios, guiones y mayúsculas.
- */
-const ubicacionesConocidas = {
+/* UBICACIONES AUTOMÁTICAS DE LOS BARNICES CONOCIDOS */
+const ubicaciones = {
     "814449": "W02008",
     "MKB113T": "W02009",
     "818083": "W02007",
@@ -529,469 +536,427 @@ const ubicacionesConocidas = {
     "814509": "W02002"
 };
 
-const cuerpoTabla = document.getElementById("filasBarnices");
+const tbody = document.getElementById("filasBarnices");
 const campoFecha = document.getElementById("fechaRegistro");
 
-function fechaLocalISO() {
+function fechaHoraLocal() {
     const ahora = new Date();
-    const desfase = ahora.getTimezoneOffset() * 60000;
-
-    return new Date(ahora.getTime() - desfase)
+    const offset = ahora.getTimezoneOffset() * 60000;
+    return new Date(ahora.getTime() - offset)
         .toISOString()
-        .slice(0, 10);
+        .slice(0, 16);
 }
 
-campoFecha.value = fechaLocalISO();
+campoFecha.value = fechaHoraLocal();
 
-function normalizarBarniz(texto) {
+function normalizar(texto) {
     return String(texto || "")
         .trim()
         .toUpperCase()
         .replace(/[.\s-]/g, "");
 }
 
-function obtenerFilas() {
-    return Array.from(cuerpoTabla.querySelectorAll("tr"));
-}
+function crearFila() {
+    const tr = document.createElement("tr");
 
-function crearFila(descripcion = "", prefijo = "", numero = "", marcado = false) {
-    const fila = document.createElement("tr");
+    const tdDescripcion = document.createElement("td");
+    const descripcion = document.createElement("input");
 
-    const celdaDescripcion = document.createElement("td");
-    const entradaDescripcion = document.createElement("input");
+    descripcion.type = "text";
+    descripcion.className = "campo-barniz";
+    descripcion.placeholder = "Barniz...";
+    descripcion.autocomplete = "off";
+    descripcion.setAttribute("aria-label", "Descripción del barniz");
 
-    entradaDescripcion.type = "text";
-    entradaDescripcion.placeholder = "Barniz...";
-    entradaDescripcion.autocomplete = "off";
-    entradaDescripcion.setAttribute("aria-label", "Descripción del barniz");
-    entradaDescripcion.value = descripcion;
+    tdDescripcion.appendChild(descripcion);
 
-    celdaDescripcion.appendChild(entradaDescripcion);
+    const tdAviso = document.createElement("td");
+    tdAviso.className = "celda-aviso";
 
-    const celdaAviso = document.createElement("td");
-    celdaAviso.className = "celda-aviso";
+    const botonAviso = document.createElement("button");
+    botonAviso.type = "button";
+    botonAviso.className = "marcador";
+    botonAviso.setAttribute("aria-label", "Marcar aviso de trasvase");
+    botonAviso.setAttribute("aria-pressed", "false");
 
-    const botonMarcador = document.createElement("button");
-    botonMarcador.type = "button";
-    botonMarcador.className = "marcador";
-    botonMarcador.setAttribute("aria-label", "Marcar aviso de trasvase");
-    botonMarcador.setAttribute("aria-pressed", "false");
-    botonMarcador.innerHTML = '<span class="punto"></span>';
+    const punto = document.createElement("span");
+    punto.className = "punto";
 
-    celdaAviso.appendChild(botonMarcador);
+    botonAviso.appendChild(punto);
+    tdAviso.appendChild(botonAviso);
 
-    const celdaUbicacion = document.createElement("td");
+    const tdUbicacion = document.createElement("td");
+
     const contenedorUbicacion = document.createElement("div");
-    contenedorUbicacion.className = "ubicacion-campo";
+    contenedorUbicacion.className = "ubicacion";
 
-    const etiquetaPrefijo = document.createElement("span");
-    etiquetaPrefijo.className = "prefijo";
-    etiquetaPrefijo.textContent = prefijo;
+    const prefijo = document.createElement("span");
+    prefijo.className = "prefijo";
 
-    const entradaNumero = document.createElement("input");
-    entradaNumero.type = "text";
-    entradaNumero.inputMode = "numeric";
-    entradaNumero.autocomplete = "off";
-    entradaNumero.placeholder = "N.º";
-    entradaNumero.setAttribute("aria-label", "Número de ubicación");
-    entradaNumero.value = numero;
+    const numero = document.createElement("input");
+    numero.type = "text";
+    numero.inputMode = "numeric";
+    numero.autocomplete = "off";
+    numero.className = "campo-numero";
+    numero.placeholder = "N.º";
+    numero.setAttribute("aria-label", "Número de ubicación");
 
-    contenedorUbicacion.appendChild(etiquetaPrefijo);
-    contenedorUbicacion.appendChild(entradaNumero);
-    celdaUbicacion.appendChild(contenedorUbicacion);
+    contenedorUbicacion.appendChild(prefijo);
+    contenedorUbicacion.appendChild(numero);
+    tdUbicacion.appendChild(contenedorUbicacion);
 
-    fila.appendChild(celdaDescripcion);
-    fila.appendChild(celdaAviso);
-    fila.appendChild(celdaUbicacion);
+    tr.appendChild(tdDescripcion);
+    tr.appendChild(tdAviso);
+    tr.appendChild(tdUbicacion);
 
-    cuerpoTabla.appendChild(fila);
+    tbody.appendChild(tr);
 
     function actualizarUbicacion() {
-        const original = entradaDescripcion.value.trim();
-        const clave = normalizarBarniz(original);
+        const texto = descripcion.value.trim();
 
-        if (!original) {
-            etiquetaPrefijo.textContent = "";
-            entradaNumero.value = "";
+        if (!texto) {
+            prefijo.textContent = "";
+            numero.value = "";
             return;
         }
 
-        const ubicacion = ubicacionesConocidas[clave];
+        const clave = normalizar(texto);
+        const conocida = ubicaciones[clave];
 
-        if (ubicacion) {
-            etiquetaPrefijo.textContent = ubicacion.charAt(0);
-            entradaNumero.value = ubicacion.slice(1);
+        if (conocida) {
+            prefijo.textContent = conocida.charAt(0);
+            numero.value = conocida.slice(1);
         } else {
-            etiquetaPrefijo.textContent = "A";
-            entradaNumero.value = entradaNumero.value.replace(/\D/g, "");
+            prefijo.textContent = "A";
+            numero.value = numero.value.replace(/\D/g, "");
         }
     }
 
-    entradaDescripcion.addEventListener("input", actualizarUbicacion);
+    descripcion.addEventListener("input", actualizarUbicacion);
 
-    entradaNumero.addEventListener("input", function() {
-        const posicion = entradaNumero.selectionStart;
-        const valorAnterior = entradaNumero.value;
+    numero.addEventListener("input", function() {
+        const clave = normalizar(descripcion.value);
 
-        entradaNumero.value = valorAnterior.replace(/\D/g, "");
-
-        try {
-            entradaNumero.setSelectionRange(posicion, posicion);
-        } catch (error) {}
-
-        // Si es un barniz conocido, su ubicación automática se conserva.
-        const clave = normalizarBarniz(entradaDescripcion.value);
-
-        if (ubicacionesConocidas[clave]) {
-            const ubicacion = ubicacionesConocidas[clave];
-            etiquetaPrefijo.textContent = ubicacion.charAt(0);
-            entradaNumero.value = ubicacion.slice(1);
+        if (ubicaciones[clave]) {
+            const conocida = ubicaciones[clave];
+            prefijo.textContent = conocida.charAt(0);
+            numero.value = conocida.slice(1);
+        } else {
+            numero.value = numero.value.replace(/\D/g, "");
         }
     });
 
-    botonMarcador.addEventListener("click", function() {
-        const activo = botonMarcador.classList.toggle("activo");
+    botonAviso.addEventListener("click", function() {
+        const activo = botonAviso.classList.toggle("activo");
 
-        botonMarcador.setAttribute("aria-pressed", String(activo));
-        botonMarcador.setAttribute(
+        botonAviso.setAttribute("aria-pressed", String(activo));
+        botonAviso.setAttribute(
             "aria-label",
-            activo
-                ? "Quitar aviso de trasvase"
-                : "Marcar aviso de trasvase"
+            activo ? "Quitar aviso de trasvase" : "Marcar aviso de trasvase"
         );
     });
 
-    if (marcado) {
-        botonMarcador.classList.add("activo");
-        botonMarcador.setAttribute("aria-pressed", "true");
-    }
-
-    actualizarUbicacion();
-
-    if (descripcion && !ubicacionesConocidas[normalizarBarniz(descripcion)]) {
-        entradaNumero.value = numero;
-    }
-
-    return fila;
+    return tr;
 }
 
-function anadirFila() {
+function filasActuales() {
+    return Array.from(tbody.querySelectorAll("tr"));
+}
+
+document.getElementById("anadirFila").addEventListener("click", function() {
     const fila = crearFila();
-    fila.querySelector("td:first-child input").focus();
-}
+    fila.querySelector(".campo-barniz").focus();
+});
 
-function limpiarRegistro() {
-    const confirmar = window.confirm(
-        "¿Quieres borrar todas las filas y empezar un registro nuevo?"
-    );
+document.getElementById("limpiarRegistro").addEventListener("click", function() {
+    if (!confirm("¿Quieres borrar todas las filas y empezar un registro nuevo?")) {
+        return;
+    }
 
-    if (!confirmar) return;
-
-    cuerpoTabla.innerHTML = "";
+    tbody.innerHTML = "";
 
     for (let i = 0; i < 4; i++) {
         crearFila();
     }
 
-    campoFecha.value = fechaLocalISO();
-}
-
-document.getElementById("anadirFila")
-    .addEventListener("click", anadirFila);
-
-document.getElementById("limpiarRegistro")
-    .addEventListener("click", limpiarRegistro);
-
-/*
- * GENERACIÓN DE IMAGEN PNG
- * Dibuja el registro completo, las dos fotografías,
- * el logo, las ubicaciones y los avisos rojos.
- */
+    campoFecha.value = fechaHoraLocal();
+});
 
 function cargarImagen(src) {
     return new Promise(function(resolve) {
-        const img = new Image();
+        const imagen = new Image();
 
-        img.onload = function() {
-            resolve(img);
+        imagen.onload = function() {
+            resolve(imagen);
         };
 
-        img.onerror = function() {
+        imagen.onerror = function() {
             resolve(null);
         };
 
-        img.src = src;
+        imagen.src = src;
     });
 }
 
-function redondearRectangulo(ctx, x, y, ancho, alto, radio) {
-    ctx.beginPath();
-    ctx.roundRect(x, y, ancho, alto, radio);
-}
+function dibujarFoto(ctx, imagen, x, y, ancho, alto) {
+    ctx.fillStyle = "#eef3f8";
+    ctx.fillRect(x, y, ancho, alto);
 
-function dibujarImagenRecortada(ctx, img, x, y, ancho, alto) {
-    if (!img) {
-        ctx.fillStyle = "#eef3f8";
-        ctx.fillRect(x, y, ancho, alto);
+    if (!imagen) {
+        ctx.fillStyle = "#5b6f85";
+        ctx.font = "18px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("Fotografía no disponible", x + ancho / 2, y + alto / 2);
         return;
     }
 
-    const escala = Math.max(ancho / img.width, alto / img.height);
+    const escala = Math.max(ancho / imagen.width, alto / imagen.height);
     const anchoOrigen = ancho / escala;
     const altoOrigen = alto / escala;
-    const sx = (img.width - anchoOrigen) / 2;
-    const sy = (img.height - altoOrigen) / 2;
+    const sx = (imagen.width - anchoOrigen) / 2;
+    const sy = (imagen.height - altoOrigen) / 2;
 
     ctx.drawImage(
-        img,
+        imagen,
         sx, sy, anchoOrigen, altoOrigen,
         x, y, ancho, alto
     );
 }
 
-async function generarPNG() {
-    const logo = await cargarImagen("IMG_5518.jpeg");
-    const foto1 = await cargarImagen("IMG_5503.jpeg");
-    const foto2 = await cargarImagen("IMG_5504.jpeg");
+async function generarImagen() {
+    const logo = await cargarImagen("./IMG_5518.jpeg");
+    const fotoSuperior = await cargarImagen("./IMG_5503.jpeg");
+    const fotoInferior = await cargarImagen("./IMG_5504.jpeg");
 
-    const ancho = 1200;
-    const margen = 55;
-    const anchoInterior = ancho - margen * 2;
-
-    const filas = obtenerFilas().map(function(fila) {
-        const entradas = fila.querySelectorAll("input");
-        const prefijo = fila.querySelector(".prefijo").textContent;
-        const boton = fila.querySelector(".marcador");
-
+    const lista = filasActuales().map(function(tr) {
         return {
-            descripcion: entradas[0].value.trim(),
-            prefijo: prefijo,
-            numero: entradas[1].value.trim(),
-            marcado: boton.classList.contains("activo")
+            descripcion: tr.querySelector(".campo-barniz").value.trim(),
+            prefijo: tr.querySelector(".prefijo").textContent,
+            numero: tr.querySelector(".campo-numero").value.trim(),
+            aviso: tr.querySelector(".marcador").classList.contains("activo")
         };
     });
 
-    const altoFila = 66;
-    const altoCabeceraTabla = 62;
-    const altoFotos = 125;
-    const altoFecha = 55;
+    const W = 1200;
+    const M = 45;
+    const IW = W - M * 2;
     const altoCabecera = 155;
-    const altoLeyenda = 100;
-    const altoBotonera = 30;
+    const altoFoto = 125;
+    const altoFecha = 55;
+    const altoTH = 60;
+    const altoFila = 65;
+    const altoLeyenda = 95;
 
-    const alto =
-        margen +
-        altoCabecera +
-        25 +
-        altoFecha +
-        22 +
-        altoFotos * 2 + 20 +
-        altoCabeceraTabla +
-        filas.length * altoFila +
-        25 +
-        altoLeyenda +
-        altoBotonera +
-        margen;
+    const H =
+        M + altoCabecera + 22 +
+        altoFecha + 20 +
+        55 + altoFoto + 15 +
+        altoTH + lista.length * altoFila +
+        20 + altoLeyenda + 20 +
+        altoFoto + M;
 
     const canvas = document.createElement("canvas");
-    canvas.width = ancho;
-    canvas.height = alto;
+    canvas.width = W;
+    canvas.height = H;
 
     const ctx = canvas.getContext("2d");
 
     ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, ancho, alto);
+    ctx.fillRect(0, 0, W, H);
 
-    let y = margen;
+    let y = M;
 
-    // Cabecera.
-    const gradiente = ctx.createLinearGradient(0, y, ancho, y + altoCabecera);
-    gradiente.addColorStop(0, "#10335d");
-    gradiente.addColorStop(1, "#2878c8");
+    /* CABECERA */
+    const gradiente = ctx.createLinearGradient(0, y, W, y + altoCabecera);
+    gradiente.addColorStop(0, "#164778");
+    gradiente.addColorStop(1, "#17699d");
 
     ctx.fillStyle = gradiente;
-    ctx.fillRect(0, y, ancho, altoCabecera);
+    ctx.fillRect(0, y, W, altoCabecera);
 
-    // Logo original.
+    /* LOGO ORIGINAL */
     if (logo) {
-        const proporcion = Math.min(180 / logo.width, 90 / logo.height);
-        const logoAncho = logo.width * proporcion;
-        const logoAlto = logo.height * proporcion;
+        const cajaX = M;
+        const cajaY = y + 28;
+        const cajaW = 205;
+        const cajaH = 92;
 
         ctx.fillStyle = "#ffffff";
-        redondearRectangulo(ctx, margen, y + 27, 190, 95, 9);
-        ctx.fill();
+        ctx.fillRect(cajaX, cajaY, cajaW, cajaH);
+
+        const escala = Math.min(
+            (cajaW - 12) / logo.width,
+            (cajaH - 12) / logo.height
+        );
+
+        const lw = logo.width * escala;
+        const lh = logo.height * escala;
 
         ctx.drawImage(
             logo,
-            margen + (190 - logoAncho) / 2,
-            y + 27 + (95 - logoAlto) / 2,
-            logoAncho,
-            logoAlto
+            cajaX + (cajaW - lw) / 2,
+            cajaY + (cajaH - lh) / 2,
+            lw,
+            lh
         );
     } else {
         ctx.fillStyle = "#ffffff";
         ctx.font = "bold 30px Arial";
-        ctx.fillText("SONOCO", margen, y + 78);
+        ctx.textAlign = "center";
+        ctx.fillText("SONOCO", M + 102, y + 82);
     }
 
     ctx.fillStyle = "#ffffff";
     ctx.textAlign = "left";
-    ctx.font = "bold 38px Arial";
-    ctx.fillText("CONTROL DE BARNICES", margen + 215, y + 66);
+    ctx.font = "bold 39px Arial";
+    ctx.fillText("CONTROL DE BARNICES", M + 225, y + 65);
 
-    ctx.font = "bold 20px Arial";
-    ctx.fillText("REGISTRO DE UBICACIONES", margen + 215, y + 101);
+    ctx.font = "bold 23px Arial";
+    ctx.fillText("REGISTRO DE UBICACIONES", M + 225, y + 100);
 
-    ctx.fillStyle = "#b9dcff";
-    ctx.font = "16px Arial";
-    ctx.textAlign = "right";
-    ctx.fillText("By Rubén D. 268", ancho - margen, y + 137);
+    ctx.fillStyle = "#c4e1ff";
+    ctx.font = "bold 18px Arial";
+    ctx.fillText("By Rubén D. 268", M + 225, y + 132);
 
-    y += altoCabecera + 25;
+    y += altoCabecera + 22;
 
-    // Fecha.
-    ctx.fillStyle = "#f3f7fc";
-    ctx.fillRect(margen, y, anchoInterior, altoFecha);
+    /* FECHA Y HORA */
+    ctx.fillStyle = "#f5f9fe";
+    ctx.fillRect(M, y, IW, altoFecha);
 
-    ctx.strokeStyle = "#c8d7e7";
+    ctx.strokeStyle = "#c7d7e8";
     ctx.lineWidth = 2;
-    ctx.strokeRect(margen, y, anchoInterior, altoFecha);
+    ctx.strokeRect(M, y, IW, altoFecha);
 
-    ctx.fillStyle = "#123d70";
+    const fecha = campoFecha.value
+        ? campoFecha.value.replace("T", " ")
+        : fechaHoraLocal().replace("T", " ");
+
+    ctx.fillStyle = "#526b85";
     ctx.textAlign = "left";
-    ctx.font = "bold 21px Arial";
-    ctx.fillText("FECHA DEL REGISTRO:", margen + 18, y + 34);
+    ctx.font = "bold 22px Arial";
+    ctx.fillText("FECHA DEL REGISTRO: " + fecha, M + 15, y + 35);
 
-    ctx.fillStyle = "#17283b";
-    ctx.font = "21px Arial";
-    ctx.fillText(campoFecha.value || fechaLocalISO(), margen + 280, y + 34);
+    y += altoFecha + 20;
 
-    y += altoFecha + 22;
+    /* TÍTULO */
+    ctx.fillStyle = "#164f83";
+    ctx.font = "bold 31px Arial";
+    ctx.fillText("REGISTRO DE BARNICES", M, y + 35);
 
-    // Fotografías: una arriba y otra debajo.
-    dibujarImagenRecortada(ctx, foto1, margen, y, anchoInterior, altoFotos);
-    ctx.strokeStyle = "#c8d7e7";
-    ctx.strokeRect(margen, y, anchoInterior, altoFotos);
+    y += 55;
 
-    y += altoFotos + 12;
+    /* FOTO SUPERIOR */
+    dibujarFoto(ctx, fotoSuperior, M, y, IW, altoFoto);
+    ctx.strokeStyle = "#c7d7e8";
+    ctx.strokeRect(M, y, IW, altoFoto);
 
-    dibujarImagenRecortada(ctx, foto2, margen, y, anchoInterior, altoFotos);
-    ctx.strokeRect(margen, y, anchoInterior, altoFotos);
+    y += altoFoto + 15;
 
-    y += altoFotos + 20;
+    /* TABLA */
+    const anchoDescripcion = Math.round(IW * .56);
+    const anchoAviso = Math.round(IW * .15);
+    const anchoUbicacion = IW - anchoDescripcion - anchoAviso;
 
-    // Tabla de tres columnas.
-    const x = margen;
-    const anchoDescripcion = Math.round(anchoInterior * 0.56);
-    const anchoAviso = Math.round(anchoInterior * 0.15);
-    const anchoUbicacion = anchoInterior - anchoDescripcion - anchoAviso;
-
-    const xDescripcion = x;
-    const xAviso = x + anchoDescripcion;
+    const xAviso = M + anchoDescripcion;
     const xUbicacion = xAviso + anchoAviso;
 
-    ctx.fillStyle = "#123d70";
-    ctx.fillRect(x, y, anchoInterior, altoCabeceraTabla);
+    ctx.fillStyle = "#e5effb";
+    ctx.fillRect(M, y, IW, altoTH);
 
-    ctx.fillStyle = "#ffffff";
+    ctx.strokeStyle = "#164f83";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(M, y, IW, altoTH);
+
+    ctx.beginPath();
+    ctx.moveTo(xAviso, y);
+    ctx.lineTo(xAviso, y + altoTH);
+    ctx.moveTo(xUbicacion, y);
+    ctx.lineTo(xUbicacion, y + altoTH);
+    ctx.stroke();
+
+    ctx.fillStyle = "#214a75";
     ctx.textAlign = "center";
     ctx.font = "bold 19px Arial";
+
     ctx.fillText(
         "DESCRIPCIÓN / BARNIZ",
-        xDescripcion + anchoDescripcion / 2,
-        y + 37
+        M + anchoDescripcion / 2,
+        y + 36
     );
 
-    ctx.font = "bold 18px Arial";
     ctx.fillText(
         "AVISO",
         xAviso + anchoAviso / 2,
-        y + 37
+        y + 36
     );
 
     ctx.fillText(
         "UBICACIÓN",
         xUbicacion + anchoUbicacion / 2,
-        y + 37
+        y + 36
     );
 
-    y += altoCabeceraTabla;
+    y += altoTH;
 
-    filas.forEach(function(fila, indice) {
-        ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f5f9fd";
-        ctx.fillRect(x, y, anchoInterior, altoFila);
+    lista.forEach(function(fila, i) {
+        ctx.fillStyle = i % 2 === 0 ? "#ffffff" : "#f5f8fc";
+        ctx.fillRect(M, y, IW, altoFila);
 
-        ctx.strokeStyle = "#c8d7e7";
+        ctx.strokeStyle = "#c7d7e8";
         ctx.lineWidth = 1;
-        ctx.strokeRect(x, y, anchoInterior, altoFila);
+        ctx.strokeRect(M, y, IW, altoFila);
 
-        // Divisiones verticales azules.
-        ctx.strokeStyle = "#367fc3";
+        /* DIVISIONES AZULES */
+        ctx.strokeStyle = "#164f83";
         ctx.lineWidth = 3;
 
         ctx.beginPath();
         ctx.moveTo(xAviso, y);
         ctx.lineTo(xAviso, y + altoFila);
-        ctx.stroke();
-
-        ctx.beginPath();
         ctx.moveTo(xUbicacion, y);
         ctx.lineTo(xUbicacion, y + altoFila);
         ctx.stroke();
 
-        ctx.fillStyle = "#17283b";
+        /* DESCRIPCIÓN */
+        ctx.fillStyle = "#20364f";
         ctx.textAlign = "left";
-        ctx.font = "22px Arial";
+        ctx.font = "21px Arial";
 
-        let descripcion = fila.descripcion;
+        let texto = fila.descripcion;
+        const maxAncho = anchoDescripcion - 24;
 
-        while (
-            descripcion.length > 2 &&
-            ctx.measureText(descripcion).width > anchoDescripcion - 25
-        ) {
-            descripcion = descripcion.slice(0, -1);
+        while (texto && ctx.measureText(texto).width > maxAncho) {
+            texto = texto.slice(0, -1);
         }
 
-        if (descripcion !== fila.descripcion && descripcion.length > 2) {
-            descripcion = descripcion.slice(0, -1) + "…";
+        if (texto.length < fila.descripcion.length && texto.length > 2) {
+            texto = texto.slice(0, -1) + "…";
         }
 
-        ctx.fillText(
-            descripcion,
-            xDescripcion + 14,
-            y + 40
-        );
+        ctx.fillText(texto, M + 12, y + 40);
 
-        // Círculo de aviso, rojo cuando está activado.
-        const centroX = xAviso + anchoAviso / 2;
-        const centroY = y + altoFila / 2;
+        /* CÍRCULO DE AVISO ROJO */
+        const cx = xAviso + anchoAviso / 2;
+        const cy = y + altoFila / 2;
 
         ctx.beginPath();
-        ctx.arc(centroX, centroY, 15, 0, Math.PI * 2);
+        ctx.arc(cx, cy, 15, 0, Math.PI * 2);
 
-        if (fila.marcado) {
-            ctx.fillStyle = "#e5232e";
-            ctx.fill();
-            ctx.strokeStyle = "#c51620";
-        } else {
-            ctx.fillStyle = "#ffffff";
-            ctx.fill();
-            ctx.strokeStyle = "#b7c3d0";
-        }
+        ctx.fillStyle = fila.aviso ? "#e5232e" : "#ffffff";
+        ctx.fill();
 
+        ctx.strokeStyle = fila.aviso ? "#c51620" : "#b8c5d4";
         ctx.lineWidth = 3;
         ctx.stroke();
 
-        // Ubicación.
-        ctx.fillStyle = "#123d70";
+        /* UBICACIÓN */
+        ctx.fillStyle = "#164f83";
         ctx.textAlign = "center";
         ctx.font = "bold 23px Arial";
 
-        const ubicacion = fila.prefijo + fila.numero;
-
         ctx.fillText(
-            ubicacion,
+            fila.prefijo + fila.numero,
             xUbicacion + anchoUbicacion / 2,
             y + 40
         );
@@ -999,139 +964,118 @@ async function generarPNG() {
         y += altoFila;
     });
 
-    y += 25;
+    y += 20;
 
-    // Leyenda profesional.
+    /* LEYENDA */
     ctx.fillStyle = "#fff7f7";
-    ctx.fillRect(margen, y, anchoInterior, altoLeyenda);
+    ctx.fillRect(M, y, IW, altoLeyenda);
 
     ctx.strokeStyle = "#e5232e";
     ctx.lineWidth = 3;
-    ctx.strokeRect(margen, y, anchoInterior, altoLeyenda);
+    ctx.strokeRect(M, y, IW, altoLeyenda);
 
     ctx.fillStyle = "#b51c25";
     ctx.textAlign = "left";
-    ctx.font = "bold 21px Arial";
-    ctx.fillText("AVISO DE TRASVASE", margen + 18, y + 32);
+    ctx.font = "bold 22px Arial";
+    ctx.fillText("AVISO DE TRASVASE", M + 15, y + 31);
 
-    ctx.fillStyle = "#17283b";
+    ctx.fillStyle = "#20364f";
     ctx.font = "18px Arial";
     ctx.fillText(
         "Marca con el símbolo rojo los barnices que requieren un",
-        margen + 18,
-        y + 59
+        M + 15,
+        y + 57
     );
     ctx.fillText(
         "trasvase de producto debido a su bajo nivel de contenido.",
-        margen + 18,
-        y + 83
+        M + 15,
+        y + 81
     );
 
-    y += altoLeyenda + altoBotonera;
+    y += altoLeyenda + 20;
 
-    ctx.fillStyle = "#687b91";
-    ctx.textAlign = "center";
-    ctx.font = "15px Arial";
-    ctx.fillText(
-        "CONTROL INTERNO · REGISTRO DE BARNICES",
-        ancho / 2,
-        Math.min(y, alto - 20)
-    );
+    /* FOTO INFERIOR */
+    dibujarFoto(ctx, fotoInferior, M, y, IW, altoFoto);
+
+    ctx.strokeStyle = "#c7d7e8";
+    ctx.strokeRect(M, y, IW, altoFoto);
 
     return new Promise(function(resolve, reject) {
         canvas.toBlob(function(blob) {
-            if (!blob) {
-                reject(new Error("No se pudo crear la imagen PNG."));
-                return;
+            if (blob) {
+                resolve(blob);
+            } else {
+                reject(new Error("No se pudo generar la imagen."));
             }
-
-            resolve(blob);
         }, "image/png");
     });
 }
 
-function descargarBlob(blob, nombre) {
+function nombreArchivo() {
+    return "CONTROL-BARNICES-" +
+        (campoFecha.value || fechaHoraLocal()).slice(0, 10) +
+        ".png";
+}
+
+function descargar(blob) {
     const url = URL.createObjectURL(blob);
     const enlace = document.createElement("a");
 
     enlace.href = url;
-    enlace.download = nombre;
+    enlace.download = nombreArchivo();
+
     document.body.appendChild(enlace);
     enlace.click();
     enlace.remove();
 
     setTimeout(function() {
         URL.revokeObjectURL(url);
-    }, 3000);
+    }, 5000);
 }
 
-function nombreArchivo() {
-    return "CONTROL-BARNICES-" +
-        (campoFecha.value || fechaLocalISO()) +
-        ".png";
-}
+document.getElementById("guardarImagen").addEventListener("click", async function() {
+    try {
+        const blob = await generarImagen();
+        descargar(blob);
+    } catch (error) {
+        alert("No se pudo generar la imagen. Comprueba que las fotos y el logo estén en GitHub.");
+        console.error(error);
+    }
+});
 
-document.getElementById("guardarImagen")
-    .addEventListener("click", async function() {
-        const boton = this;
-        boton.disabled = true;
-        boton.textContent = "GENERANDO IMAGEN...";
+document.getElementById("compartirRegistro").addEventListener("click", async function() {
+    try {
+        const blob = await generarImagen();
 
-        try {
-            const blob = await generarPNG();
-            descargarBlob(blob, nombreArchivo());
-        } catch (error) {
-            alert("No se pudo generar la imagen. Comprueba que las fotos y el logo estén subidos a GitHub.");
+        const archivo = new File(
+            [blob],
+            nombreArchivo(),
+            { type: "image/png" }
+        );
+
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [archivo] })
+        ) {
+            await navigator.share({
+                title: "Control de barnices",
+                text: "Registro de ubicaciones de barnices.",
+                files: [archivo]
+            });
+        } else {
+            descargar(blob);
+            alert("La imagen se ha descargado. Después podrás compartirla por WhatsApp.");
+        }
+    } catch (error) {
+        if (error.name !== "AbortError") {
+            alert("No se pudo compartir la imagen. Prueba con GUARDAR IMAGEN.");
             console.error(error);
-        } finally {
-            boton.disabled = false;
-            boton.textContent = "GUARDAR IMAGEN";
         }
-    });
+    }
+});
 
-document.getElementById("compartirRegistro")
-    .addEventListener("click", async function() {
-        const boton = this;
-        boton.disabled = true;
-        boton.textContent = "PREPARANDO...";
-
-        try {
-            const blob = await generarPNG();
-            const archivo = new File(
-                [blob],
-                nombreArchivo(),
-                { type: "image/png" }
-            );
-
-            if (
-                navigator.share &&
-                navigator.canShare &&
-                navigator.canShare({ files: [archivo] })
-            ) {
-                await navigator.share({
-                    title: "Control de barnices",
-                    text: "Registro de ubicaciones de barnices.",
-                    files: [archivo]
-                });
-            } else {
-                descargarBlob(blob, nombreArchivo());
-
-                alert(
-                    "La imagen se ha descargado. Abre la imagen desde tu teléfono y utiliza Compartir para enviarla por WhatsApp."
-                );
-            }
-        } catch (error) {
-            if (error.name !== "AbortError") {
-                alert("No se pudo compartir el registro. Prueba con GUARDAR IMAGEN.");
-                console.error(error);
-            }
-        } finally {
-            boton.disabled = false;
-            boton.textContent = "COMPARTIR REGISTRO";
-        }
-    });
-
-// Cuatro filas vacías al abrir la aplicación.
+/* INICIALIZAR CUATRO FILAS */
 for (let i = 0; i < 4; i++) {
     crearFila();
 }
