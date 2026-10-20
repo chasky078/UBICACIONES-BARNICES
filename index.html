@@ -2,353 +2,1140 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#104d83">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123d70">
 <title>CONTROL DE BARNICES</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f5f8fc;color:#203b56;font-family:Arial,Helvetica,sans-serif}
-.contenedor{max-width:1200px;margin:auto;background:#fff;min-height:100vh}
-
-/* CABECERA */
-.cabecera{
- background:linear-gradient(110deg,#104477,#12609c);
- color:white;padding:20px 24px;display:flex;align-items:center;
- gap:20px;min-height:150px
+:root {
+    --azul: #123d70;
+    --azul-claro: #2878c8;
+    --azul-fondo: #edf4fb;
+    --borde: #c8d7e7;
+    --texto: #17283b;
+    --rojo: #e5232e;
 }
-.logo{
- width:135px;min-width:135px;min-height:95px;padding-right:18px;
- border-right:2px solid rgba(255,255,255,.55);
- display:flex;align-items:center;justify-content:center
+
+* {
+    box-sizing: border-box;
 }
-.logo img{display:block;width:105px;max-height:75px;object-fit:contain;background:#fff;padding:4px;border-radius:3px}
-.logo-texto{font-size:22px;font-weight:800}
-.titulos{min-width:0}
-.titulos h1{margin:0 0 5px;font-size:clamp(23px,4vw,36px);line-height:1.1}
-.subtitulo{font-size:clamp(15px,2.6vw,24px);margin-bottom:8px;color:#e6eff9}
-.firma{font-size:15px;color:#bcd8f5}
 
-/* FOTOGRAFÍAS */
-.foto-contenedor{padding:0 28px;background:#fff}
-.foto{display:block;width:100%;height:105px;object-fit:cover;object-position:center}
-
-/* CONTENIDO */
-.contenido{padding:15px 28px 25px}
-.fecha{color:#526b83;font-size:15px;margin:0 0 10px}
-h2{color:#123d67;font-size:24px;margin:0 0 20px}
-
-/* TABLA */
-.tabla{width:100%;border-collapse:collapse;table-layout:fixed;border:1px solid #b8cce0}
-.tabla th{
- background:#e5f0ff;color:#234a72;padding:13px 11px;
- text-align:left;font-size:15px;border-bottom:2px solid #104d83
+body {
+    margin: 0;
+    padding: 12px;
+    background: #edf2f7;
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
 }
-.tabla th:first-child,.tabla td:first-child{
- width:63%;border-right:3px solid #104d83
-}
-.tabla th:last-child,.tabla td:last-child{width:37%}
-.tabla td{border-bottom:1px solid #d5e0eb;padding:5px 10px;height:49px}
-.tabla tbody tr:nth-child(even){background:#f7f9fd}
 
-/* CAMPOS */
-.campo-barniz{
- display:block;width:100%;border:none;background:transparent;outline:none;
- padding:9px 1px;font-size:16px;color:#203b56;font-family:inherit;min-width:0
+.app {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 24px rgba(15, 45, 80, .12);
 }
-.campo-barniz:focus{box-shadow:inset 0 -2px #2583ce}
-.campo-ubicacion{display:flex;align-items:center;gap:4px;min-height:36px;background:transparent}
-.prefijo{font-weight:800;color:#104d83;min-width:0}
-.numero-ubicacion{
- width:100%;min-width:0;border:none;outline:none;background:transparent;
- color:#123d67;font-size:16px;font-weight:800;font-family:inherit;padding:9px 0
+
+.cabecera {
+    padding: 18px;
+    color: white;
+    background: linear-gradient(135deg, #10335d, #2878c8);
 }
-.numero-ubicacion:focus{box-shadow:inset 0 -2px #2583ce}
 
-/* BOTONES */
-.botones{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
-.boton{border:none;border-radius:8px;padding:13px 17px;font-size:14px;font-weight:bold;cursor:pointer;font-family:inherit}
-.boton-azul{background:#104d83;color:white}
-.boton-claro{background:#e8eff8;color:#123d67}
-.boton-rojo{background:#fff0f0;color:#a72c2c}
-.boton:active{transform:scale(.98)}
-
-/* PIE */
-.pie{text-align:center;padding:16px;color:#71849a;font-size:12px;border-top:1px solid #e5ebf2}
-
-/* MÓVIL */
-@media(max-width:600px){
- .cabecera{padding:16px 13px;gap:12px;min-height:125px}
- .logo{width:91px;min-width:91px;padding-right:10px;min-height:80px}
- .logo img{width:78px;max-height:65px}
- .logo-texto{font-size:17px}
- .titulos h1{font-size:23px}
- .subtitulo{font-size:15px}
- .firma{font-size:13px}
- .foto-contenedor{padding:0 12px}
- .foto{height:85px}
- .contenido{padding:13px 12px 20px}
- h2{font-size:21px}
- .tabla th{font-size:13px;padding:11px 7px}
- .tabla th:first-child,.tabla td:first-child{width:61%}
- .tabla th:last-child,.tabla td:last-child{width:39%}
- .tabla td{padding:4px 7px;height:47px}
- .campo-barniz,.numero-ubicacion{font-size:15px}
- .boton{padding:12px;font-size:13px}
+.cabecera-superior {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
-@media print{.botones{display:none}}
+
+.logo {
+    width: 125px;
+    height: 65px;
+    padding: 5px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+}
+
+.titulos {
+    flex: 1;
+    min-width: 0;
+}
+
+.titulos h1 {
+    margin: 0;
+    font-size: clamp(19px, 4vw, 29px);
+    line-height: 1.15;
+    font-weight: 900;
+}
+
+.titulos p {
+    margin: 7px 0 0;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.firma {
+    margin-top: 12px;
+    text-align: right;
+    color: #b9dcff;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.contenido {
+    padding: 16px;
+}
+
+.fecha-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding: 12px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: #f7faff;
+}
+
+.fecha-panel label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.fecha-panel input {
+    padding: 9px;
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    font-size: 15px;
+    color: var(--texto);
+    background: white;
+}
+
+.fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.foto {
+    display: block;
+    width: 100%;
+    height: 115px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: #f3f6fa;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border: 2px solid var(--azul);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    min-width: 310px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+col.descripcion-col {
+    width: 56%;
+}
+
+col.aviso-col {
+    width: 15%;
+}
+
+col.ubicacion-col {
+    width: 29%;
+}
+
+thead th {
+    background: var(--azul);
+    color: white;
+    padding: 12px 5px;
+    font-size: 11px;
+    letter-spacing: .3px;
+    line-height: 1.3;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+th, td {
+    border-right: 2px solid #367fc3;
+    border-bottom: 1px solid var(--borde);
+}
+
+th:last-child, td:last-child {
+    border-right: 0;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+td {
+    height: 54px;
+    padding: 5px;
+    background: white;
+}
+
+td input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 9px 5px;
+    border: 1px solid #d5e0ec;
+    border-radius: 5px;
+    outline: none;
+    background: #fbfdff;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+td input:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 2px rgba(40, 120, 200, .12);
+}
+
+.celda-aviso {
+    text-align: center;
+    padding: 4px 2px;
+}
+
+.marcador {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #c6d1de;
+    border-radius: 50%;
+    background: #f7f9fc;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.marcador .punto {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #b7c3d0;
+}
+
+.marcador.activo .punto {
+    background: var(--rojo);
+    border: 2px solid #c51620;
+    box-shadow: 0 0 0 2px rgba(229, 35, 46, .13);
+}
+
+.ubicacion-campo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.prefijo {
+    flex: 0 0 auto;
+    font-weight: 900;
+    font-size: 14px;
+    color: var(--azul);
+}
+
+.ubicacion-campo input {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.leyenda {
+    margin: 14px 0 18px;
+    padding: 12px;
+    border: 1px solid #f0b7bb;
+    border-left: 5px solid var(--rojo);
+    border-radius: 7px;
+    background: #fff7f7;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.leyenda-titulo {
+    color: #b51c25;
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.boton {
+    min-height: 46px;
+    padding: 12px 8px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.boton-azul {
+    background: var(--azul);
+    color: white;
+}
+
+.boton-claro {
+    background: #e5eef8;
+    color: var(--azul);
+    border: 1px solid #c4d7eb;
+}
+
+.boton-rojo {
+    background: #fff0f0;
+    color: #bd1f29;
+    border: 1px solid #efb6ba;
+}
+
+.pie {
+    padding: 12px;
+    background: #f2f6fb;
+    text-align: center;
+    color: #687b91;
+    font-size: 10px;
+    letter-spacing: .6px;
+}
+
+@media (max-width: 420px) {
+    body {
+        padding: 7px;
+    }
+
+    .contenido {
+        padding: 10px;
+    }
+
+    .cabecera {
+        padding: 13px;
+    }
+
+    .logo {
+        width: 94px;
+        height: 57px;
+    }
+
+    .cabecera-superior {
+        gap: 10px;
+    }
+
+    .titulos p {
+        font-size: 10px;
+        letter-spacing: .7px;
+    }
+
+    .foto {
+        height: 95px;
+    }
+
+    thead th {
+        padding: 10px 3px;
+        font-size: 10px;
+    }
+
+    td input {
+        font-size: 13px;
+        padding: 9px 3px;
+    }
+
+    .marcador {
+        width: 31px;
+        height: 31px;
+    }
+
+    .marcador .punto {
+        width: 17px;
+        height: 17px;
+    }
+
+    .prefijo {
+        font-size: 12px;
+    }
+
+    .boton {
+        font-size: 11px;
+    }
+}
 </style>
 </head>
 
 <body>
-<div class="contenedor">
 
-<header class="cabecera">
- <div class="logo">
-  <img id="logoSonoco"
-   src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Sonoco.svg"
-   alt="SONOCO"
-   onerror="this.style.display='none';document.getElementById('logoTexto').style.display='block'">
-  <span id="logoTexto" class="logo-texto" style="display:none">SONOCO</span>
- </div>
- <div class="titulos">
-  <h1>CONTROL DE BARNICES</h1>
-  <div class="subtitulo">REGISTRO DE UBICACIONES</div>
-  <div class="firma">By Rubén D. 268</div>
- </div>
-</header>
+<div class="app" id="aplicacion">
 
-<div class="foto-contenedor">
- <img class="foto" src="IMG_5503.jpeg" alt="">
-</div>
+    <header class="cabecera">
+        <div class="cabecera-superior">
 
-<main class="contenido">
- <p class="fecha">FECHA DEL REGISTRO: <span id="fechaRegistro"></span></p>
- <h2>REGISTRO DE BARNICES</h2>
+            <img
+                id="logoSonoco"
+                class="logo"
+                src="IMG_5518.jpeg"
+                alt="SONOCO"
+            >
 
- <table class="tabla">
-  <thead>
-   <tr>
-    <th>DESCRIPCIÓN / BARNIZ</th>
-    <th>UBICACIÓN</th>
-   </tr>
-  </thead>
-  <tbody id="filas"></tbody>
- </table>
+            <div class="titulos">
+                <h1>CONTROL DE BARNICES</h1>
+                <p>REGISTRO DE UBICACIONES</p>
+            </div>
 
- <div class="botones">
-  <button class="boton boton-azul" onclick="anadirFila(true)">+ AÑADIR FILA</button>
-  <button class="boton boton-claro" onclick="compartirRegistro()">COMPARTIR REGISTRO</button>
-  <button class="boton boton-claro" onclick="descargarRegistro()">GUARDAR IMAGEN</button>
-  <button class="boton boton-rojo" onclick="limpiarRegistro()">LIMPIAR REGISTRO</button>
- </div>
-</main>
+        </div>
 
-<div class="foto-contenedor">
- <img class="foto" src="IMG_5504.jpeg" alt="">
-</div>
+        <div class="firma">By Rubén D. 268</div>
+    </header>
 
-<footer class="pie">CONTROL DE BARNICES · SONOCO</footer>
+    <main class="contenido">
+
+        <div class="fecha-panel">
+            <label for="fechaRegistro">FECHA DEL REGISTRO</label>
+            <input type="date" id="fechaRegistro">
+        </div>
+
+        <section class="fotos" aria-label="Fotografías de referencia">
+
+            <img
+                class="foto"
+                src="IMG_5503.jpeg"
+                alt="Fotografía de referencia superior"
+            >
+
+            <img
+                class="foto"
+                src="IMG_5504.jpeg"
+                alt="Fotografía de referencia inferior"
+            >
+
+        </section>
+
+        <div class="tabla-contenedor">
+
+            <table id="tablaBarnices">
+
+                <colgroup>
+                    <col class="descripcion-col">
+                    <col class="aviso-col">
+                    <col class="ubicacion-col">
+                </colgroup>
+
+                <thead>
+                    <tr>
+                        <th>DESCRIPCIÓN / BARNIZ</th>
+                        <th>AVISO</th>
+                        <th>UBICACIÓN</th>
+                    </tr>
+                </thead>
+
+                <tbody id="filasBarnices"></tbody>
+
+            </table>
+
+        </div>
+
+        <div class="leyenda">
+            <div class="leyenda-titulo">
+                🔴 AVISO DE TRASVASE
+            </div>
+
+            Marca con el símbolo rojo los barnices que requieren un
+            trasvase de producto debido a su bajo nivel de contenido.
+        </div>
+
+        <div class="botones">
+
+            <button
+                class="boton boton-azul"
+                type="button"
+                id="anadirFila"
+            >
+                + AÑADIR FILA
+            </button>
+
+            <button
+                class="boton boton-azul"
+                type="button"
+                id="compartirRegistro"
+            >
+                COMPARTIR REGISTRO
+            </button>
+
+            <button
+                class="boton boton-claro"
+                type="button"
+                id="guardarImagen"
+            >
+                GUARDAR IMAGEN
+            </button>
+
+            <button
+                class="boton boton-rojo"
+                type="button"
+                id="limpiarRegistro"
+            >
+                LIMPIAR REGISTRO
+            </button>
+
+        </div>
+
+    </main>
+
+    <footer class="pie">
+        CONTROL INTERNO · REGISTRO DE BARNICES
+    </footer>
+
 </div>
 
 <script>
-const ubicaciones={
- "814.449":"W02008",
- "MKB113T":"W02009",
- "818.083":"W02007",
- "110.496":"W02010",
- "DISOLVENTE":"W02006",
- "MKW1301T":"W02005",
- "450.148":"W02004",
- "816.621":"W02003",
- "814.509":"W02002"
+"use strict";
+
+/*
+ * UBICACIONES CONOCIDAS
+ * Se normalizan puntos, espacios, guiones y mayúsculas.
+ */
+const ubicacionesConocidas = {
+    "814449": "W02008",
+    "MKB113T": "W02009",
+    "818083": "W02007",
+    "110496": "W02010",
+    "DISOLVENTE": "W02006",
+    "MKW1301T": "W02005",
+    "450148": "W02004",
+    "816621": "W02003",
+    "814509": "W02002"
 };
 
-function normalizar(texto){
- return String(texto||"").trim().toUpperCase().replace(/[.\s-]/g,"");
+const cuerpoTabla = document.getElementById("filasBarnices");
+const campoFecha = document.getElementById("fechaRegistro");
+
+function fechaLocalISO() {
+    const ahora = new Date();
+    const desfase = ahora.getTimezoneOffset() * 60000;
+
+    return new Date(ahora.getTime() - desfase)
+        .toISOString()
+        .slice(0, 10);
 }
 
-function buscarUbicacion(descripcion){
- const codigo=normalizar(descripcion);
- if(!codigo)return null;
- for(const clave in ubicaciones){
-  if(normalizar(clave)===codigo)return ubicaciones[clave];
- }
- return null;
+campoFecha.value = fechaLocalISO();
+
+function normalizarBarniz(texto) {
+    return String(texto || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[.\s-]/g, "");
 }
 
-function actualizarFecha(){
- const ahora=new Date();
- const fecha=ahora.toLocaleDateString("es-ES",{day:"2-digit",month:"2-digit",year:"2-digit"});
- const hora=ahora.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit",hour12:false});
- document.getElementById("fechaRegistro").textContent=fecha+", "+hora;
-}
-actualizarFecha();
-
-function anadirFila(enfocar=false){
- const fila=document.createElement("tr");
- fila.innerHTML=`
- <td><input class="campo-barniz" type="text" autocomplete="off" aria-label="Descripción del barniz"></td>
- <td><div class="campo-ubicacion"><span class="prefijo"></span><input class="numero-ubicacion" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Número de ubicación"></div></td>`;
- document.getElementById("filas").appendChild(fila);
-
- const descripcion=fila.querySelector(".campo-barniz");
- const prefijo=fila.querySelector(".prefijo");
- const numero=fila.querySelector(".numero-ubicacion");
-
- descripcion.addEventListener("input",function(){
-  const texto=this.value.trim();
-  const ubicacion=buscarUbicacion(texto);
-
-  if(!texto){
-   prefijo.textContent="";
-   numero.value="";
-  }else if(ubicacion){
-   prefijo.textContent=ubicacion.charAt(0);
-   numero.value=ubicacion.substring(1);
-  }else{
-   prefijo.textContent="A";
-  }
- });
-
- numero.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
- });
-
- if(enfocar)setTimeout(()=>descripcion.focus(),100);
- return fila;
+function obtenerFilas() {
+    return Array.from(cuerpoTabla.querySelectorAll("tr"));
 }
 
-for(let i=0;i<4;i++)anadirFila();
+function crearFila(descripcion = "", prefijo = "", numero = "", marcado = false) {
+    const fila = document.createElement("tr");
 
-function obtenerDatos(){
- const datos=[];
- document.querySelectorAll("#filas tr").forEach(fila=>{
-  const descripcion=fila.querySelector(".campo-barniz").value.trim();
-  const prefijo=fila.querySelector(".prefijo").textContent;
-  const numero=fila.querySelector(".numero-ubicacion").value.trim();
-  if(descripcion||numero)datos.push({descripcion,ubicacion:prefijo+numero});
- });
- return datos;
+    const celdaDescripcion = document.createElement("td");
+    const entradaDescripcion = document.createElement("input");
+
+    entradaDescripcion.type = "text";
+    entradaDescripcion.placeholder = "Barniz...";
+    entradaDescripcion.autocomplete = "off";
+    entradaDescripcion.setAttribute("aria-label", "Descripción del barniz");
+    entradaDescripcion.value = descripcion;
+
+    celdaDescripcion.appendChild(entradaDescripcion);
+
+    const celdaAviso = document.createElement("td");
+    celdaAviso.className = "celda-aviso";
+
+    const botonMarcador = document.createElement("button");
+    botonMarcador.type = "button";
+    botonMarcador.className = "marcador";
+    botonMarcador.setAttribute("aria-label", "Marcar aviso de trasvase");
+    botonMarcador.setAttribute("aria-pressed", "false");
+    botonMarcador.innerHTML = '<span class="punto"></span>';
+
+    celdaAviso.appendChild(botonMarcador);
+
+    const celdaUbicacion = document.createElement("td");
+    const contenedorUbicacion = document.createElement("div");
+    contenedorUbicacion.className = "ubicacion-campo";
+
+    const etiquetaPrefijo = document.createElement("span");
+    etiquetaPrefijo.className = "prefijo";
+    etiquetaPrefijo.textContent = prefijo;
+
+    const entradaNumero = document.createElement("input");
+    entradaNumero.type = "text";
+    entradaNumero.inputMode = "numeric";
+    entradaNumero.autocomplete = "off";
+    entradaNumero.placeholder = "N.º";
+    entradaNumero.setAttribute("aria-label", "Número de ubicación");
+    entradaNumero.value = numero;
+
+    contenedorUbicacion.appendChild(etiquetaPrefijo);
+    contenedorUbicacion.appendChild(entradaNumero);
+    celdaUbicacion.appendChild(contenedorUbicacion);
+
+    fila.appendChild(celdaDescripcion);
+    fila.appendChild(celdaAviso);
+    fila.appendChild(celdaUbicacion);
+
+    cuerpoTabla.appendChild(fila);
+
+    function actualizarUbicacion() {
+        const original = entradaDescripcion.value.trim();
+        const clave = normalizarBarniz(original);
+
+        if (!original) {
+            etiquetaPrefijo.textContent = "";
+            entradaNumero.value = "";
+            return;
+        }
+
+        const ubicacion = ubicacionesConocidas[clave];
+
+        if (ubicacion) {
+            etiquetaPrefijo.textContent = ubicacion.charAt(0);
+            entradaNumero.value = ubicacion.slice(1);
+        } else {
+            etiquetaPrefijo.textContent = "A";
+            entradaNumero.value = entradaNumero.value.replace(/\D/g, "");
+        }
+    }
+
+    entradaDescripcion.addEventListener("input", actualizarUbicacion);
+
+    entradaNumero.addEventListener("input", function() {
+        const posicion = entradaNumero.selectionStart;
+        const valorAnterior = entradaNumero.value;
+
+        entradaNumero.value = valorAnterior.replace(/\D/g, "");
+
+        try {
+            entradaNumero.setSelectionRange(posicion, posicion);
+        } catch (error) {}
+
+        // Si es un barniz conocido, su ubicación automática se conserva.
+        const clave = normalizarBarniz(entradaDescripcion.value);
+
+        if (ubicacionesConocidas[clave]) {
+            const ubicacion = ubicacionesConocidas[clave];
+            etiquetaPrefijo.textContent = ubicacion.charAt(0);
+            entradaNumero.value = ubicacion.slice(1);
+        }
+    });
+
+    botonMarcador.addEventListener("click", function() {
+        const activo = botonMarcador.classList.toggle("activo");
+
+        botonMarcador.setAttribute("aria-pressed", String(activo));
+        botonMarcador.setAttribute(
+            "aria-label",
+            activo
+                ? "Quitar aviso de trasvase"
+                : "Marcar aviso de trasvase"
+        );
+    });
+
+    if (marcado) {
+        botonMarcador.classList.add("activo");
+        botonMarcador.setAttribute("aria-pressed", "true");
+    }
+
+    actualizarUbicacion();
+
+    if (descripcion && !ubicacionesConocidas[normalizarBarniz(descripcion)]) {
+        entradaNumero.value = numero;
+    }
+
+    return fila;
 }
 
-async function crearImagenRegistro(){
- const ancho=1200,margen=28,anchoInterior=ancho-margen*2;
- const altoCabecera=150,altoFoto=105,altoFecha=40,altoEncabezado=44,altoFila=50;
- const datos=obtenerDatos(),cantidad=Math.max(datos.length,1);
- const alto=altoCabecera+altoFoto+22+altoFecha+27+altoEncabezado+cantidad*altoFila+20+altoFoto+30;
- const canvas=document.createElement("canvas");
- canvas.width=ancho;canvas.height=alto;
- const ctx=canvas.getContext("2d");
- ctx.fillStyle="#fff";ctx.fillRect(0,0,ancho,alto);
-
- const gradiente=ctx.createLinearGradient(0,0,ancho,0);
- gradiente.addColorStop(0,"#104477");gradiente.addColorStop(1,"#12609c");
- ctx.fillStyle=gradiente;ctx.fillRect(0,0,ancho,altoCabecera);
-
- ctx.fillStyle="#fff";ctx.font="bold 25px Arial";ctx.fillText("SONOCO",28,78);
- ctx.font="bold 36px Arial";ctx.fillText("CONTROL DE BARNICES",180,61);
- ctx.fillStyle="#e6eff9";ctx.font="24px Arial";ctx.fillText("REGISTRO DE UBICACIONES",182,95);
- ctx.fillStyle="#bcd8f5";ctx.font="15px Arial";ctx.fillText("By Rubén D. 268",182,124);
-
- function cargarFoto(ruta){
-  return new Promise(resolve=>{
-   const img=new Image();
-   img.onload=()=>resolve(img);
-   img.onerror=()=>resolve(null);
-   img.src=ruta;
-  });
- }
-
- function dibujarFoto(img,x,y,w,h){
-  if(!img)return;
-  const escala=Math.max(w/img.width,h/img.height);
-  const sw=w/escala,sh=h/escala;
-  ctx.drawImage(img,(img.width-sw)/2,(img.height-sh)/2,sw,sh,x,y,w,h);
- }
-
- let y=altoCabecera;
- dibujarFoto(await cargarFoto("IMG_5503.jpeg"),margen,y,anchoInterior,altoFoto);
- y+=altoFoto+22;
- actualizarFecha();
-
- ctx.fillStyle="#526b83";ctx.font="16px Arial";
- ctx.fillText("FECHA DEL REGISTRO: "+document.getElementById("fechaRegistro").textContent,margen,y);
- y+=altoFecha;
- ctx.fillStyle="#123d67";ctx.font="bold 25px Arial";
- ctx.fillText("REGISTRO DE BARNICES",margen,y);
- y+=27;
-
- const separacion=margen+anchoInterior*0.63;
- ctx.fillStyle="#e5f0ff";ctx.fillRect(margen,y,anchoInterior,altoEncabezado);
- ctx.fillStyle="#234a72";ctx.font="bold 16px Arial";
- ctx.fillText("DESCRIPCIÓN / BARNIZ",margen+12,y+28);
- ctx.fillText("UBICACIÓN",separacion+12,y+28);
- ctx.strokeStyle="#104d83";ctx.lineWidth=3;
- ctx.beginPath();ctx.moveTo(separacion,y);ctx.lineTo(separacion,y+altoEncabezado+cantidad*altoFila);ctx.stroke();
- y+=altoEncabezado;
-
- for(let i=0;i<cantidad;i++){
-  const dato=datos[i]||{descripcion:"",ubicacion:""};
-  ctx.fillStyle=i%2===0?"#fff":"#f7f9fd";
-  ctx.fillRect(margen,y,anchoInterior,altoFila);
-  ctx.strokeStyle="#dce5ef";ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(margen,y+altoFila);ctx.lineTo(margen+anchoInterior,y+altoFila);ctx.stroke();
-  ctx.fillStyle="#203b56";ctx.font="17px Arial";
-  ctx.fillText(dato.descripcion,margen+12,y+31);
-  ctx.fillStyle="#123d67";ctx.font="bold 17px Arial";
-  ctx.fillText(dato.ubicacion,separacion+12,y+31);
-  y+=altoFila;
- }
-
- y+=20;
- dibujarFoto(await cargarFoto("IMG_5504.jpeg"),margen,y,anchoInterior,altoFoto);
- return canvas;
+function anadirFila() {
+    const fila = crearFila();
+    fila.querySelector("td:first-child input").focus();
 }
 
-async function descargarRegistro(){
- try{
-  const canvas=await crearImagenRegistro();
-  const enlace=document.createElement("a");
-  enlace.download="control-barnices.png";
-  enlace.href=canvas.toDataURL("image/png");
-  enlace.click();
- }catch(e){
-  alert("No se pudo crear la imagen. Comprueba las fotografías.");
- }
+function limpiarRegistro() {
+    const confirmar = window.confirm(
+        "¿Quieres borrar todas las filas y empezar un registro nuevo?"
+    );
+
+    if (!confirmar) return;
+
+    cuerpoTabla.innerHTML = "";
+
+    for (let i = 0; i < 4; i++) {
+        crearFila();
+    }
+
+    campoFecha.value = fechaLocalISO();
 }
 
-async function compartirRegistro(){
- try{
-  const canvas=await crearImagenRegistro();
-  const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
-  if(!blob)throw new Error("Imagen no disponible");
-  const archivo=new File([blob],"control-barnices.png",{type:"image/png"});
+document.getElementById("anadirFila")
+    .addEventListener("click", anadirFila);
 
-  if(navigator.share&&navigator.canShare&&navigator.canShare({files:[archivo]})){
-   await navigator.share({files:[archivo],title:"Control de barnices"});
-  }else{
-   const url=URL.createObjectURL(blob);
-   const enlace=document.createElement("a");
-   enlace.href=url;enlace.download="control-barnices.png";enlace.click();
-   setTimeout(()=>URL.revokeObjectURL(url),3000);
-   alert("Imagen descargada. Puedes compartirla desde Fotos por WhatsApp.");
-  }
- }catch(e){
-  if(e.name!=="AbortError")alert("No se pudo compartir. Prueba GUARDAR IMAGEN.");
- }
+document.getElementById("limpiarRegistro")
+    .addEventListener("click", limpiarRegistro);
+
+/*
+ * GENERACIÓN DE IMAGEN PNG
+ * Dibuja el registro completo, las dos fotografías,
+ * el logo, las ubicaciones y los avisos rojos.
+ */
+
+function cargarImagen(src) {
+    return new Promise(function(resolve) {
+        const img = new Image();
+
+        img.onload = function() {
+            resolve(img);
+        };
+
+        img.onerror = function() {
+            resolve(null);
+        };
+
+        img.src = src;
+    });
 }
 
-function limpiarRegistro(){
- if(!confirm("¿Quieres borrar todas las filas del registro?"))return;
- document.getElementById("filas").innerHTML="";
- for(let i=0;i<4;i++)anadirFila();
- actualizarFecha();
+function redondearRectangulo(ctx, x, y, ancho, alto, radio) {
+    ctx.beginPath();
+    ctx.roundRect(x, y, ancho, alto, radio);
 }
 
-document.addEventListener("visibilitychange",()=>{
- if(!document.hidden)actualizarFecha();
-});
+function dibujarImagenRecortada(ctx, img, x, y, ancho, alto) {
+    if (!img) {
+        ctx.fillStyle = "#eef3f8";
+        ctx.fillRect(x, y, ancho, alto);
+        return;
+    }
+
+    const escala = Math.max(ancho / img.width, alto / img.height);
+    const anchoOrigen = ancho / escala;
+    const altoOrigen = alto / escala;
+    const sx = (img.width - anchoOrigen) / 2;
+    const sy = (img.height - altoOrigen) / 2;
+
+    ctx.drawImage(
+        img,
+        sx, sy, anchoOrigen, altoOrigen,
+        x, y, ancho, alto
+    );
+}
+
+async function generarPNG() {
+    const logo = await cargarImagen("IMG_5518.jpeg");
+    const foto1 = await cargarImagen("IMG_5503.jpeg");
+    const foto2 = await cargarImagen("IMG_5504.jpeg");
+
+    const ancho = 1200;
+    const margen = 55;
+    const anchoInterior = ancho - margen * 2;
+
+    const filas = obtenerFilas().map(function(fila) {
+        const entradas = fila.querySelectorAll("input");
+        const prefijo = fila.querySelector(".prefijo").textContent;
+        const boton = fila.querySelector(".marcador");
+
+        return {
+            descripcion: entradas[0].value.trim(),
+            prefijo: prefijo,
+            numero: entradas[1].value.trim(),
+            marcado: boton.classList.contains("activo")
+        };
+    });
+
+    const altoFila = 66;
+    const altoCabeceraTabla = 62;
+    const altoFotos = 125;
+    const altoFecha = 55;
+    const altoCabecera = 155;
+    const altoLeyenda = 100;
+    const altoBotonera = 30;
+
+    const alto =
+        margen +
+        altoCabecera +
+        25 +
+        altoFecha +
+        22 +
+        altoFotos * 2 + 20 +
+        altoCabeceraTabla +
+        filas.length * altoFila +
+        25 +
+        altoLeyenda +
+        altoBotonera +
+        margen;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = ancho;
+    canvas.height = alto;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, ancho, alto);
+
+    let y = margen;
+
+    // Cabecera.
+    const gradiente = ctx.createLinearGradient(0, y, ancho, y + altoCabecera);
+    gradiente.addColorStop(0, "#10335d");
+    gradiente.addColorStop(1, "#2878c8");
+
+    ctx.fillStyle = gradiente;
+    ctx.fillRect(0, y, ancho, altoCabecera);
+
+    // Logo original.
+    if (logo) {
+        const proporcion = Math.min(180 / logo.width, 90 / logo.height);
+        const logoAncho = logo.width * proporcion;
+        const logoAlto = logo.height * proporcion;
+
+        ctx.fillStyle = "#ffffff";
+        redondearRectangulo(ctx, margen, y + 27, 190, 95, 9);
+        ctx.fill();
+
+        ctx.drawImage(
+            logo,
+            margen + (190 - logoAncho) / 2,
+            y + 27 + (95 - logoAlto) / 2,
+            logoAncho,
+            logoAlto
+        );
+    } else {
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 30px Arial";
+        ctx.fillText("SONOCO", margen, y + 78);
+    }
+
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "left";
+    ctx.font = "bold 38px Arial";
+    ctx.fillText("CONTROL DE BARNICES", margen + 215, y + 66);
+
+    ctx.font = "bold 20px Arial";
+    ctx.fillText("REGISTRO DE UBICACIONES", margen + 215, y + 101);
+
+    ctx.fillStyle = "#b9dcff";
+    ctx.font = "16px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText("By Rubén D. 268", ancho - margen, y + 137);
+
+    y += altoCabecera + 25;
+
+    // Fecha.
+    ctx.fillStyle = "#f3f7fc";
+    ctx.fillRect(margen, y, anchoInterior, altoFecha);
+
+    ctx.strokeStyle = "#c8d7e7";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(margen, y, anchoInterior, altoFecha);
+
+    ctx.fillStyle = "#123d70";
+    ctx.textAlign = "left";
+    ctx.font = "bold 21px Arial";
+    ctx.fillText("FECHA DEL REGISTRO:", margen + 18, y + 34);
+
+    ctx.fillStyle = "#17283b";
+    ctx.font = "21px Arial";
+    ctx.fillText(campoFecha.value || fechaLocalISO(), margen + 280, y + 34);
+
+    y += altoFecha + 22;
+
+    // Fotografías: una arriba y otra debajo.
+    dibujarImagenRecortada(ctx, foto1, margen, y, anchoInterior, altoFotos);
+    ctx.strokeStyle = "#c8d7e7";
+    ctx.strokeRect(margen, y, anchoInterior, altoFotos);
+
+    y += altoFotos + 12;
+
+    dibujarImagenRecortada(ctx, foto2, margen, y, anchoInterior, altoFotos);
+    ctx.strokeRect(margen, y, anchoInterior, altoFotos);
+
+    y += altoFotos + 20;
+
+    // Tabla de tres columnas.
+    const x = margen;
+    const anchoDescripcion = Math.round(anchoInterior * 0.56);
+    const anchoAviso = Math.round(anchoInterior * 0.15);
+    const anchoUbicacion = anchoInterior - anchoDescripcion - anchoAviso;
+
+    const xDescripcion = x;
+    const xAviso = x + anchoDescripcion;
+    const xUbicacion = xAviso + anchoAviso;
+
+    ctx.fillStyle = "#123d70";
+    ctx.fillRect(x, y, anchoInterior, altoCabeceraTabla);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "center";
+    ctx.font = "bold 19px Arial";
+    ctx.fillText(
+        "DESCRIPCIÓN / BARNIZ",
+        xDescripcion + anchoDescripcion / 2,
+        y + 37
+    );
+
+    ctx.font = "bold 18px Arial";
+    ctx.fillText(
+        "AVISO",
+        xAviso + anchoAviso / 2,
+        y + 37
+    );
+
+    ctx.fillText(
+        "UBICACIÓN",
+        xUbicacion + anchoUbicacion / 2,
+        y + 37
+    );
+
+    y += altoCabeceraTabla;
+
+    filas.forEach(function(fila, indice) {
+        ctx.fillStyle = indice % 2 === 0 ? "#ffffff" : "#f5f9fd";
+        ctx.fillRect(x, y, anchoInterior, altoFila);
+
+        ctx.strokeStyle = "#c8d7e7";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, y, anchoInterior, altoFila);
+
+        // Divisiones verticales azules.
+        ctx.strokeStyle = "#367fc3";
+        ctx.lineWidth = 3;
+
+        ctx.beginPath();
+        ctx.moveTo(xAviso, y);
+        ctx.lineTo(xAviso, y + altoFila);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(xUbicacion, y);
+        ctx.lineTo(xUbicacion, y + altoFila);
+        ctx.stroke();
+
+        ctx.fillStyle = "#17283b";
+        ctx.textAlign = "left";
+        ctx.font = "22px Arial";
+
+        let descripcion = fila.descripcion;
+
+        while (
+            descripcion.length > 2 &&
+            ctx.measureText(descripcion).width > anchoDescripcion - 25
+        ) {
+            descripcion = descripcion.slice(0, -1);
+        }
+
+        if (descripcion !== fila.descripcion && descripcion.length > 2) {
+            descripcion = descripcion.slice(0, -1) + "…";
+        }
+
+        ctx.fillText(
+            descripcion,
+            xDescripcion + 14,
+            y + 40
+        );
+
+        // Círculo de aviso, rojo cuando está activado.
+        const centroX = xAviso + anchoAviso / 2;
+        const centroY = y + altoFila / 2;
+
+        ctx.beginPath();
+        ctx.arc(centroX, centroY, 15, 0, Math.PI * 2);
+
+        if (fila.marcado) {
+            ctx.fillStyle = "#e5232e";
+            ctx.fill();
+            ctx.strokeStyle = "#c51620";
+        } else {
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.strokeStyle = "#b7c3d0";
+        }
+
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Ubicación.
+        ctx.fillStyle = "#123d70";
+        ctx.textAlign = "center";
+        ctx.font = "bold 23px Arial";
+
+        const ubicacion = fila.prefijo + fila.numero;
+
+        ctx.fillText(
+            ubicacion,
+            xUbicacion + anchoUbicacion / 2,
+            y + 40
+        );
+
+        y += altoFila;
+    });
+
+    y += 25;
+
+    // Leyenda profesional.
+    ctx.fillStyle = "#fff7f7";
+    ctx.fillRect(margen, y, anchoInterior, altoLeyenda);
+
+    ctx.strokeStyle = "#e5232e";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(margen, y, anchoInterior, altoLeyenda);
+
+    ctx.fillStyle = "#b51c25";
+    ctx.textAlign = "left";
+    ctx.font = "bold 21px Arial";
+    ctx.fillText("AVISO DE TRASVASE", margen + 18, y + 32);
+
+    ctx.fillStyle = "#17283b";
+    ctx.font = "18px Arial";
+    ctx.fillText(
+        "Marca con el símbolo rojo los barnices que requieren un",
+        margen + 18,
+        y + 59
+    );
+    ctx.fillText(
+        "trasvase de producto debido a su bajo nivel de contenido.",
+        margen + 18,
+        y + 83
+    );
+
+    y += altoLeyenda + altoBotonera;
+
+    ctx.fillStyle = "#687b91";
+    ctx.textAlign = "center";
+    ctx.font = "15px Arial";
+    ctx.fillText(
+        "CONTROL INTERNO · REGISTRO DE BARNICES",
+        ancho / 2,
+        Math.min(y, alto - 20)
+    );
+
+    return new Promise(function(resolve, reject) {
+        canvas.toBlob(function(blob) {
+            if (!blob) {
+                reject(new Error("No se pudo crear la imagen PNG."));
+                return;
+            }
+
+            resolve(blob);
+        }, "image/png");
+    });
+}
+
+function descargarBlob(blob, nombre) {
+    const url = URL.createObjectURL(blob);
+    const enlace = document.createElement("a");
+
+    enlace.href = url;
+    enlace.download = nombre;
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+
+    setTimeout(function() {
+        URL.revokeObjectURL(url);
+    }, 3000);
+}
+
+function nombreArchivo() {
+    return "CONTROL-BARNICES-" +
+        (campoFecha.value || fechaLocalISO()) +
+        ".png";
+}
+
+document.getElementById("guardarImagen")
+    .addEventListener("click", async function() {
+        const boton = this;
+        boton.disabled = true;
+        boton.textContent = "GENERANDO IMAGEN...";
+
+        try {
+            const blob = await generarPNG();
+            descargarBlob(blob, nombreArchivo());
+        } catch (error) {
+            alert("No se pudo generar la imagen. Comprueba que las fotos y el logo estén subidos a GitHub.");
+            console.error(error);
+        } finally {
+            boton.disabled = false;
+            boton.textContent = "GUARDAR IMAGEN";
+        }
+    });
+
+document.getElementById("compartirRegistro")
+    .addEventListener("click", async function() {
+        const boton = this;
+        boton.disabled = true;
+        boton.textContent = "PREPARANDO...";
+
+        try {
+            const blob = await generarPNG();
+            const archivo = new File(
+                [blob],
+                nombreArchivo(),
+                { type: "image/png" }
+            );
+
+            if (
+                navigator.share &&
+                navigator.canShare &&
+                navigator.canShare({ files: [archivo] })
+            ) {
+                await navigator.share({
+                    title: "Control de barnices",
+                    text: "Registro de ubicaciones de barnices.",
+                    files: [archivo]
+                });
+            } else {
+                descargarBlob(blob, nombreArchivo());
+
+                alert(
+                    "La imagen se ha descargado. Abre la imagen desde tu teléfono y utiliza Compartir para enviarla por WhatsApp."
+                );
+            }
+        } catch (error) {
+            if (error.name !== "AbortError") {
+                alert("No se pudo compartir el registro. Prueba con GUARDAR IMAGEN.");
+                console.error(error);
+            }
+        } finally {
+            boton.disabled = false;
+            boton.textContent = "COMPARTIR REGISTRO";
+        }
+    });
+
+// Cuatro filas vacías al abrir la aplicación.
+for (let i = 0; i < 4; i++) {
+    crearFila();
+}
 </script>
+
 </body>
 </html>
