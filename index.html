@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#194f7d">
-<title>CONTROL DE BARNICES | SONOCO</title>
+<title>CONTROL DE BARNICES - SONOCO</title>
 
 <style>
 :root {
     --azul: #194f7d;
-    --azul-oscuro: #123c60;
+    --azul2: #216c9b;
     --azul-claro: #e7f0fa;
     --borde: #cbd8e6;
     --rojo: #d71930;
-    --fondo: #edf2f8;
     --texto: #243447;
 }
 
@@ -23,9 +22,9 @@
 
 body {
     margin: 0;
-    padding: 18px 12px 30px;
+    padding: 12px 7px 25px;
+    background: #edf2f8;
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--fondo);
     color: var(--texto);
 }
 
@@ -34,36 +33,38 @@ body {
     max-width: 760px;
     margin: auto;
     background: white;
-    border-radius: 18px;
+    border-radius: 17px;
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(22, 57, 89, .12);
+    box-shadow: 0 4px 20px rgba(20, 55, 85, .10);
 }
+
+/* CABECERA SONOCO */
 
 .cabecera {
     background: linear-gradient(120deg, #174a76, #216c9b);
     color: white;
-    padding: 25px 20px 22px;
+    padding: 20px 16px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    min-height: 155px;
+    gap: 13px;
 }
 
 .logo {
-    width: 118px;
-    max-width: 34%;
+    width: 100px;
+    max-width: 30%;
     height: auto;
+    max-height: 105px;
     object-fit: contain;
     background: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 4px;
 }
 
 .separador {
-    width: 3px;
-    min-width: 3px;
+    width: 2px;
+    min-width: 2px;
     align-self: stretch;
-    background: rgba(255,255,255,.7);
+    background: rgba(255,255,255,.65);
 }
 
 .titulos {
@@ -72,84 +73,107 @@ body {
 }
 
 .titulos h1 {
-    font-size: clamp(20px, 4.5vw, 30px);
+    margin: 0 0 7px;
+    font-size: clamp(19px, 4.5vw, 29px);
     line-height: 1.12;
-    margin: 0 0 10px;
 }
 
 .titulos p {
     margin: 0;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-size: clamp(12px, 3vw, 17px);
+    line-height: 1.35;
 }
 
 .firma {
-    margin-top: 17px;
+    margin-top: 12px;
     text-align: right;
-    font-size: 14px;
-    color: #c8ddf1;
+    color: #d0e1f1;
     font-weight: bold;
+    font-size: 13px;
 }
 
+/* CONTENIDO */
+
 .contenido {
-    padding: 20px;
+    padding: 15px;
 }
 
 .fecha-caja {
+    margin-bottom: 18px;
+    padding: 13px 8px;
     border: 2px solid var(--borde);
+    border-radius: 10px;
     background: #f5f8fc;
-    border-radius: 12px;
-    padding: 15px 10px;
     text-align: center;
-    margin-bottom: 28px;
 }
 
 .fecha {
+    color: var(--azul);
     font-size: 19px;
     font-weight: bold;
-    color: var(--azul);
 }
 
 .hora {
     margin-top: 5px;
-    font-size: 16px;
     color: #526579;
+    font-size: 15px;
 }
+
+/* FOTOGRAFÍAS */
 
 .foto {
     display: block;
     width: 100%;
-    height: 180px;
+    height: 145px;
     object-fit: cover;
-    border-radius: 9px;
     border: 2px solid #d6e0eb;
-    margin: 0 0 22px;
+    border-radius: 8px;
+    margin: 0 0 18px;
 }
+
+.foto-inferior {
+    margin: 20px 0 0;
+}
+
+/* TABLA */
 
 .tabla-contenedor {
     width: 100%;
-    border: 3px solid var(--azul);
-    border-radius: 8px;
+    border: 2px solid var(--azul);
+    border-radius: 7px;
     overflow: hidden;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 
 .tabla {
     width: 100%;
-    border-collapse: collapse;
     table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.col-descripcion {
+    width: 57%;
+}
+
+.col-aviso {
+    width: 14%;
+}
+
+.col-ubicacion {
+    width: 29%;
 }
 
 .tabla th {
+    padding: 12px 3px;
     background: var(--azul-claro);
     color: #24496d;
-    padding: 15px 5px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 800;
+    line-height: 1.25;
+    text-align: center;
     border-bottom: 3px solid var(--azul);
     border-right: 3px solid var(--azul);
-    line-height: 1.3;
+    overflow-wrap: anywhere;
 }
 
 .tabla th:last-child {
@@ -157,11 +181,11 @@ body {
 }
 
 .tabla td {
-    padding: 9px 6px;
-    height: 91px;
-    border-bottom: 2px solid var(--borde);
-    border-right: 5px solid var(--azul);
+    padding: 7px 5px;
+    height: 76px;
     vertical-align: middle;
+    border-bottom: 2px solid var(--borde);
+    border-right: 4px solid var(--azul);
     background: white;
 }
 
@@ -173,35 +197,23 @@ body {
     border-bottom: none;
 }
 
-.col-descripcion {
-    width: 57%;
-}
-
-.col-aviso {
-    width: 15%;
-}
-
-.col-ubicacion {
-    width: 28%;
-}
-
 .entrada {
     display: block;
     width: 100%;
     min-width: 0;
-    height: 60px;
+    height: 46px;
+    padding: 6px;
     border: 2px solid #d6e0eb;
     border-radius: 7px;
-    padding: 8px;
-    font-size: 16px;
     background: white;
     color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
     outline: none;
 }
 
 .entrada:focus {
     border-color: #3980b8;
-    box-shadow: 0 0 0 2px rgba(57,128,184,.12);
 }
 
 .descripcion {
@@ -211,34 +223,40 @@ body {
 .ubicacion {
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
+    text-transform: uppercase;
 }
+
+/* AVISO PEQUEÑO: NO DESCUADRA LA TABLA */
 
 .aviso-celda {
     text-align: center;
-    padding: 5px 2px !important;
+    padding: 4px 1px !important;
 }
 
 .aviso {
-    width: 48px;
-    height: 48px;
-    border: 2px solid #ccd5df;
-    border-radius: 50%;
-    background: white;
-    padding: 7px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 4px;
+    border: 1.5px solid #ccd5df;
+    border-radius: 50%;
+    background: white;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
 .aviso-interior {
+    display: block;
     width: 100%;
     height: 100%;
-    border: 3px solid #bdc9d7;
+    border: 2px solid #bdc9d7;
     border-radius: 50%;
-    background: #fff;
+    background: white;
 }
 
 .aviso.activo {
@@ -249,75 +267,85 @@ body {
 .aviso.activo .aviso-interior {
     background: var(--rojo);
     border-color: #b80e23;
-    box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
 }
+
+/* ELIMINAR FILA */
 
 .eliminar {
     display: block;
-    margin: 6px auto 0;
-    border: 1px solid #f0b7bd;
+    width: 100%;
+    max-width: 100px;
+    margin: 5px auto 0;
+    padding: 5px 3px;
+    min-height: 27px;
+    border: 1px solid #efb8bf;
+    border-radius: 6px;
     background: #fff0f1;
     color: #b51f2e;
-    border-radius: 6px;
-    padding: 5px 8px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     cursor: pointer;
-    min-height: 29px;
 }
 
+/* LEYENDA */
+
 .leyenda {
+    margin: 0 0 18px;
+    padding: 12px;
     background: #fff6f6;
-    border: 2px solid #efc2c7;
-    border-left: 7px solid var(--rojo);
+    border: 1.5px solid #efc2c7;
+    border-left: 6px solid var(--rojo);
     border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 22px;
-    line-height: 1.55;
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .leyenda-titulo {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 7px;
+    margin-bottom: 7px;
     color: #ad1f2c;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 800;
-    margin-bottom: 8px;
 }
 
 .punto-rojo {
-    width: 25px;
-    height: 25px;
     display: inline-block;
-    flex: 0 0 25px;
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #ff6868, #d71930 65%, #a90016);
     border: 1px solid #b60e20;
 }
 
+/* BOTONES */
+
 .botones {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 9px;
+    margin-bottom: 18px;
 }
 
 .boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    padding: 9px 6px;
     border: none;
-    border-radius: 12px;
-    min-height: 70px;
-    padding: 12px 9px;
-    font-size: 15px;
+    border-radius: 10px;
+    font-size: 13px;
     font-weight: 800;
-    line-height: 1.35;
+    line-height: 1.25;
+    text-align: center;
+    overflow-wrap: anywhere;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-}
-
-.boton:active {
-    transform: scale(.98);
 }
 
 .boton-primario {
@@ -335,100 +363,70 @@ body {
     background: #fff0f1;
 }
 
-.foto-inferior {
-    margin-top: 0;
-    margin-bottom: 0;
+.boton:active {
+    transform: scale(.98);
 }
 
 .estado {
-    margin-top: 12px;
-    font-size: 13px;
+    margin-top: 10px;
     text-align: center;
     color: #526579;
+    font-size: 12px;
 }
 
-@media (max-width: 430px) {
-    body {
-        padding: 10px 6px 22px;
-    }
+/* PANTALLAS PEQUEÑAS */
 
+@media (max-width: 380px) {
     .contenido {
-        padding: 13px;
+        padding: 10px;
     }
 
     .cabecera {
-        padding: 19px 12px;
-        gap: 12px;
+        padding: 16px 10px;
+        gap: 9px;
     }
 
     .logo {
-        width: 94px;
+        width: 83px;
     }
 
-    .titulos p {
-        font-size: 12px;
-    }
-
-    .firma {
-        font-size: 12px;
-    }
-
-    .foto {
-        height: 155px;
-    }
-
-    .tabla th {
-        font-size: 12px;
-        padding: 13px 3px;
-    }
-
-    .tabla td {
-        padding: 7px 4px;
-        height: 83px;
-    }
-
-    .entrada {
-        height: 54px;
-        padding: 5px;
-        font-size: 15px;
-    }
-
-    .ubicacion {
+    .titulos h1 {
         font-size: 19px;
     }
 
-    .aviso {
-        width: 43px;
-        height: 43px;
-        padding: 6px;
+    .titulos p {
+        font-size: 11px;
     }
 
-    .eliminar {
+    .firma {
         font-size: 11px;
+    }
+
+    .tabla th {
+        font-size: 11px;
+        padding: 10px 2px;
+    }
+
+    .tabla td {
         padding: 5px 3px;
     }
 
-    .boton {
+    .entrada {
+        padding: 4px;
         font-size: 13px;
-        min-height: 65px;
-    }
-}
-
-/* Formato de la imagen exportada */
-@media print {
-    body {
-        background: white;
-        padding: 0;
     }
 
-    .app {
-        box-shadow: none;
+    .aviso {
+        width: 27px;
+        height: 27px;
+        min-width: 27px;
+        min-height: 27px;
+        padding: 3px;
     }
 
-    .botones,
-    .eliminar,
-    .estado {
-        display: none !important;
+    .boton {
+        font-size: 12px;
+        min-height: 55px;
     }
 }
 </style>
@@ -436,11 +434,10 @@ body {
 
 <body>
 
-<div class="app" id="registro">
+<div class="app">
 
     <header class="cabecera">
         <img
-            id="logoSonoco"
             class="logo"
             src="IMG_5518.jpeg"
             alt="SONOCO"
@@ -457,20 +454,23 @@ body {
 
     <main class="contenido">
 
+        <!-- FECHA Y HORA AUTOMÁTICAS, SIN CALENDARIO -->
         <section class="fecha-caja">
-            <div class="fecha" id="fecha">--</div>
-            <div class="hora" id="hora">--:--</div>
+            <div class="fecha" id="fecha"></div>
+            <div class="hora" id="hora"></div>
         </section>
 
+        <!-- FOTOGRAFÍA SUPERIOR -->
         <img
             class="foto"
-            id="fotoSuperior"
             src="IMG_5503.jpeg"
             alt="Ubicaciones de barnices"
         >
 
+        <!-- TABLA DE REGISTRO -->
         <div class="tabla-contenedor">
             <table class="tabla">
+
                 <colgroup>
                     <col class="col-descripcion">
                     <col class="col-aviso">
@@ -486,40 +486,53 @@ body {
                 </thead>
 
                 <tbody id="filas"></tbody>
+
             </table>
         </div>
 
+        <!-- EXPLICACIÓN DEL AVISO -->
         <section class="leyenda">
             <div class="leyenda-titulo">
                 <span class="punto-rojo"></span>
                 <span>AVISO DE TRASVASE</span>
             </div>
 
-            Marca con el símbolo rojo los barnices que requieren un
-            trasvase de producto debido a su bajo nivel de contenido.
+            Marca con el símbolo rojo los barnices que requieren
+            un trasvase de producto debido a su bajo nivel de contenido.
         </section>
 
+        <!-- BOTONES -->
         <section class="botones">
-            <button class="boton boton-primario" id="btnAnadir">
-                + AÑADIR FILA
-            </button>
 
-            <button class="boton boton-secundario" id="btnCompartir">
-                COMPARTIR REGISTRO
-            </button>
+            <button
+                type="button"
+                class="boton boton-primario"
+                id="btnAnadir"
+            >+ AÑADIR FILA</button>
 
-            <button class="boton boton-secundario" id="btnGuardar">
-                GUARDAR IMAGEN
-            </button>
+            <button
+                type="button"
+                class="boton boton-secundario"
+                id="btnCompartir"
+            >COMPARTIR REGISTRO</button>
 
-            <button class="boton boton-peligro" id="btnLimpiar">
-                LIMPIAR REGISTRO
-            </button>
+            <button
+                type="button"
+                class="boton boton-secundario"
+                id="btnGuardar"
+            >GUARDAR IMAGEN</button>
+
+            <button
+                type="button"
+                class="boton boton-peligro"
+                id="btnLimpiar"
+            >LIMPIAR REGISTRO</button>
+
         </section>
 
+        <!-- FOTOGRAFÍA INFERIOR -->
         <img
             class="foto foto-inferior"
-            id="fotoInferior"
             src="IMG_5504.jpeg"
             alt="Estanterías de barnices"
         >
@@ -532,7 +545,7 @@ body {
 <script>
 "use strict";
 
-/* Ubicaciones predeterminadas de los barnices */
+/* UBICACIONES AUTOMÁTICAS DE LOS BARNICES */
 const UBICACIONES = {
     "814449": "W02008",
     "MKB113T": "W02009",
@@ -548,6 +561,7 @@ const UBICACIONES = {
 const filas = document.getElementById("filas");
 const estado = document.getElementById("estado");
 
+/* NORMALIZAR CÓDIGOS */
 function normalizar(texto) {
     return String(texto || "")
         .trim()
@@ -555,7 +569,7 @@ function normalizar(texto) {
         .replace(/[.\s-]/g, "");
 }
 
-/* Fecha y hora automáticas. Sin calendario ni selector. */
+/* FECHA Y HORA ACTUALES */
 function actualizarFechaHora() {
     const ahora = new Date();
 
@@ -579,57 +593,84 @@ function actualizarFechaHora() {
 actualizarFechaHora();
 setInterval(actualizarFechaHora, 1000);
 
-/* Crear una fila con su botón para eliminarla */
-function anadirFila(descripcion = "", ubicacion = "", avisoActivo = false) {
+/* CREAR FILA */
+function anadirFila(descripcionInicial = "", ubicacionInicial = "", avisoInicial = false) {
+
     const tr = document.createElement("tr");
 
+    /* DESCRIPCIÓN */
     const tdDescripcion = document.createElement("td");
-    const inputDescripcion = document.createElement("input");
 
+    const inputDescripcion = document.createElement("input");
     inputDescripcion.type = "text";
     inputDescripcion.className = "entrada descripcion";
     inputDescripcion.placeholder = "Barniz...";
     inputDescripcion.autocomplete = "off";
     inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
-    inputDescripcion.value = descripcion;
+    inputDescripcion.value = descripcionInicial;
 
     tdDescripcion.appendChild(inputDescripcion);
 
+    /* BOTÓN ELIMINAR FILA */
+    const botonEliminar = document.createElement("button");
+    botonEliminar.type = "button";
+    botonEliminar.className = "eliminar";
+    botonEliminar.textContent = "ELIMINAR";
+    botonEliminar.setAttribute("aria-label", "Eliminar esta fila");
+
+    botonEliminar.addEventListener("click", () => {
+        tr.remove();
+    });
+
+    tdDescripcion.appendChild(botonEliminar);
+
+    /* AVISO */
     const tdAviso = document.createElement("td");
     tdAviso.className = "aviso-celda";
 
     const botonAviso = document.createElement("button");
     botonAviso.type = "button";
     botonAviso.className = "aviso";
-    botonAviso.setAttribute("aria-label", "Activar o quitar aviso de trasvase");
-    botonAviso.setAttribute("aria-pressed", avisoActivo ? "true" : "false");
+    botonAviso.setAttribute("aria-label", "Aviso de trasvase");
+    botonAviso.setAttribute(
+        "aria-pressed",
+        avisoInicial ? "true" : "false"
+    );
 
-    const interiorAviso = document.createElement("span");
-    interiorAviso.className = "aviso-interior";
-    botonAviso.appendChild(interiorAviso);
+    const interior = document.createElement("span");
+    interior.className = "aviso-interior";
 
-    if (avisoActivo) {
+    botonAviso.appendChild(interior);
+
+    if (avisoInicial) {
         botonAviso.classList.add("activo");
     }
 
     botonAviso.addEventListener("click", () => {
         const activo = botonAviso.classList.toggle("activo");
-        botonAviso.setAttribute("aria-pressed", activo ? "true" : "false");
+
+        botonAviso.setAttribute(
+            "aria-pressed",
+            activo ? "true" : "false"
+        );
     });
 
     tdAviso.appendChild(botonAviso);
 
+    /* UBICACIÓN */
     const tdUbicacion = document.createElement("td");
-    const inputUbicacion = document.createElement("input");
 
+    const inputUbicacion = document.createElement("input");
     inputUbicacion.type = "text";
     inputUbicacion.className = "entrada ubicacion";
     inputUbicacion.autocomplete = "off";
     inputUbicacion.setAttribute("aria-label", "Ubicación");
-    inputUbicacion.value = ubicacion;
+    inputUbicacion.value = ubicacionInicial;
 
-    /* Mantiene el texto de ubicación tal como lo escriba el usuario.
-       No añade prefijos ni números automáticos. */
+    /*
+      La ubicación se puede escribir manualmente.
+      No se añade N.º ni otro texto automáticamente.
+    */
     inputUbicacion.addEventListener("input", () => {
         inputUbicacion.value = inputUbicacion.value
             .toUpperCase()
@@ -644,7 +685,7 @@ function anadirFila(descripcion = "", ubicacion = "", avisoActivo = false) {
 
     filas.appendChild(tr);
 
-    /* Solo completar automáticamente cuando se reconoce un barniz. */
+    /* AUTOCOMPLETAR SOLO LOS BARNICES CONOCIDOS */
     function actualizarUbicacion() {
         const clave = normalizar(inputDescripcion.value);
 
@@ -661,62 +702,36 @@ function anadirFila(descripcion = "", ubicacion = "", avisoActivo = false) {
     inputDescripcion.addEventListener("input", actualizarUbicacion);
     inputDescripcion.addEventListener("change", actualizarUbicacion);
 
-    if (descripcion) {
+    if (descripcionInicial) {
         actualizarUbicacion();
 
-        /* Si la ubicación se indicó expresamente, se conserva para
-           descripciones que no estén en el listado. */
-        if (!Object.prototype.hasOwnProperty.call(
-            UBICACIONES,
-            normalizar(descripcion)
-        )) {
-            inputUbicacion.value = ubicacion;
+        if (
+            !Object.prototype.hasOwnProperty.call(
+                UBICACIONES,
+                normalizar(descripcionInicial)
+            )
+        ) {
+            inputUbicacion.value = ubicacionInicial;
         }
     }
 
     return tr;
 }
 
-/* Cuatro filas iniciales */
+/* CUATRO FILAS INICIALES */
 for (let i = 0; i < 4; i++) {
     anadirFila();
 }
 
+/* AÑADIR FILA */
 document.getElementById("btnAnadir").addEventListener("click", () => {
     const nueva = anadirFila();
     nueva.querySelector(".descripcion").focus();
 });
 
-/* Eliminar una fila concreta: pulsar su botón ELIMINAR */
-function actualizarBotonesEliminar() {
-    /* Se añade un botón propio por fila, sin cambiar las tres columnas. */
-    Array.from(filas.querySelectorAll("tr")).forEach((tr) => {
-        let boton = tr.querySelector(".eliminar");
-
-        if (!boton) {
-            boton = document.createElement("button");
-            boton.type = "button";
-            boton.className = "eliminar";
-            boton.textContent = "ELIMINAR";
-            boton.addEventListener("click", () => {
-                tr.remove();
-            });
-            tr.cells[0].appendChild(boton);
-        }
-    });
-}
-
-/* Crear los botones de eliminación de las filas iniciales y nuevas */
-const observadorFilas = new MutationObserver(() => {
-    actualizarBotonesEliminar();
-});
-
-observadorFilas.observe(filas, { childList: true });
-
-actualizarBotonesEliminar();
-
-/* Limpiar el registro sin guardar historial */
+/* LIMPIAR REGISTRO */
 document.getElementById("btnLimpiar").addEventListener("click", () => {
+
     if (!confirm("¿Quieres limpiar todas las filas del registro?")) {
         return;
     }
@@ -727,273 +742,10 @@ document.getElementById("btnLimpiar").addEventListener("click", () => {
         anadirFila();
     }
 
-    actualizarBotonesEliminar();
     estado.textContent = "Registro limpio.";
 });
 
-/* Dibujar una imagen completa del registro */
-async function crearImagen() {
-    const escala = 2;
-    const ancho = 1100;
-    const margen = 40;
-    const anchoInterior = ancho - margen * 2;
-
-    const datos = Array.from(filas.querySelectorAll("tr")).map((tr) => ({
-        descripcion: tr.querySelector(".descripcion").value,
-        ubicacion: tr.querySelector(".ubicacion").value,
-        aviso: tr.querySelector(".aviso").classList.contains("activo")
-    }));
-
-    const logo = await cargarImagen("IMG_5518.jpeg");
-    const foto1 = await cargarImagen("IMG_5503.jpeg");
-    const foto2 = await cargarImagen("IMG_5504.jpeg");
-
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-
-    const altoCabecera = 230;
-    const altoFecha = 95;
-    const altoFoto = 230;
-    const altoTituloTabla = 70;
-    const altoFila = 115;
-    const altoLeyenda = 125;
-    const altoFinal = 55;
-
-    const alto =
-        margen * 2 +
-        altoCabecera +
-        altoFecha +
-        altoFoto * 2 +
-        altoTituloTabla +
-        datos.length * altoFila +
-        altoLeyenda +
-        altoFinal;
-
-    canvas.width = ancho * escala;
-    canvas.height = alto * escala;
-    ctx.scale(escala, escala);
-
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, ancho, alto);
-
-    let y = margen;
-
-    /* Cabecera */
-    const gradiente = ctx.createLinearGradient(0, y, ancho, y + altoCabecera);
-    gradiente.addColorStop(0, "#174a76");
-    gradiente.addColorStop(1, "#216c9b");
-    ctx.fillStyle = gradiente;
-    ctx.fillRect(0, y, ancho, altoCabecera);
-
-    if (logo) {
-        dibujarImagenContenida(
-            ctx, logo, margen + 20, y + 40, 185, 145
-        );
-    } else {
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 32px Arial";
-        ctx.fillText("SONOCO", margen + 20, y + 110);
-    }
-
-    ctx.fillStyle = "rgba(255,255,255,.75)";
-    ctx.fillRect(margen + 225, y + 30, 3, 165);
-
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 37px Arial";
-    ctx.fillText("CONTROL DE", margen + 260, y + 78);
-    ctx.fillText("BARNICES", margen + 260, y + 122);
-
-    ctx.font = "bold 21px Arial";
-    ctx.fillText("REGISTRO DE UBICACIONES", margen + 260, y + 158);
-
-    ctx.textAlign = "right";
-    ctx.fillStyle = "#c8ddf1";
-    ctx.font = "bold 19px Arial";
-    ctx.fillText("By Rubén D. 268", ancho - margen - 25, y + 202);
-    ctx.textAlign = "left";
-
-    y += altoCabecera + 20;
-
-    /* Fecha y hora */
-    ctx.fillStyle = "#f5f8fc";
-    ctx.fillRect(margen, y, anchoInterior, altoFecha);
-    ctx.strokeStyle = "#cbd8e6";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(margen, y, anchoInterior, altoFecha);
-
-    ctx.fillStyle = "#194f7d";
-    ctx.textAlign = "center";
-    ctx.font = "bold 26px Arial";
-    ctx.fillText(
-        document.getElementById("fecha").textContent,
-        ancho / 2,
-        y + 38
-    );
-
-    ctx.fillStyle = "#526579";
-    ctx.font = "21px Arial";
-    ctx.fillText(
-        document.getElementById("hora").textContent,
-        ancho / 2,
-        y + 70
-    );
-    ctx.textAlign = "left";
-
-    y += altoFecha + 20;
-
-    /* Primera fotografía */
-    dibujarFoto(ctx, foto1, margen, y, anchoInterior, altoFoto);
-    y += altoFoto + 20;
-
-    /* Tabla */
-    const x = margen;
-    const anchoDescripcion = anchoInterior * 0.57;
-    const anchoAviso = anchoInterior * 0.15;
-    const anchoUbicacion = anchoInterior - anchoDescripcion - anchoAviso;
-
-    ctx.fillStyle = "#e7f0fa";
-    ctx.fillRect(x, y, anchoInterior, altoTituloTabla);
-
-    ctx.strokeStyle = "#194f7d";
-    ctx.lineWidth = 4;
-    ctx.strokeRect(x, y, anchoInterior, altoTituloTabla);
-
-    ctx.fillStyle = "#24496d";
-    ctx.font = "bold 20px Arial";
-    ctx.textAlign = "center";
-
-    ctx.fillText(
-        "DESCRIPCIÓN / BARNIZ",
-        x + anchoDescripcion / 2,
-        y + 43
-    );
-
-    ctx.fillText(
-        "AVISO",
-        x + anchoDescripcion + anchoAviso / 2,
-        y + 43
-    );
-
-    ctx.fillText(
-        "UBICACIÓN",
-        x + anchoDescripcion + anchoAviso + anchoUbicacion / 2,
-        y + 43
-    );
-
-    ctx.textAlign = "left";
-
-    const yInicioTabla = y;
-
-    y += altoTituloTabla;
-
-    datos.forEach((dato) => {
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(x, y, anchoInterior, altoFila);
-
-        ctx.strokeStyle = "#cbd8e6";
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(x, y + altoFila);
-        ctx.lineTo(x + anchoInterior, y + altoFila);
-        ctx.stroke();
-
-        ctx.fillStyle = "#243447";
-        ctx.font = "22px Arial";
-
-        escribirTextoAjustado(
-            ctx,
-            dato.descripcion,
-            x + 18,
-            y + 43,
-            anchoDescripcion - 36,
-            27
-        );
-
-        /* Círculo de aviso, incluido en la imagen exportada */
-        const cx = x + anchoDescripcion + anchoAviso / 2;
-        const cy = y + altoFila / 2;
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, 25, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
-        ctx.strokeStyle = dato.aviso ? "#ed9ba5" : "#ccd5df";
-        ctx.lineWidth = 3;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, 16, 0, Math.PI * 2);
-        ctx.fillStyle = dato.aviso ? "#d71930" : "#ffffff";
-        ctx.fill();
-        ctx.strokeStyle = dato.aviso ? "#b80e23" : "#bdc9d7";
-        ctx.lineWidth = 4;
-        ctx.stroke();
-
-        ctx.fillStyle = "#243447";
-        ctx.font = "bold 23px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(
-            dato.ubicacion,
-            x + anchoDescripcion + anchoAviso + anchoUbicacion / 2,
-            y + altoFila / 2 + 8
-        );
-        ctx.textAlign = "left";
-
-        y += altoFila;
-    });
-
-    /* Separadores verticales de las tres columnas */
-    ctx.strokeStyle = "#194f7d";
-    ctx.lineWidth = 5;
-
-    ctx.beginPath();
-    ctx.moveTo(x + anchoDescripcion, yInicioTabla);
-    ctx.lineTo(x + anchoDescripcion, y);
-    ctx.moveTo(x + anchoDescripcion + anchoAviso, yInicioTabla);
-    ctx.lineTo(x + anchoDescripcion + anchoAviso, y);
-    ctx.stroke();
-
-    ctx.strokeStyle = "#194f7d";
-    ctx.lineWidth = 4;
-    ctx.strokeRect(x, yInicioTabla, anchoInterior, y - yInicioTabla);
-
-    y += 22;
-
-    /* Leyenda */
-    ctx.fillStyle = "#fff6f6";
-    ctx.fillRect(margen, y, anchoInterior, altoLeyenda);
-    ctx.strokeStyle = "#efc2c7";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(margen, y, anchoInterior, altoLeyenda);
-
-    ctx.fillStyle = "#d71930";
-    ctx.fillRect(margen, y, 8, altoLeyenda);
-
-    ctx.fillStyle = "#ad1f2c";
-    ctx.font = "bold 23px Arial";
-    ctx.fillText("AVISO DE TRASVASE", margen + 28, y + 38);
-
-    ctx.fillStyle = "#243447";
-    ctx.font = "19px Arial";
-    ctx.fillText(
-        "Marca con el símbolo rojo los barnices que requieren un",
-        margen + 28,
-        y + 73
-    );
-    ctx.fillText(
-        "trasvase de producto debido a su bajo nivel de contenido.",
-        margen + 28,
-        y + 101
-    );
-
-    y += altoLeyenda + 20;
-
-    /* Segunda fotografía */
-    dibujarFoto(ctx, foto2, margen, y, anchoInterior, altoFoto);
-
-    return canvas;
-}
-
+/* CARGAR FOTOGRAFÍAS PARA LA IMAGEN */
 function cargarImagen(ruta) {
     return new Promise((resolve) => {
         const img = new Image();
@@ -1005,6 +757,7 @@ function cargarImagen(ruta) {
     });
 }
 
+/* LOGO AJUSTADO SIN DEFORMAR */
 function dibujarImagenContenida(ctx, img, x, y, w, h) {
     const escala = Math.min(w / img.width, h / img.height);
     const nw = img.width * escala;
@@ -1019,11 +772,12 @@ function dibujarImagenContenida(ctx, img, x, y, w, h) {
     );
 }
 
+/* FOTOGRAFÍAS EN LA IMAGEN EXPORTADA */
 function dibujarFoto(ctx, img, x, y, w, h) {
     ctx.save();
 
     ctx.beginPath();
-    ctx.roundRect(x, y, w, h, 9);
+    ctx.rect(x, y, w, h);
     ctx.clip();
 
     ctx.fillStyle = "#edf2f8";
@@ -1044,7 +798,7 @@ function dibujarFoto(ctx, img, x, y, w, h) {
     } else {
         ctx.fillStyle = "#243447";
         ctx.font = "20px Arial";
-        ctx.fillText("Fotografía no disponible", x + 20, y + h / 2);
+        ctx.fillText("Fotografía no disponible", x + 15, y + h / 2);
     }
 
     ctx.restore();
@@ -1054,55 +808,345 @@ function dibujarFoto(ctx, img, x, y, w, h) {
     ctx.strokeRect(x, y, w, h);
 }
 
-function escribirTextoAjustado(ctx, texto, x, y, anchoMax, salto) {
-    const palabras = String(texto || "").split(/\s+/);
+/* TEXTO AJUSTADO A LA CELDA */
+function escribirTextoAjustado(ctx, texto, x, y, anchoMax) {
     let linea = "";
-    let lineas = [];
+    const palabras = String(texto || "").split(/\s+/);
 
-    palabras.forEach((palabra) => {
+    for (const palabra of palabras) {
         const prueba = linea ? linea + " " + palabra : palabra;
 
         if (ctx.measureText(prueba).width > anchoMax && linea) {
-            lineas.push(linea);
+            ctx.fillText(linea, x, y);
+            y += 25;
             linea = palabra;
         } else {
             linea = prueba;
         }
-    });
+    }
 
-    if (linea) lineas.push(linea);
-
-    lineas.slice(0, 2).forEach((lineaTexto, i) => {
-        ctx.fillText(lineaTexto, x, y + i * salto);
-    });
+    if (linea) {
+        ctx.fillText(linea, x, y);
+    }
 }
 
-/* Descargar la imagen al dispositivo */
-async function guardarImagen() {
+/* CREAR IMAGEN COMPLETA DEL REGISTRO */
+async function crearImagen() {
+
+    const ancho = 1000;
+    const margen = 35;
+    const interior = ancho - margen * 2;
+
+    const datos = Array.from(filas.querySelectorAll("tr")).map((tr) => ({
+        descripcion: tr.querySelector(".descripcion").value,
+        ubicacion: tr.querySelector(".ubicacion").value,
+        aviso: tr.querySelector(".aviso").classList.contains("activo")
+    }));
+
+    const logo = await cargarImagen("IMG_5518.jpeg");
+    const foto1 = await cargarImagen("IMG_5503.jpeg");
+    const foto2 = await cargarImagen("IMG_5504.jpeg");
+
+    const altoCabecera = 190;
+    const altoFecha = 80;
+    const altoFoto = 180;
+    const altoCabTabla = 60;
+    const altoFila = 92;
+    const altoLeyenda = 110;
+
+    const alto =
+        margen * 2 +
+        altoCabecera +
+        altoFecha +
+        altoFoto * 2 +
+        altoCabTabla +
+        datos.length * altoFila +
+        altoLeyenda +
+        70;
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = ancho * 2;
+    canvas.height = alto * 2;
+
+    ctx.scale(2, 2);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, ancho, alto);
+
+    let y = margen;
+
+    /* CABECERA */
+    const gradiente = ctx.createLinearGradient(0, y, ancho, y + altoCabecera);
+    gradiente.addColorStop(0, "#174a76");
+    gradiente.addColorStop(1, "#216c9b");
+
+    ctx.fillStyle = gradiente;
+    ctx.fillRect(0, y, ancho, altoCabecera);
+
+    if (logo) {
+        dibujarImagenContenida(ctx, logo, margen + 10, y + 30, 150, 130);
+    } else {
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 28px Arial";
+        ctx.fillText("SONOCO", margen + 10, y + 95);
+    }
+
+    ctx.fillStyle = "rgba(255,255,255,.7)";
+    ctx.fillRect(margen + 175, y + 25, 3, 140);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 31px Arial";
+    ctx.fillText("CONTROL DE BARNICES", margen + 205, y + 65);
+
+    ctx.font = "22px Arial";
+    ctx.fillText("REGISTRO DE UBICACIONES", margen + 205, y + 100);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#d0e1f1";
+    ctx.font = "bold 17px Arial";
+    ctx.fillText("By Rubén D. 268", ancho - margen - 10, y + 145);
+    ctx.textAlign = "left";
+
+    y += altoCabecera + 15;
+
+    /* FECHA Y HORA */
+    ctx.fillStyle = "#f5f8fc";
+    ctx.fillRect(margen, y, interior, altoFecha);
+
+    ctx.strokeStyle = "#cbd8e6";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(margen, y, interior, altoFecha);
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#194f7d";
+    ctx.font = "bold 22px Arial";
+
+    ctx.fillText(
+        document.getElementById("fecha").textContent,
+        ancho / 2,
+        y + 30
+    );
+
+    ctx.fillStyle = "#526579";
+    ctx.font = "17px Arial";
+
+    ctx.fillText(
+        document.getElementById("hora").textContent,
+        ancho / 2,
+        y + 57
+    );
+
+    ctx.textAlign = "left";
+    y += altoFecha + 15;
+
+    /* FOTO SUPERIOR */
+    dibujarFoto(ctx, foto1, margen, y, interior, altoFoto);
+    y += altoFoto + 15;
+
+    /* TABLA DE TRES COLUMNAS */
+    const x = margen;
+    const anchoDesc = interior * 0.57;
+    const anchoAviso = interior * 0.14;
+    const anchoUbic = interior - anchoDesc - anchoAviso;
+
+    const xAviso = x + anchoDesc;
+    const xUbic = x + anchoDesc + anchoAviso;
+
+    ctx.fillStyle = "#e7f0fa";
+    ctx.fillRect(x, y, interior, altoCabTabla);
+
+    ctx.strokeStyle = "#194f7d";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(x, y, interior, altoCabTabla);
+
+    ctx.fillStyle = "#24496d";
+    ctx.font = "bold 16px Arial";
+    ctx.textAlign = "center";
+
+    ctx.fillText("DESCRIPCIÓN / BARNIZ", x + anchoDesc / 2, y + 36);
+    ctx.fillText("AVISO", xAviso + anchoAviso / 2, y + 36);
+    ctx.fillText("UBICACIÓN", xUbic + anchoUbic / 2, y + 36);
+
+    ctx.textAlign = "left";
+
+    const inicioTabla = y;
+    y += altoCabTabla;
+
+    datos.forEach((dato) => {
+
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(x, y, interior, altoFila);
+
+        ctx.strokeStyle = "#cbd8e6";
+        ctx.lineWidth = 1.5;
+
+        ctx.beginPath();
+        ctx.moveTo(x, y + altoFila);
+        ctx.lineTo(x + interior, y + altoFila);
+        ctx.stroke();
+
+        ctx.fillStyle = "#243447";
+        ctx.font = "17px Arial";
+
+        escribirTextoAjustado(
+            ctx,
+            dato.descripcion,
+            x + 12,
+            y + 40,
+            anchoDesc - 24
+        );
+
+        /* CÍRCULO PEQUEÑO EN LA IMAGEN */
+        const cx = xAviso + anchoAviso / 2;
+        const cy = y + altoFila / 2;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.strokeStyle = dato.aviso ? "#ed9ba5" : "#ccd5df";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, 9, 0, Math.PI * 2);
+        ctx.fillStyle = dato.aviso ? "#d71930" : "#ffffff";
+        ctx.fill();
+        ctx.strokeStyle = dato.aviso ? "#b80e23" : "#bdc9d7";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.fillStyle = "#243447";
+        ctx.font = "bold 18px Arial";
+        ctx.textAlign = "center";
+
+        ctx.fillText(
+            dato.ubicacion,
+            xUbic + anchoUbic / 2,
+            y + altoFila / 2 + 6
+        );
+
+        ctx.textAlign = "left";
+        y += altoFila;
+    });
+
+    /* SEPARADORES AZULES */
+    ctx.strokeStyle = "#194f7d";
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(xAviso, inicioTabla);
+    ctx.lineTo(xAviso, y);
+
+    ctx.moveTo(xUbic, inicioTabla);
+    ctx.lineTo(xUbic, y);
+
+    ctx.stroke();
+
+    ctx.strokeStyle = "#194f7d";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(x, inicioTabla, interior, y - inicioTabla);
+
+    y += 18;
+
+    /* LEYENDA */
+    ctx.fillStyle = "#fff6f6";
+    ctx.fillRect(margen, y, interior, altoLeyenda);
+
+    ctx.strokeStyle = "#efc2c7";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(margen, y, interior, altoLeyenda);
+
+    ctx.fillStyle = "#d71930";
+    ctx.fillRect(margen, y, 6, altoLeyenda);
+
+    ctx.fillStyle = "#ad1f2c";
+    ctx.font = "bold 20px Arial";
+    ctx.fillText("AVISO DE TRASVASE", margen + 22, y + 31);
+
+    ctx.fillStyle = "#243447";
+    ctx.font = "16px Arial";
+
+    ctx.fillText(
+        "Marca con el símbolo rojo los barnices que requieren un",
+        margen + 22,
+        y + 60
+    );
+
+    ctx.fillText(
+        "trasvase de producto debido a su bajo nivel de contenido.",
+        margen + 22,
+        y + 84
+    );
+
+    y += altoLeyenda + 18;
+
+    /* FOTO INFERIOR */
+    dibujarFoto(ctx, foto2, margen, y, interior, altoFoto);
+
+    return canvas;
+}
+
+/* GUARDAR IMAGEN */
+document.getElementById("btnGuardar").addEventListener("click", async () => {
+
     estado.textContent = "Preparando imagen...";
 
     try {
         const canvas = await crearImagen();
 
-        const enlace = document.createElement("a");
-        enlace.download = "CONTROL-DE-BARNICES.png";
-        enlace.href = canvas.toDataURL("image/png");
-        enlace.click();
+        const blob = await new Promise((resolve) => {
+            canvas.toBlob(resolve, "image/png");
+        });
 
-        estado.textContent =
-            "Imagen preparada. Comprueba las descargas o Fotos del dispositivo.";
+        if (!blob) {
+            throw new Error("No se pudo crear la imagen");
+        }
+
+        const archivo = new File(
+            [blob],
+            "CONTROL-DE-BARNICES.png",
+            { type: "image/png" }
+        );
+
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [archivo] })
+        ) {
+            await navigator.share({
+                files: [archivo],
+                title: "Control de barnices"
+            });
+
+            estado.textContent = "Menú para guardar o compartir abierto.";
+        } else {
+            const url = URL.createObjectURL(blob);
+            const enlace = document.createElement("a");
+
+            enlace.href = url;
+            enlace.download = "CONTROL-DE-BARNICES.png";
+            enlace.click();
+
+            setTimeout(() => URL.revokeObjectURL(url), 5000);
+
+            estado.textContent = "Imagen preparada para guardar.";
+        }
+
     } catch (error) {
+        if (error.name === "AbortError") return;
+
         console.error(error);
-        estado.textContent =
-            "No se pudo crear la imagen. Comprueba las fotografías de GitHub.";
-        alert("No se pudo generar la imagen del registro.");
+        estado.textContent = "No se pudo generar la imagen.";
+        alert("No se pudo guardar la imagen. Comprueba las fotografías.");
     }
-}
+});
 
-document.getElementById("btnGuardar").addEventListener("click", guardarImagen);
-
-/* Compartir mediante el menú de compartir del móvil */
+/* COMPARTIR REGISTRO */
 document.getElementById("btnCompartir").addEventListener("click", async () => {
+
     estado.textContent = "Preparando registro para compartir...";
 
     try {
@@ -1113,7 +1157,7 @@ document.getElementById("btnCompartir").addEventListener("click", async () => {
         });
 
         if (!blob) {
-            throw new Error("No se pudo generar la imagen");
+            throw new Error("No se pudo crear la imagen");
         }
 
         const archivo = new File(
@@ -1133,24 +1177,24 @@ document.getElementById("btnCompartir").addEventListener("click", async () => {
                 text: "Registro de ubicaciones de barnices."
             });
 
-            estado.textContent = "Menú de compartir abierto.";
+            estado.textContent = "Registro listo para compartir.";
+
         } else {
             const url = URL.createObjectURL(blob);
             const enlace = document.createElement("a");
+
             enlace.href = url;
             enlace.download = "CONTROL-DE-BARNICES.png";
             enlace.click();
 
-            setTimeout(() => URL.revokeObjectURL(url), 3000);
+            setTimeout(() => URL.revokeObjectURL(url), 5000);
 
             estado.textContent =
-                "Imagen descargada. Ábrela y compártela por WhatsApp.";
+                "Imagen descargada. Puedes compartirla desde el dispositivo.";
         }
+
     } catch (error) {
-        if (error.name === "AbortError") {
-            estado.textContent = "";
-            return;
-        }
+        if (error.name === "AbortError") return;
 
         console.error(error);
         estado.textContent = "No se pudo compartir el registro.";
