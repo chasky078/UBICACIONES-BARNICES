@@ -3,1122 +3,1096 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#194f7d">
-<title>CONTROL DE BARNICES - SONOCO</title>
+<meta name="theme-color" content="#123D68">
+<title>SONOCO · Control de Barnices</title>
 
 <style>
 :root {
-    --azul: #194f7d;
-    --azul2: #216c9b;
-    --azul-claro: #e7f0fa;
-    --borde: #d1dce8;
-    --rojo: #d71930;
-    --texto: #243447;
+  --navy: #123d68;
+  --blue: #1769aa;
+  --pale: #eaf3fb;
+  --line: #d5e2ee;
+  --ink: #193247;
+  --muted: #6d8497;
+  --red: #c52235;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 10px 6px 24px;
-    background: #edf2f8;
-    color: var(--texto);
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f2f6fa;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Arial, sans-serif;
+}
+
+button, input {
+  font: inherit;
 }
 
 .app {
-    width: 100%;
-    max-width: 760px;
-    margin: auto;
-    overflow: hidden;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 18px rgba(20,55,85,.10);
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 12px;
 }
 
-/* CABECERA */
+.hero {
+  background: linear-gradient(135deg, #fff, #edf5fc);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px #173d5c12;
+}
 
-.cabecera {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 14px;
-    color: white;
-    background: linear-gradient(120deg,#174a76,#216c9b);
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
 }
 
 .logo {
-    display: block;
-    width: 86px;
-    max-width: 29%;
-    height: auto;
-    max-height: 90px;
-    object-fit: contain;
-    background: white;
-    border-radius: 5px;
-    padding: 3px;
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.separador {
-    align-self: stretch;
-    width: 2px;
-    min-width: 2px;
-    background: rgba(255,255,255,.65);
+.brandtext {
+  min-width: 0;
 }
 
-.titulos {
-    flex: 1;
-    min-width: 0;
+.brandtext h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(17px, 4.4vw, 27px);
+  line-height: 1.2;
 }
 
-.titulos h1 {
-    margin: 0 0 6px;
-    font-size: clamp(18px,4.4vw,29px);
-    line-height: 1.12;
+.brandtext h2 {
+  margin: 5px 0 0;
+  color: #47718f;
+  font-size: clamp(10px, 2.8vw, 15px);
+  letter-spacing: .5px;
 }
 
-.titulos p {
-    margin: 0;
-    font-size: clamp(11px,2.9vw,16px);
-    line-height: 1.3;
+.signature {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #91b6d4;
 }
 
-.firma {
-    margin-top: 9px;
-    text-align: right;
-    color: #d0e1f1;
+.photos {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5px;
+  padding: 0 6px 6px;
+}
+
+.photos img {
+  display: block;
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.subhead {
+  margin: 17px 2px 9px;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
+.datebox {
+  padding: 11px;
+  margin-bottom: 12px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.datebox strong {
+  color: var(--navy);
+}
+
+/* TABLA: LAS TRES COLUMNAS USAN EXACTAMENTE LA MISMA DISTRIBUCIÓN */
+
+.tablebox {
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid var(--navy);
+  border-radius: 9px;
+  background: white;
+}
+
+.tablehead,
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, .64fr);
+  align-items: stretch;
+}
+
+.tablehead {
+  min-height: 48px;
+  background: #e6effa;
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.tablehead > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 2px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.tablehead > div + div,
+.row > div + div {
+  border-left: 3px solid var(--navy);
+}
+
+.row {
+  min-height: 76px;
+  border-top: 2px solid var(--line);
+  background: white;
+}
+
+.cell {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+
+.desc-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.desc {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid #d5e0eb;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+}
+
+.desc:focus,
+.loc:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px #1769aa18;
+}
+
+.loc-cell {
+  gap: 4px;
+  padding: 5px;
+}
+
+.loc {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid #d5e0eb;
+  border-radius: 8px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  outline: none;
+}
+
+/* BOTÓN X PEQUEÑO, JUNTO A UBICACIÓN */
+
+.remove {
+  flex: 0 0 23px;
+  width: 23px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #f0c5ca;
+  border-radius: 6px;
+  background: #fff0f1;
+  color: var(--red);
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.remove:active {
+  background: #f8dadd;
+}
+
+/* AVISO DE TRASVASE */
+
+.alert-cell {
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.alert-toggle {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid #cbd5df;
+  border-radius: 50%;
+  background: white;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.alert-toggle.active {
+  background: #e31b32;
+  border-color: #e31b32;
+  box-shadow: 0 0 0 2px #e31b3220;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.btn {
+  min-height: 49px;
+  padding: 12px 8px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--navy);
+  color: white;
+}
+
+.secondary {
+  background: #e2edf7;
+  color: var(--navy);
+}
+
+.danger {
+  background: #fff0f1;
+  color: #a91f32;
+}
+
+.hint {
+  margin: 12px 3px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.transfer-note {
+  margin-top: 15px;
+  padding: 13px;
+  background: #fff4f5;
+  border: 1px solid #efc9ce;
+  border-radius: 10px;
+  color: #8f1f2e;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.transfer-note strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.preview {
+  display: none;
+  margin-top: 14px;
+  padding: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.preview-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.foot {
+  margin: 16px 0 5px;
+  text-align: center;
+  color: #9ab4ca;
+  font-size: 10px;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 360px) {
+  .app {
+    padding: 7px;
+  }
+
+  .tablehead,
+  .row {
+    grid-template-columns: minmax(0, 1fr) 36px minmax(0, .62fr);
+  }
+
+  .cell {
+    padding: 4px;
+  }
+
+  .desc {
+    padding: 6px;
     font-size: 12px;
-    font-weight: bold;
-}
+  }
 
-/* CONTENIDO */
-
-.contenido {
-    padding: 12px;
-}
-
-.fecha-caja {
-    margin-bottom: 12px;
-    padding: 10px 6px;
-    border: 1.5px solid var(--borde);
-    border-radius: 9px;
-    background: #f5f8fc;
-    text-align: center;
-}
-
-.fecha {
-    color: var(--azul);
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.hora {
-    margin-top: 4px;
-    color: #526579;
-    font-size: 14px;
-}
-
-/* FOTOGRAFÍAS COMPACTAS */
-
-.foto {
-    display: block;
-    width: 100%;
-    height: 88px;
-    margin: 0 0 13px;
-    border: 1.5px solid #d6e0eb;
-    border-radius: 7px;
-    object-fit: cover;
-}
-
-.foto-inferior {
-    margin: 16px 0 0;
-}
-
-/* TABLA */
-
-.tabla-contenedor {
-    width: 100%;
-    margin-bottom: 13px;
-    overflow: hidden;
-    border: 2px solid var(--azul);
-    border-radius: 7px;
-}
-
-.tabla {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-.col-descripcion {
-    width: 57%;
-}
-
-.col-aviso {
-    width: 13%;
-}
-
-.col-ubicacion {
-    width: 30%;
-}
-
-.tabla th {
-    padding: 10px 2px;
-    background: var(--azul-claro);
-    color: #24496d;
-    font-size: 11px;
-    font-weight: 800;
-    line-height: 1.25;
-    text-align: center;
-    overflow-wrap: anywhere;
-    border-right: 3px solid var(--azul);
-    border-bottom: 3px solid var(--azul);
-}
-
-.tabla th:last-child {
-    border-right: none;
-}
-
-.tabla td {
-    height: 69px;
-    padding: 5px 4px;
-    vertical-align: middle;
-    background: white;
-    border-right: 4px solid var(--azul);
-    border-bottom: 1.5px solid var(--borde);
-}
-
-.tabla td:last-child {
-    border-right: none;
-}
-
-.tabla tr:last-child td {
-    border-bottom: none;
-}
-
-.entrada {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    height: 39px;
-    padding: 5px;
-    border: 1.5px solid #d6e0eb;
-    border-radius: 6px;
-    outline: none;
-    background: white;
-    color: var(--texto);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-}
-
-.entrada:focus {
-    border-color: #3980b8;
-}
-
-.descripcion {
-    text-transform: uppercase;
-}
-
-.ubicacion {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* AVISO PEQUEÑO */
-
-.aviso-celda {
-    padding: 3px 1px !important;
-    text-align: center;
-}
-
-.aviso {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 21px;
-    height: 21px;
-    min-width: 21px;
-    min-height: 21px;
-    padding: 2px;
-    border: 1px solid #cbd5df;
-    border-radius: 50%;
-    background: white;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.aviso-interior {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 1.5px solid #bdc9d7;
-    border-radius: 50%;
-    background: white;
-}
-
-.aviso.activo {
-    border-color: #e6a0a8;
-    background: #fff1f2;
-}
-
-.aviso.activo .aviso-interior {
-    background: var(--rojo);
-    border-color: #b80e23;
-}
-
-/* ELIMINAR FILA */
-
-.eliminar {
-    display: block;
-    width: auto;
-    max-width: 85px;
-    margin: 4px auto 0;
-    padding: 4px 8px;
-    min-height: 24px;
-    border: 1px solid #efb8bf;
-    border-radius: 5px;
-    background: #fff0f1;
-    color: #b51f2e;
+  .loc {
     font-size: 10px;
-    font-weight: bold;
-    cursor: pointer;
+  }
+
+  .remove {
+    width: 20px;
+    flex-basis: 20px;
+    height: 24px;
+  }
+
+  .alert-toggle {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+
+  .tablehead {
+    font-size: 9px;
+  }
 }
 
-/* LEYENDA */
+@media (min-width: 600px) {
+  .app {
+    padding: 22px;
+  }
 
-.leyenda {
-    margin-bottom: 13px;
-    padding: 10px;
-    background: #fff6f6;
-    border: 1px solid #efc2c7;
-    border-left: 5px solid var(--rojo);
-    border-radius: 7px;
-    font-size: 13px;
-    line-height: 1.45;
-}
+  .photos img {
+    height: 135px;
+  }
 
-.leyenda-titulo {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 5px;
-    color: #ad1f2c;
+  .brand {
+    padding: 20px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tablehead,
+  .row {
+    grid-template-columns: minmax(0, 1fr) 58px minmax(0, .65fr);
+  }
+
+  .desc {
+    font-size: 16px;
+  }
+
+  .loc {
     font-size: 14px;
-    font-weight: 800;
-}
+  }
 
-.punto-rojo {
-    display: inline-block;
-    width: 17px;
-    height: 17px;
-    min-width: 17px;
-    border: 1px solid #b60e20;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%,#ff6868,#d71930 65%,#a90016);
-}
+  .remove {
+    width: 27px;
+    flex-basis: 27px;
+  }
 
-/* BOTONES */
-
-.botones {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 13px;
-}
-
-.boton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-width: 0;
-    min-height: 52px;
-    padding: 8px 5px;
-    border: none;
-    border-radius: 9px;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 1.25;
-    text-align: center;
-    overflow-wrap: anywhere;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.boton-primario {
-    color: white;
-    background: var(--azul);
-}
-
-.boton-secundario {
-    color: #24496d;
-    background: #e7eff9;
-}
-
-.boton-peligro {
-    color: #b51f2e;
-    background: #fff0f1;
-}
-
-.boton:active {
-    transform: scale(.98);
-}
-
-.estado {
-    margin-top: 8px;
-    color: #526579;
-    font-size: 12px;
-    text-align: center;
-}
-
-/* MÓVILES ESTRECHOS */
-
-@media(max-width:360px) {
-    .contenido {
-        padding: 9px;
-    }
-
-    .cabecera {
-        padding: 13px 9px;
-        gap: 8px;
-    }
-
-    .logo {
-        width: 75px;
-    }
-
-    .titulos h1 {
-        font-size: 17px;
-    }
-
-    .titulos p {
-        font-size: 10px;
-    }
-
-    .firma {
-        font-size: 10px;
-    }
-
-    .tabla th {
-        font-size: 10px;
-    }
-
-    .entrada {
-        font-size: 12px;
-        padding: 3px;
-    }
-
-    .aviso {
-        width: 19px;
-        height: 19px;
-        min-width: 19px;
-        min-height: 19px;
-    }
-
-    .boton {
-        font-size: 11px;
-    }
+  .btn {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
 
 <body>
-<div class="app">
+<main class="app">
 
-    <header class="cabecera">
-        <img
-            class="logo"
-            src="IMG_5518.jpeg"
-            alt="SONOCO"
-        >
+<section class="hero">
+  <div class="brand">
+    <img
+      class="logo"
+      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sonoco.svg"
+      alt="SONOCO"
+    >
+    <div class="brandtext">
+      <h1>CONTROL DE BARNICES</h1>
+      <h2>REGISTRO DE UBICACIONES</h2>
+      <div class="signature">By Rubén D. 268</div>
+    </div>
+  </div>
 
-        <div class="separador"></div>
+  <div class="photos">
+    <img src="almacen-general.jpg" alt="Vista general del almacén">
+    <img src="ubicaciones-estanterias.jpg" alt="Estanterías del almacén">
+  </div>
+</section>
 
-        <div class="titulos">
-            <h1>CONTROL DE BARNICES</h1>
-            <p>REGISTRO DE UBICACIONES</p>
-            <div class="firma">By Rubén D. 268</div>
-        </div>
-    </header>
+<div class="subhead">REGISTRO ACTUAL</div>
 
-    <main class="contenido">
-
-        <!-- FECHA Y HORA AUTOMÁTICAS: SIN CALENDARIO -->
-        <section class="fecha-caja">
-            <div class="fecha" id="fecha"></div>
-            <div class="hora" id="hora"></div>
-        </section>
-
-        <!-- FOTOGRAFÍA SUPERIOR -->
-        <img
-            class="foto"
-            src="IMG_5503.jpeg"
-            alt="Ubicaciones de barnices"
-        >
-
-        <!-- TABLA -->
-        <div class="tabla-contenedor">
-            <table class="tabla">
-                <colgroup>
-                    <col class="col-descripcion">
-                    <col class="col-aviso">
-                    <col class="col-ubicacion">
-                </colgroup>
-
-                <thead>
-                    <tr>
-                        <th>DESCRIPCIÓN / BARNIZ</th>
-                        <th>AVISO</th>
-                        <th>UBICACIÓN</th>
-                    </tr>
-                </thead>
-
-                <tbody id="filas"></tbody>
-            </table>
-        </div>
-
-        <!-- EXPLICACIÓN -->
-        <section class="leyenda">
-            <div class="leyenda-titulo">
-                <span class="punto-rojo"></span>
-                <span>AVISO DE TRASVASE</span>
-            </div>
-
-            Marca con el símbolo rojo los barnices que requieren un
-            trasvase de producto debido a su bajo nivel de contenido.
-        </section>
-
-        <!-- BOTONES -->
-        <section class="botones">
-            <button type="button"
-                class="boton boton-primario"
-                id="btnAnadir">+ AÑADIR FILA</button>
-
-            <button type="button"
-                class="boton boton-secundario"
-                id="btnCompartir">COMPARTIR REGISTRO</button>
-
-            <button type="button"
-                class="boton boton-secundario"
-                id="btnGuardar">GUARDAR IMAGEN</button>
-
-            <button type="button"
-                class="boton boton-peligro"
-                id="btnLimpiar">LIMPIAR REGISTRO</button>
-        </section>
-
-        <!-- FOTOGRAFÍA INFERIOR -->
-        <img
-            class="foto foto-inferior"
-            src="IMG_5504.jpeg"
-            alt="Estanterías de barnices"
-        >
-
-        <div class="estado" id="estado"></div>
-    </main>
+<div class="datebox">
+  Fecha y hora del dispositivo:
+  <strong id="clock">—</strong>
 </div>
+
+<div class="tablebox">
+
+  <div class="tablehead">
+    <div>DESCRIPCIÓN / BARNIZ</div>
+    <div>AVISO</div>
+    <div>UBICACIÓN</div>
+  </div>
+
+  <div id="rows"></div>
+
+</div>
+
+<div class="transfer-note">
+  <strong>🔴 AVISO DE TRASVASE</strong>
+  Marca con el símbolo rojo los barnices que requieren un trasvase
+  de producto debido a su bajo nivel de contenido.
+</div>
+
+<div class="actions">
+  <button class="btn primary" id="add">＋ AÑADIR FILA</button>
+  <button class="btn secondary" id="share">COMPARTIR REGISTRO</button>
+  <button class="btn secondary" id="download">GUARDAR IMAGEN</button>
+  <button class="btn danger" id="clear">LIMPIAR REGISTRO</button>
+</div>
+
+<div class="hint">
+  Las ubicaciones conocidas se completan automáticamente al escribir
+  el código o nombre del barniz. Puedes modificar la ubicación
+  manualmente. Los datos no se guardan como histórico; genera y guarda
+  la imagen antes de cerrar o recargar la aplicación.
+</div>
+
+<div id="preview" class="preview">
+  <img id="previewImg" alt="Vista previa del registro">
+  <div class="preview-actions">
+    <button class="btn secondary" id="downloadPreview">
+      DESCARGAR IMAGEN
+    </button>
+    <button class="btn danger" id="closePreview">
+      CERRAR VISTA PREVIA
+    </button>
+  </div>
+</div>
+
+<div class="foot">By Rubén D. 268</div>
+
+</main>
 
 <script>
 "use strict";
 
 /* UBICACIONES CONOCIDAS */
-const UBICACIONES = {
-    "814449": "W02008",
-    "MKB113T": "W02009",
-    "818083": "W02007",
-    "110496": "W02010",
-    "DISOLVENTE": "W02006",
-    "MKW1301T": "W02005",
-    "450148": "W02004",
-    "816621": "W02003",
-    "814509": "W02002"
+
+const ubicaciones = {
+  "814449": "W02008",
+  "MKB113T": "W02009",
+  "818083": "W02007",
+  "110496": "W02010",
+  "DISOLVENTE": "W02006",
+  "MKW1301T": "W02005",
+  "450148": "W02004",
+  "816621": "W02003",
+  "814509": "W02002"
 };
 
-const filas = document.getElementById("filas");
-const estado = document.getElementById("estado");
+const rows = document.getElementById("rows");
 
-function normalizar(texto) {
-    return String(texto || "")
-        .trim()
-        .toUpperCase()
-        .replace(/[.\s-]/g, "");
+let lastBlob = null;
+let lastUrl = null;
+
+/* NORMALIZAR CÓDIGOS:
+   RECONOCE PUNTOS, ESPACIOS Y GUIONES */
+
+function normalizar(value) {
+  return String(value || "")
+    .toUpperCase()
+    .trim()
+    .replace(/[.\s-]/g, "");
 }
 
-/* FECHA Y HORA ACTUALES */
-function actualizarFechaHora() {
-    const ahora = new Date();
+/* FECHA Y HORA */
 
-    document.getElementById("fecha").textContent =
-        new Intl.DateTimeFormat("es-ES", {
-            day: "2-digit",
-            month: "long",
-            year: "numeric"
-        }).format(ahora);
+function updateClock() {
+  const now = new Date();
 
-    document.getElementById("hora").textContent =
-        "Hora: " +
-        new Intl.DateTimeFormat("es-ES", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false
-        }).format(ahora);
+  document.getElementById("clock").textContent =
+    new Intl.DateTimeFormat("es-ES", {
+      dateStyle: "short",
+      timeStyle: "medium"
+    }).format(now);
 }
 
-actualizarFechaHora();
-setInterval(actualizarFechaHora, 1000);
+updateClock();
+setInterval(updateClock, 1000);
 
-/* CREAR FILA */
-function anadirFila() {
-    const tr = document.createElement("tr");
+/* CREAR UNA FILA */
 
-    /* DESCRIPCIÓN */
-    const tdDescripcion = document.createElement("td");
+function addRow(desc = "", loc = "", alertOn = false) {
+  const row = document.createElement("div");
+  row.className = "row";
 
-    const inputDescripcion = document.createElement("input");
-    inputDescripcion.type = "text";
-    inputDescripcion.className = "entrada descripcion";
-    inputDescripcion.placeholder = "Barniz...";
-    inputDescripcion.autocomplete = "off";
-    inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
+  row.innerHTML = `
+    <div class="cell desc-cell">
+      <input
+        class="desc"
+        type="text"
+        placeholder="BARNIZ..."
+        aria-label="Descripción o barniz"
+        autocomplete="off"
+      >
+    </div>
 
-    tdDescripcion.appendChild(inputDescripcion);
+    <div class="cell alert-cell">
+      <button
+        class="alert-toggle"
+        type="button"
+        aria-label="Marcar aviso de trasvase"
+        aria-pressed="false"
+        title="Aviso de trasvase"
+      >●</button>
+    </div>
 
-    /* ELIMINAR ESTA FILA */
-    const botonEliminar = document.createElement("button");
-    botonEliminar.type = "button";
-    botonEliminar.className = "eliminar";
-    botonEliminar.textContent = "ELIMINAR";
+    <div class="cell loc-cell">
+      <input
+        class="loc"
+        type="text"
+        placeholder="Ubicación"
+        aria-label="Ubicación"
+        autocomplete="off"
+      >
 
-    botonEliminar.addEventListener("click", () => {
-        tr.remove();
-    });
+      <button
+        class="remove"
+        type="button"
+        aria-label="Eliminar esta fila"
+        title="Eliminar fila"
+      >×</button>
+    </div>
+  `;
 
-    tdDescripcion.appendChild(botonEliminar);
+  const descInput = row.querySelector(".desc");
+  const locInput = row.querySelector(".loc");
+  const alertButton = row.querySelector(".alert-toggle");
+  const removeButton = row.querySelector(".remove");
 
-    /* AVISO */
-    const tdAviso = document.createElement("td");
-    tdAviso.className = "aviso-celda";
+  descInput.value = desc;
+  locInput.value = loc;
 
-    const botonAviso = document.createElement("button");
-    botonAviso.type = "button";
-    botonAviso.className = "aviso";
-    botonAviso.setAttribute("aria-label", "Aviso de trasvase");
-    botonAviso.setAttribute("aria-pressed", "false");
+  if (alertOn) {
+    alertButton.classList.add("active");
+    alertButton.setAttribute("aria-pressed", "true");
+  }
 
-    const interior = document.createElement("span");
-    interior.className = "aviso-interior";
+  /* AUTOCOMPLETAR UBICACIÓN */
 
-    botonAviso.appendChild(interior);
+  function completarUbicacion() {
+    const key = normalizar(descInput.value);
 
-    botonAviso.addEventListener("click", () => {
-        const activo = botonAviso.classList.toggle("activo");
-
-        botonAviso.setAttribute(
-            "aria-pressed",
-            activo ? "true" : "false"
-        );
-    });
-
-    tdAviso.appendChild(botonAviso);
-
-    /* UBICACIÓN */
-    const tdUbicacion = document.createElement("td");
-
-    const inputUbicacion = document.createElement("input");
-    inputUbicacion.type = "text";
-    inputUbicacion.className = "entrada ubicacion";
-    inputUbicacion.autocomplete = "off";
-    inputUbicacion.setAttribute("aria-label", "Ubicación");
-
-    /*
-      No se añade N.º ni ningún texto inventado.
-      La ubicación se puede escribir manualmente.
-    */
-    inputUbicacion.addEventListener("input", () => {
-        inputUbicacion.value = inputUbicacion.value
-            .toUpperCase()
-            .replace(/[^A-Z0-9]/g, "");
-    });
-
-    tdUbicacion.appendChild(inputUbicacion);
-
-    tr.appendChild(tdDescripcion);
-    tr.appendChild(tdAviso);
-    tr.appendChild(tdUbicacion);
-
-    filas.appendChild(tr);
-
-    /* AUTOCOMPLETAR UBICACIONES CONOCIDAS */
-    function actualizarUbicacion() {
-        const clave = normalizar(inputDescripcion.value);
-
-        if (!clave) {
-            inputUbicacion.value = "";
-            return;
-        }
-
-        if (Object.prototype.hasOwnProperty.call(UBICACIONES, clave)) {
-            inputUbicacion.value = UBICACIONES[clave];
-        }
+    if (ubicaciones[key]) {
+      locInput.value = ubicaciones[key];
     }
+  }
 
-    inputDescripcion.addEventListener("input", actualizarUbicacion);
-    inputDescripcion.addEventListener("change", actualizarUbicacion);
+  descInput.addEventListener("input", completarUbicacion);
+  descInput.addEventListener("change", completarUbicacion);
+  descInput.addEventListener("blur", completarUbicacion);
 
-    return tr;
-}
+  /* AVISO ROJO DE TRASVASE */
 
-/* SOLO UNA FILA AL ABRIR */
-anadirFila();
+  alertButton.addEventListener("click", () => {
+    const activo = alertButton.classList.toggle("active");
 
-/* AÑADIR FILAS MANUALMENTE */
-document.getElementById("btnAnadir").addEventListener("click", () => {
-    const nueva = anadirFila();
-    nueva.querySelector(".descripcion").focus();
-});
-
-/* LIMPIAR Y VOLVER A UNA SOLA FILA */
-document.getElementById("btnLimpiar").addEventListener("click", () => {
-    if (!confirm("¿Quieres limpiar el registro?")) {
-        return;
-    }
-
-    filas.innerHTML = "";
-    anadirFila();
-
-    estado.textContent = "Registro limpio.";
-});
-
-/* CARGAR IMÁGENES */
-function cargarImagen(ruta) {
-    return new Promise((resolve) => {
-        const img = new Image();
-
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-
-        img.src = ruta;
-    });
-}
-
-/* LOGO SIN DEFORMAR */
-function dibujarImagenContenida(ctx, img, x, y, w, h) {
-    const escala = Math.min(w / img.width, h / img.height);
-    const nw = img.width * escala;
-    const nh = img.height * escala;
-
-    ctx.drawImage(
-        img,
-        x + (w - nw) / 2,
-        y + (h - nh) / 2,
-        nw,
-        nh
+    alertButton.setAttribute(
+      "aria-pressed",
+      activo ? "true" : "false"
     );
+  });
+
+  /* ELIMINAR SOLO ESTA FILA */
+
+  removeButton.addEventListener("click", () => {
+    row.remove();
+
+    if (rows.children.length === 0) {
+      addRow();
+    }
+  });
+
+  rows.appendChild(row);
+
+  return row;
 }
 
-/* FOTOGRAFÍAS PARA LA IMAGEN EXPORTADA */
-function dibujarFoto(ctx, img, x, y, w, h) {
+/* INICIAR CON CUATRO FILAS */
+
+for (let i = 0; i < 4; i++) {
+  addRow();
+}
+
+/* AÑADIR FILA */
+
+document.getElementById("add").addEventListener("click", () => {
+  const row = addRow();
+
+  row.querySelector(".desc").focus();
+
+  row.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+});
+
+/* LIMPIAR TODO EL REGISTRO */
+
+document.getElementById("clear").addEventListener("click", () => {
+  const confirmado = confirm(
+    "¿Quieres borrar todas las filas del registro actual?"
+  );
+
+  if (!confirmado) return;
+
+  rows.innerHTML = "";
+
+  for (let i = 0; i < 4; i++) {
+    addRow();
+  }
+
+  hidePreview();
+});
+
+/* CARGAR FOTOGRAFÍAS */
+
+function loadImage(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+
+    img.src = src;
+  });
+}
+
+/* DIBUJAR TEXTO SIN QUE SE SALGA DE LA IMAGEN */
+
+function drawFitText(ctx, text, x, y, maxWidth, font) {
+  ctx.font = font;
+
+  let value = String(text || "—");
+
+  while (
+    ctx.measureText(value).width > maxWidth &&
+    value.length > 3
+  ) {
+    value = value.slice(0, -2) + "…";
+  }
+
+  ctx.fillText(value, x, y);
+}
+
+/* CREAR IMAGEN DEL REGISTRO */
+
+async function makeImage() {
+  const entries = [...rows.querySelectorAll(".row")]
+    .map(row => ({
+      desc: row.querySelector(".desc").value.trim(),
+      loc: row.querySelector(".loc").value.trim(),
+      alert: row.querySelector(".alert-toggle")
+        .classList.contains("active")
+    }))
+    .filter(item => item.desc || item.loc);
+
+  if (!entries.length) {
+    alert("Añade al menos un barniz antes de generar la imagen.");
+    return null;
+  }
+
+  const width = 1100;
+  const pad = 45;
+  const headerH = 145;
+  const photoH = 150;
+  const infoH = 105;
+  const rowH = 68;
+  const tableY = headerH + photoH + infoH;
+  const height = tableY + 54 + entries.length * rowH + 75;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, width, height);
+
+  /* CABECERA */
+
+  ctx.fillStyle = "#123d68";
+  ctx.fillRect(0, 0, width, headerH);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 25px Arial";
+  ctx.fillText("SONOCO", pad, 36);
+
+  ctx.font = "bold 32px Arial";
+  ctx.fillText("CONTROL DE BARNICES", pad, 78);
+
+  ctx.fillStyle = "#d5e8f8";
+  ctx.font = "bold 19px Arial";
+  ctx.fillText("REGISTRO DE UBICACIONES", pad, 112);
+
+  ctx.font = "15px Arial";
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText("By Rubén D. 268", width - pad - 165, 132);
+
+  /* FOTOGRAFÍAS */
+
+  const img1 = await loadImage("almacen-general.jpg");
+  const img2 = await loadImage("ubicaciones-estanterias.jpg");
+
+  function drawCover(img, x, y, w, h) {
+    if (!img) return;
+
     ctx.save();
 
     ctx.beginPath();
     ctx.rect(x, y, w, h);
     ctx.clip();
 
-    ctx.fillStyle = "#edf2f8";
-    ctx.fillRect(x, y, w, h);
+    const scale = Math.max(
+      w / img.width,
+      h / img.height
+    );
 
-    if (img) {
-        const escala = Math.max(w / img.width, h / img.height);
-        const nw = img.width * escala;
-        const nh = img.height * escala;
+    const sw = w / scale;
+    const sh = h / scale;
+    const sx = (img.width - sw) / 2;
+    const sy = (img.height - sh) / 2;
 
-        ctx.drawImage(
-            img,
-            x + (w - nw) / 2,
-            y + (h - nh) / 2,
-            nw,
-            nh
-        );
-    } else {
-        ctx.fillStyle = "#243447";
-        ctx.font = "16px Arial";
-        ctx.fillText("Fotografía no disponible", x + 12, y + h / 2);
-    }
+    ctx.drawImage(
+      img,
+      sx, sy, sw, sh,
+      x, y, w, h
+    );
 
     ctx.restore();
+  }
 
-    ctx.strokeStyle = "#cbd8e6";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(x, y, w, h);
-}
+  const photoY = headerH + 12;
+  const photoGap = 12;
+  const photoW = (width - pad * 2 - photoGap) / 2;
 
-/* CREAR IMAGEN COMPLETA PARA COMPARTIR O GUARDAR */
-async function crearImagen() {
-    const ancho = 900;
-    const margen = 28;
-    const interior = ancho - margen * 2;
+  drawCover(img1, pad, photoY, photoW, photoH - 15);
 
-    const datos = Array.from(filas.querySelectorAll("tr")).map((tr) => ({
-        descripcion: tr.querySelector(".descripcion").value,
-        ubicacion: tr.querySelector(".ubicacion").value,
-        aviso: tr.querySelector(".aviso").classList.contains("activo")
-    }));
+  drawCover(
+    img2,
+    pad + photoW + photoGap,
+    photoY,
+    photoW,
+    photoH - 15
+  );
 
-    const logo = await cargarImagen("IMG_5518.jpeg");
-    const foto1 = await cargarImagen("IMG_5503.jpeg");
-    const foto2 = await cargarImagen("IMG_5504.jpeg");
+  /* FECHA Y HORA */
 
-    const altoCabecera = 160;
-    const altoFecha = 68;
-    const altoFoto = 95;
-    const altoCabTabla = 52;
-    const altoFila = 77;
-    const altoLeyenda = 96;
+  ctx.fillStyle = "#123d68";
+  ctx.font = "bold 22px Arial";
+  ctx.fillText(
+    "REGISTRO DEL DISPOSITIVO",
+    pad,
+    headerH + photoH + 25
+  );
 
-    const alto =
-        margen * 2 +
-        altoCabecera +
-        altoFecha +
-        altoFoto * 2 +
-        altoCabTabla +
-        datos.length * altoFila +
-        altoLeyenda +
-        45;
+  ctx.fillStyle = "#647e94";
+  ctx.font = "17px Arial";
 
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+  ctx.fillText(
+    "Fecha y hora: " +
+      new Intl.DateTimeFormat("es-ES", {
+        dateStyle: "long",
+        timeStyle: "short"
+      }).format(new Date()),
+    pad,
+    headerH + photoH + 55
+  );
 
-    canvas.width = ancho * 2;
-    canvas.height = alto * 2;
-    ctx.scale(2, 2);
+  /* TABLA ALINEADA */
 
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, ancho, alto);
+  const x0 = pad;
+  const tableW = width - pad * 2;
+  const descW = tableW * 0.55;
+  const alertW = tableW * 0.12;
+  const locW = tableW - descW - alertW;
 
-    let y = margen;
+  ctx.fillStyle = "#e6effa";
+  ctx.fillRect(x0, tableY, tableW, 54);
 
-    /* CABECERA */
-    const gradiente = ctx.createLinearGradient(0, y, ancho, y + altoCabecera);
-    gradiente.addColorStop(0, "#174a76");
-    gradiente.addColorStop(1, "#216c9b");
+  ctx.fillStyle = "#123d68";
+  ctx.font = "bold 17px Arial";
 
-    ctx.fillStyle = gradiente;
-    ctx.fillRect(0, y, ancho, altoCabecera);
+  ctx.fillText(
+    "DESCRIPCIÓN / BARNIZ",
+    x0 + 12,
+    tableY + 33
+  );
 
-    if (logo) {
-        dibujarImagenContenida(
-            ctx, logo, margen + 10, y + 24, 125, 112
-        );
-    } else {
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 23px Arial";
-        ctx.fillText("SONOCO", margen + 10, y + 80);
-    }
+  ctx.textAlign = "center";
+  ctx.fillText(
+    "AVISO",
+    x0 + descW + alertW / 2,
+    tableY + 33
+  );
 
-    ctx.fillStyle = "rgba(255,255,255,.7)";
-    ctx.fillRect(margen + 145, y + 20, 2, 120);
+  ctx.textAlign = "left";
+  ctx.fillText(
+    "UBICACIÓN",
+    x0 + descW + alertW + 12,
+    tableY + 33
+  );
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 27px Arial";
-    ctx.fillText("CONTROL DE BARNICES", margen + 170, y + 54);
+  entries.forEach((item, index) => {
+    const y = tableY + 54 + index * rowH;
 
-    ctx.font = "19px Arial";
-    ctx.fillText("REGISTRO DE UBICACIONES", margen + 170, y + 84);
+    ctx.fillStyle = index % 2 ? "#f8fbfe" : "#ffffff";
+    ctx.fillRect(x0, y, tableW, rowH);
 
-    ctx.textAlign = "right";
-    ctx.fillStyle = "#d0e1f1";
-    ctx.font = "bold 15px Arial";
-    ctx.fillText("By Rubén D. 268", ancho - margen - 10, y + 124);
-    ctx.textAlign = "left";
+    ctx.strokeStyle = "#d5e2ee";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x0, y, tableW, rowH);
 
-    y += altoCabecera + 12;
-
-    /* FECHA Y HORA */
-    ctx.fillStyle = "#f5f8fc";
-    ctx.fillRect(margen, y, interior, altoFecha);
-
-    ctx.strokeStyle = "#cbd8e6";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(margen, y, interior, altoFecha);
-
-    ctx.textAlign = "center";
-    ctx.fillStyle = "#194f7d";
-    ctx.font = "bold 19px Arial";
-
-    ctx.fillText(
-        document.getElementById("fecha").textContent,
-        ancho / 2,
-        y + 27
-    );
-
-    ctx.fillStyle = "#526579";
-    ctx.font = "15px Arial";
-
-    ctx.fillText(
-        document.getElementById("hora").textContent,
-        ancho / 2,
-        y + 49
-    );
-
-    ctx.textAlign = "left";
-    y += altoFecha + 12;
-
-    /* FOTO SUPERIOR */
-    dibujarFoto(ctx, foto1, margen, y, interior, altoFoto);
-    y += altoFoto + 12;
-
-    /* TABLA */
-    const x = margen;
-    const anchoDesc = interior * .57;
-    const anchoAviso = interior * .13;
-    const anchoUbic = interior - anchoDesc - anchoAviso;
-
-    const xAviso = x + anchoDesc;
-    const xUbic = x + anchoDesc + anchoAviso;
-    const inicioTabla = y;
-
-    ctx.fillStyle = "#e7f0fa";
-    ctx.fillRect(x, y, interior, altoCabTabla);
-
-    ctx.fillStyle = "#24496d";
-    ctx.font = "bold 14px Arial";
-    ctx.textAlign = "center";
-
-    ctx.fillText("DESCRIPCIÓN / BARNIZ", x + anchoDesc / 2, y + 32);
-    ctx.fillText("AVISO", xAviso + anchoAviso / 2, y + 32);
-    ctx.fillText("UBICACIÓN", xUbic + anchoUbic / 2, y + 32);
-
-    ctx.textAlign = "left";
-
-    y += altoCabTabla;
-
-    datos.forEach((dato) => {
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(x, y, interior, altoFila);
-
-        ctx.fillStyle = "#243447";
-        ctx.font = "15px Arial";
-
-        ctx.save();
-        ctx.beginPath();
-        ctx.rect(x + 8, y + 5, anchoDesc - 16, altoFila - 10);
-        ctx.clip();
-        ctx.fillText(dato.descripcion, x + 10, y + 30);
-        ctx.restore();
-
-        /* AVISO PEQUEÑO TAMBIÉN EN LA IMAGEN */
-        const cx = xAviso + anchoAviso / 2;
-        const cy = y + altoFila / 2;
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, 11, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
-        ctx.strokeStyle = "#ccd5df";
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, 6, 0, Math.PI * 2);
-        ctx.fillStyle = dato.aviso ? "#d71930" : "#ffffff";
-        ctx.fill();
-        ctx.strokeStyle = dato.aviso ? "#b80e23" : "#bdc9d7";
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.fillStyle = "#243447";
-        ctx.font = "bold 16px Arial";
-        ctx.textAlign = "center";
-
-        ctx.fillText(
-            dato.ubicacion,
-            xUbic + anchoUbic / 2,
-            y + altoFila / 2 + 5
-        );
-
-        ctx.textAlign = "left";
-
-        y += altoFila;
-
-        ctx.strokeStyle = "#cbd8e6";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + interior, y);
-        ctx.stroke();
-    });
-
-    /* SEPARADORES AZULES */
-    ctx.strokeStyle = "#194f7d";
-    ctx.lineWidth = 3;
+    /* DIVISIONES VERTICALES */
 
     ctx.beginPath();
-    ctx.moveTo(x, inicioTabla);
-    ctx.lineTo(x + interior, inicioTabla);
+    ctx.moveTo(x0 + descW, y);
+    ctx.lineTo(x0 + descW, y + rowH);
 
-    ctx.moveTo(x, inicioTabla + altoCabTabla);
-    ctx.lineTo(x + interior, inicioTabla + altoCabTabla);
-
-    ctx.moveTo(xAviso, inicioTabla);
-    ctx.lineTo(xAviso, y);
-
-    ctx.moveTo(xUbic, inicioTabla);
-    ctx.lineTo(xUbic, y);
+    ctx.moveTo(x0 + descW + alertW, y);
+    ctx.lineTo(x0 + descW + alertW, y + rowH);
 
     ctx.stroke();
 
-    ctx.strokeRect(x, inicioTabla, interior, y - inicioTabla);
+    /* DESCRIPCIÓN */
 
-    y += 12;
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#193247";
 
-    /* LEYENDA */
-    ctx.fillStyle = "#fff6f6";
-    ctx.fillRect(margen, y, interior, altoLeyenda);
-
-    ctx.fillStyle = "#d71930";
-    ctx.fillRect(margen, y, 5, altoLeyenda);
-
-    ctx.strokeStyle = "#efc2c7";
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(margen, y, interior, altoLeyenda);
-
-    ctx.fillStyle = "#ad1f2c";
-    ctx.font = "bold 18px Arial";
-    ctx.fillText("AVISO DE TRASVASE", margen + 17, y + 28);
-
-    ctx.fillStyle = "#243447";
-    ctx.font = "14px Arial";
-    ctx.fillText(
-        "Marca con el símbolo rojo los barnices que requieren un",
-        margen + 17,
-        y + 53
-    );
-    ctx.fillText(
-        "trasvase de producto debido a su bajo nivel de contenido.",
-        margen + 17,
-        y + 75
+    drawFitText(
+      ctx,
+      item.desc || "—",
+      x0 + 12,
+      y + 40,
+      descW - 24,
+      "19px Arial"
     );
 
-    y += altoLeyenda + 12;
+    /* AVISO */
 
-    /* FOTO INFERIOR */
-    dibujarFoto(ctx, foto2, margen, y, interior, altoFoto);
+    const cx = x0 + descW + alertW / 2;
+    const cy = y + rowH / 2;
 
-    return canvas;
-}
+    ctx.beginPath();
+    ctx.arc(cx, cy, 12, 0, Math.PI * 2);
 
-/* COMPARTIR IMAGEN */
-async function compartirImagen() {
-    const canvas = await crearImagen();
+    ctx.fillStyle = item.alert ? "#e31b32" : "#ffffff";
+    ctx.fill();
 
-    const blob = await new Promise((resolve) => {
-        canvas.toBlob(resolve, "image/png");
-    });
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = item.alert ? "#e31b32" : "#cbd5df";
+    ctx.stroke();
 
-    if (!blob) {
-        throw new Error("No se pudo crear la imagen");
+    if (item.alert) {
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 15px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("!", cx, cy + 5);
     }
 
-    const archivo = new File(
-        [blob],
-        "CONTROL-DE-BARNICES.png",
-        { type: "image/png" }
+    /* UBICACIÓN */
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#123d68";
+
+    drawFitText(
+      ctx,
+      item.loc || "—",
+      x0 + descW + alertW + 12,
+      y + 40,
+      locW - 24,
+      "bold 19px Arial"
+    );
+  });
+
+  /* PIE */
+
+  ctx.fillStyle = "#9ab4ca";
+  ctx.font = "15px Arial";
+  ctx.textAlign = "left";
+
+  ctx.fillText(
+    "CONTROL DE BARNICES · By Rubén D. 268",
+    pad,
+    height - 25
+  );
+
+  return new Promise(resolve => {
+    canvas.toBlob(resolve, "image/png");
+  });
+}
+
+/* MOSTRAR VISTA PREVIA */
+
+function hidePreview() {
+  document.getElementById("preview").style.display = "none";
+
+  document.getElementById("previewImg").removeAttribute("src");
+
+  if (lastUrl) {
+    URL.revokeObjectURL(lastUrl);
+    lastUrl = null;
+  }
+
+  lastBlob = null;
+}
+
+/* GENERAR Y COMPARTIR */
+
+document.getElementById("share").addEventListener("click", async () => {
+  try {
+    const blob = await makeImage();
+
+    if (!blob) return;
+
+    lastBlob = blob;
+
+    if (lastUrl) {
+      URL.revokeObjectURL(lastUrl);
+    }
+
+    lastUrl = URL.createObjectURL(blob);
+
+    document.getElementById("previewImg").src = lastUrl;
+    document.getElementById("preview").style.display = "block";
+
+    document.getElementById("preview").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    const file = new File(
+      [blob],
+      "control-barnices.png",
+      { type: "image/png" }
     );
 
     if (
-        navigator.share &&
-        navigator.canShare &&
-        navigator.canShare({ files: [archivo] })
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({ files: [file] })
     ) {
+      try {
         await navigator.share({
-            files: [archivo],
-            title: "Control de barnices",
-            text: "Registro de ubicaciones de barnices."
+          files: [file],
+          title: "Control de barnices"
         });
-    } else {
-        const url = URL.createObjectURL(blob);
-        const enlace = document.createElement("a");
-
-        enlace.href = url;
-        enlace.download = "CONTROL-DE-BARNICES.png";
-        enlace.click();
-
-        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      } catch (error) {
+        /* Si se cancela el menú de compartir,
+           la vista previa sigue disponible. */
+      }
     }
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo generar la imagen. Inténtalo de nuevo.");
+  }
+});
+
+/* DESCARGAR IMAGEN */
+
+async function downloadImage() {
+  if (!lastBlob) {
+    const blob = await makeImage();
+
+    if (!blob) return;
+
+    lastBlob = blob;
+  }
+
+  const url = URL.createObjectURL(lastBlob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "control-barnices.png";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 
-/* GUARDAR IMAGEN */
-document.getElementById("btnGuardar").addEventListener("click", async () => {
-    estado.textContent = "Preparando imagen...";
+document.getElementById("download").addEventListener(
+  "click",
+  downloadImage
+);
 
-    try {
-        const canvas = await crearImagen();
+document.getElementById("downloadPreview").addEventListener(
+  "click",
+  downloadImage
+);
 
-        const blob = await new Promise((resolve) => {
-            canvas.toBlob(resolve, "image/png");
-        });
+/* CERRAR VISTA PREVIA */
 
-        if (!blob) {
-            throw new Error("No se pudo crear la imagen");
-        }
+document.getElementById("closePreview").addEventListener(
+  "click",
+  hidePreview
+);
 
-        const archivo = new File(
-            [blob],
-            "CONTROL-DE-BARNICES.png",
-            { type: "image/png" }
-        );
-
-        if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({ files: [archivo] })
-        ) {
-            await navigator.share({
-                files: [archivo],
-                title: "Control de barnices"
-            });
-            estado.textContent = "Imagen preparada.";
-        } else {
-            const url = URL.createObjectURL(blob);
-            const enlace = document.createElement("a");
-
-            enlace.href = url;
-            enlace.download = "CONTROL-DE-BARNICES.png";
-            enlace.click();
-
-            setTimeout(() => URL.revokeObjectURL(url), 5000);
-            estado.textContent = "Imagen preparada para guardar.";
-        }
-    } catch (error) {
-        if (error.name === "AbortError") return;
-
-        console.error(error);
-        estado.textContent = "No se pudo guardar la imagen.";
-        alert("No se pudo generar la imagen.");
-    }
-});
-
-/* COMPARTIR REGISTRO */
-document.getElementById("btnCompartir").addEventListener("click", async () => {
-    estado.textContent = "Preparando registro...";
-
-    try {
-        await compartirImagen();
-        estado.textContent = "Registro preparado para compartir.";
-    } catch (error) {
-        if (error.name === "AbortError") return;
-
-        console.error(error);
-        estado.textContent = "No se pudo compartir el registro.";
-        alert("No se pudo compartir el registro. Prueba GUARDAR IMAGEN.");
-    }
-});
 </script>
-
 </body>
 </html>
