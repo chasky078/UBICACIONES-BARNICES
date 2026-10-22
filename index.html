@@ -15,9 +15,7 @@
   --rojo: #c52235;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -27,9 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button, input {
-  font: inherit;
-}
+button, input { font: inherit; }
 
 .app {
   width: 100%;
@@ -62,9 +58,7 @@ button, input {
   object-fit: contain;
 }
 
-.titulos {
-  min-width: 0;
-}
+.titulos { min-width: 0; }
 
 .titulos h1 {
   margin: 0;
@@ -86,7 +80,7 @@ button, input {
   font-weight: bold;
 }
 
-/* FOTOGRAFÍAS EN SUS POSICIONES */
+/* FOTOGRAFÍAS */
 
 .foto {
   display: block;
@@ -99,13 +93,8 @@ button, input {
   background: #edf3f8;
 }
 
-.foto-superior {
-  margin: 0 0 17px;
-}
-
-.foto-inferior {
-  margin: 17px 0 0;
-}
+.foto-superior { margin: 0 0 17px; }
+.foto-inferior { margin: 17px 0 0; }
 
 /* FECHA */
 
@@ -127,11 +116,9 @@ button, input {
   line-height: 1.5;
 }
 
-.fecha strong {
-  color: var(--azul-oscuro);
-}
+.fecha strong { color: var(--azul-oscuro); }
 
-/* TABLA: LAS TRES COLUMNAS COMPARTEN LA MISMA CUADRÍCULA */
+/* TABLA */
 
 .tabla {
   width: 100%;
@@ -141,8 +128,7 @@ button, input {
   background: white;
 }
 
-.cabecera-tabla,
-.fila {
+.cabecera-tabla, .fila {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 44px minmax(0, .82fr);
 }
@@ -197,13 +183,12 @@ button, input {
   font-size: 13px;
 }
 
-.barniz:focus,
-.ubicacion:focus {
+.barniz:focus, .ubicacion:focus {
   border-color: #347db0;
   box-shadow: 0 0 0 2px #347db018;
 }
 
-/* AVISO DE TRASVASE */
+/* AVISO */
 
 .boton-aviso {
   width: 25px;
@@ -222,7 +207,7 @@ button, input {
   background: #e31b32;
 }
 
-/* UBICACIÓN Y EQUIS PEQUEÑA */
+/* UBICACIÓN */
 
 .celda-ubicacion {
   display: flex;
@@ -311,20 +296,9 @@ button, input {
   cursor: pointer;
 }
 
-.btn-azul {
-  background: var(--azul-oscuro);
-  color: white;
-}
-
-.btn-claro {
-  background: #e5eff9;
-  color: var(--azul-oscuro);
-}
-
-.btn-rojo {
-  background: #fff0f1;
-  color: #ad2033;
-}
+.btn-azul { background: var(--azul-oscuro); color: white; }
+.btn-claro { background: #e5eff9; color: var(--azul-oscuro); }
+.btn-rojo { background: #fff0f1; color: #ad2033; }
 
 .instrucciones {
   margin: 13px 3px;
@@ -342,40 +316,18 @@ button, input {
 }
 
 @media (max-width: 360px) {
-  .app {
-    padding: 6px;
-  }
+  .app { padding: 6px; }
+  .panel { padding: 8px; }
+  .logo { width: 67px; height: 67px; }
+  .cabecera { gap: 9px; }
 
-  .panel {
-    padding: 8px;
-  }
-
-  .logo {
-    width: 67px;
-    height: 67px;
-  }
-
-  .cabecera {
-    gap: 9px;
-  }
-
-  .cabecera-tabla,
-  .fila {
+  .cabecera-tabla, .fila {
     grid-template-columns: minmax(0, 1fr) 34px minmax(0, .8fr);
   }
 
-  .celda {
-    padding: 3px;
-  }
-
-  .barniz {
-    padding: 5px;
-    font-size: 11px;
-  }
-
-  .ubicacion {
-    font-size: 9px;
-  }
+  .celda { padding: 3px; }
+  .barniz { padding: 5px; font-size: 11px; }
+  .ubicacion { font-size: 9px; }
 
   .eliminar {
     width: 19px;
@@ -384,65 +336,79 @@ button, input {
     font-size: 15px;
   }
 
-  .boton-aviso {
-    width: 22px;
-    height: 22px;
-  }
-
-  .cabecera-tabla {
-    font-size: 9px;
-  }
-
-  .btn {
-    font-size: 10px;
-  }
-
-  .foto {
-    height: 115px;
-  }
+  .boton-aviso { width: 22px; height: 22px; }
+  .cabecera-tabla { font-size: 9px; }
+  .btn { font-size: 10px; }
+  .foto { height: 115px; }
 }
 
 @media (min-width: 600px) {
-  .app {
-    padding: 22px;
-  }
+  .app { padding: 22px; }
+  .panel { padding: 20px; }
+  .foto { height: 185px; }
 
-  .panel {
-    padding: 20px;
-  }
-
-  .foto {
-    height: 185px;
-  }
-
-  .cabecera-tabla,
-  .fila {
+  .cabecera-tabla, .fila {
     grid-template-columns: minmax(0, 1fr) 58px minmax(0, .7fr);
   }
 
-  .barniz,
-  .ubicacion {
-    font-size: 15px;
-  }
+  .barniz, .ubicacion { font-size: 15px; }
+  .btn { font-size: 13px; }
+}
 
-  .btn {
-    font-size: 13px;
-  }
+/* VISTA DE LA CAPTURA COMPLETA */
+
+body.mostrando-captura {
+  background: #e8edf3;
+}
+
+.vista-captura {
+  display: none;
+  min-height: 100vh;
+  padding: 14px;
+  text-align: center;
+}
+
+.vista-captura.visible { display: block; }
+
+.vista-captura p {
+  max-width: 600px;
+  margin: 8px auto 14px;
+  color: #20364b;
+  font: 15px/1.5 Arial, sans-serif;
+}
+
+.vista-captura img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #d5e0eb;
+  border-radius: 8px;
+}
+
+.vista-captura .btn {
+  width: 100%;
+  max-width: 440px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+
+@media print {
+  .botones { display: none; }
 }
 </style>
 </head>
 
 <body>
-<main class="app">
+
+<main class="app" id="aplicacion">
 <div class="panel">
 
-  <!-- LOGOTIPO ARRIBA -->
+  <!-- LOGOTIPO -->
   <header class="cabecera">
-    <img
-      class="logo"
-      src="IMG_5518.jpeg"
-      alt="Logotipo SONOCO"
-    >
+    <img class="logo" src="IMG_5518.jpeg" alt="Logotipo SONOCO">
 
     <div class="titulos">
       <h1>CONTROL DE BARNICES</h1>
@@ -451,12 +417,10 @@ button, input {
     </div>
   </header>
 
-  <!-- FOTO 1: ARRIBA, ANTES DEL REGISTRO -->
-  <img
-    class="foto foto-superior"
-    src="IMG_5503.jpeg"
-    alt="Vista general del almacén"
-  >
+  <!-- FOTO SUPERIOR -->
+  <img class="foto foto-superior"
+       src="IMG_5503.jpeg"
+       alt="Vista general del almacén">
 
   <div class="titulo-seccion">REGISTRO ACTUAL</div>
 
@@ -465,17 +429,14 @@ button, input {
     <strong id="fecha"></strong>
   </div>
 
-  <!-- TABLA ALINEADA -->
+  <!-- TABLA -->
   <section class="tabla">
-
     <div class="cabecera-tabla">
       <div>DESCRIPCIÓN / BARNIZ</div>
       <div>AVISO</div>
       <div>UBICACIÓN</div>
     </div>
-
     <div id="filas"></div>
-
   </section>
 
   <div class="aviso-trasvase">
@@ -485,29 +446,16 @@ button, input {
   </div>
 
   <div class="botones">
-    <button class="btn btn-azul" id="anadir">
-      + AÑADIR FILA
-    </button>
-
-    <button class="btn btn-claro" id="compartir">
-      COMPARTIR REGISTRO
-    </button>
-
-    <button class="btn btn-claro" id="guardar">
-      GUARDAR IMAGEN
-    </button>
-
-    <button class="btn btn-rojo" id="limpiar">
-      LIMPIAR REGISTRO
-    </button>
+    <button class="btn btn-azul" id="anadir">+ AÑADIR FILA</button>
+    <button class="btn btn-claro" id="compartir">COMPARTIR REGISTRO</button>
+    <button class="btn btn-claro" id="capturar">📸 CAPTURAR IMAGEN</button>
+    <button class="btn btn-rojo" id="limpiar">LIMPIAR REGISTRO</button>
   </div>
 
-  <!-- FOTO 2: ABAJO, DESPUÉS DE LOS BOTONES -->
-  <img
-    class="foto foto-inferior"
-    src="IMG_5504.jpeg"
-    alt="Fotografía de las estanterías del almacén"
-  >
+  <!-- FOTO INFERIOR -->
+  <img class="foto foto-inferior"
+       src="IMG_5504.jpeg"
+       alt="Fotografía de las estanterías del almacén">
 
   <div class="instrucciones">
     Las ubicaciones conocidas se completan automáticamente al escribir
@@ -520,13 +468,24 @@ button, input {
 </div>
 </main>
 
+<!-- AQUÍ SE MOSTRARÁ LA IMAGEN COMPLETA GENERADA -->
+<section class="vista-captura" id="vistaCaptura">
+  <p>
+    <strong>CAPTURA COMPLETA DEL REGISTRO</strong><br>
+    Mantén pulsada la imagen y elige «Guardar en Fotos» para conservarla
+    en tu iPhone. Después podrás compartirla cuando quieras.
+  </p>
+
+  <img id="imagenCapturada" alt="Captura completa del control de barnices">
+
+  <button class="btn btn-azul" id="volver">
+    VOLVER AL REGISTRO
+  </button>
+</section>
+
 <script>
 "use strict";
 
-/*
- * Se mantienen los códigos y ubicaciones configurados en el código
- * anterior. Comprueba los valores antes de utilizarlos en el almacén.
- */
 const ubicaciones = {
   "814.449": "W02008",
   "MKB113T": "W02009",
@@ -567,9 +526,7 @@ function buscarUbicacion(descripcion) {
   const codigo = normalizar(descripcion);
 
   for (const [nombre, ubicacion] of Object.entries(ubicaciones)) {
-    if (normalizar(nombre) === codigo) {
-      return ubicacion;
-    }
+    if (normalizar(nombre) === codigo) return ubicacion;
   }
 
   return "";
@@ -579,7 +536,6 @@ function crearFila(descripcion = "", ubicacion = "", marcado = false) {
   const fila = document.createElement("div");
   fila.className = "fila";
 
-  // DESCRIPCIÓN
   const celdaDescripcion = document.createElement("div");
   celdaDescripcion.className = "celda";
 
@@ -590,10 +546,8 @@ function crearFila(descripcion = "", ubicacion = "", marcado = false) {
   inputDescripcion.autocomplete = "off";
   inputDescripcion.value = descripcion;
   inputDescripcion.setAttribute("aria-label", "Descripción del barniz");
-
   celdaDescripcion.appendChild(inputDescripcion);
 
-  // AVISO
   const celdaAviso = document.createElement("div");
   celdaAviso.className = "celda";
 
@@ -610,7 +564,6 @@ function crearFila(descripcion = "", ubicacion = "", marcado = false) {
 
   celdaAviso.appendChild(botonAviso);
 
-  // UBICACIÓN Y EQUIS
   const celdaUbicacion = document.createElement("div");
   celdaUbicacion.className = "celda celda-ubicacion";
 
@@ -630,16 +583,12 @@ function crearFila(descripcion = "", ubicacion = "", marcado = false) {
   eliminar.setAttribute("aria-label", "Eliminar esta fila");
 
   celdaUbicacion.append(inputUbicacion, eliminar);
-
   fila.append(celdaDescripcion, celdaAviso, celdaUbicacion);
   contenedorFilas.appendChild(fila);
 
   function completarUbicacion() {
     const encontrada = buscarUbicacion(inputDescripcion.value);
-
-    if (encontrada) {
-      inputUbicacion.value = encontrada;
-    }
+    if (encontrada) inputUbicacion.value = encontrada;
   }
 
   inputDescripcion.addEventListener("input", completarUbicacion);
@@ -648,54 +597,39 @@ function crearFila(descripcion = "", ubicacion = "", marcado = false) {
 
   botonAviso.addEventListener("click", () => {
     const activo = botonAviso.classList.toggle("activo");
-
     botonAviso.textContent = activo ? "●" : "";
     botonAviso.setAttribute("aria-pressed", activo ? "true" : "false");
   });
 
   eliminar.addEventListener("click", () => {
     fila.remove();
-
-    if (contenedorFilas.children.length === 0) {
-      crearFila();
-    }
+    if (contenedorFilas.children.length === 0) crearFila();
   });
 
   return fila;
 }
 
-// CUATRO FILAS INICIALES
-for (let i = 0; i < 4; i++) {
-  crearFila();
-}
+for (let i = 0; i < 4; i++) crearFila();
 
-// AÑADIR FILA
 document.getElementById("anadir").addEventListener("click", () => {
   const fila = crearFila();
   fila.querySelector(".barniz").focus();
 });
 
-// LIMPIAR REGISTRO
 document.getElementById("limpiar").addEventListener("click", () => {
-  if (!confirm("¿Quieres borrar todas las filas del registro actual?")) {
-    return;
-  }
+  if (!confirm("¿Quieres borrar todas las filas del registro actual?")) return;
 
   contenedorFilas.innerHTML = "";
-
-  for (let i = 0; i < 4; i++) {
-    crearFila();
-  }
+  for (let i = 0; i < 4; i++) crearFila();
 });
 
-// CARGAR LAS FOTOGRAFÍAS REALES
+/* CARGAR LAS FOTOGRAFÍAS REALES */
+
 function cargarImagen(ruta) {
   return new Promise(resolve => {
     const img = new Image();
-
     img.onload = () => resolve(img);
     img.onerror = () => resolve(null);
-
     img.src = ruta;
   });
 }
@@ -704,11 +638,9 @@ function dibujarFoto(ctx, img, x, y, ancho, alto) {
   if (!img) {
     ctx.fillStyle = "#edf3f8";
     ctx.fillRect(x, y, ancho, alto);
-
     ctx.fillStyle = "#60788c";
     ctx.font = "18px Arial";
     ctx.fillText("Fotografía no disponible", x + 12, y + alto / 2);
-
     return;
   }
 
@@ -747,6 +679,12 @@ function escribirAjustado(ctx, texto, x, y, ancho, fuente) {
   ctx.fillText(valor, x, y);
 }
 
+/*
+ * GENERA UNA SOLA IMAGEN LARGA CON EL REGISTRO COMPLETO.
+ * Incluye logo, foto superior, fecha, todas las filas, aviso,
+ * botones representativos, foto inferior e instrucciones.
+ */
+
 async function generarImagenRegistro() {
   const registros = [...contenedorFilas.querySelectorAll(".fila")]
     .map(fila => ({
@@ -767,45 +705,48 @@ async function generarImagenRegistro() {
 
   const ancho = 1100;
   const margen = 40;
+  const anchoContenido = ancho - margen * 2;
+
   const altoCabecera = 145;
-  const altoFoto = 145;
-  const separacionFotos = 14;
+  const altoFoto = 180;
+  const separacion = 18;
   const altoFecha = 76;
   const altoCabeceraTabla = 55;
   const altoFila = 66;
+  const altoAviso = 92;
+  const altoBotones = 64;
+  const altoInstrucciones = 58;
+  const altoPie = 35;
 
-  /*
-   * ORDEN CORRECTO DE LA IMAGEN GENERADA:
-   * logotipo → foto 5503 → fecha → tabla → aviso → botones → foto 5504.
-   */
   const yFotoSuperior = altoCabecera;
-  const yFecha = yFotoSuperior + altoFoto + separacionFotos;
+  const yFecha = yFotoSuperior + altoFoto + separacion;
   const yTabla = yFecha + altoFecha;
   const yAviso = yTabla + altoCabeceraTabla + registros.length * altoFila;
-  const altoAviso = 92;
   const yBotones = yAviso + altoAviso + 16;
-  const altoBotones = 64;
   const yFotoInferior = yBotones + altoBotones + 16;
-
-  const altoFinal = yFotoInferior + altoFoto + 45;
+  const yInstrucciones = yFotoInferior + altoFoto + 14;
+  const yPie = yInstrucciones + altoInstrucciones;
+  const altoFinal = yPie + altoPie + 15;
 
   const canvas = document.createElement("canvas");
   canvas.width = ancho;
   canvas.height = altoFinal;
 
   const ctx = canvas.getContext("2d");
-  const anchoContenido = ancho - margen * 2;
+  if (!ctx) {
+    alert("No se pudo preparar la imagen.");
+    return null;
+  }
 
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, ancho, altoFinal);
 
-  // CABECERA
+  /* CABECERA Y LOGO */
+
   ctx.fillStyle = "#1d5680";
   ctx.fillRect(0, 0, ancho, altoCabecera);
 
-  if (logo) {
-    ctx.drawImage(logo, margen, 22, 95, 95);
-  }
+  if (logo) ctx.drawImage(logo, margen, 22, 95, 95);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 31px Arial";
@@ -818,24 +759,19 @@ async function generarImagenRegistro() {
   ctx.fillStyle = "#dcecf9";
   ctx.fillText("By Rubén D. 268", 155, 113);
 
-  // PRIMERA FOTOGRAFÍA: ENCIMA DE LA TABLA
-  dibujarFoto(
-    ctx,
-    fotoSuperior,
-    margen,
-    yFotoSuperior,
-    anchoContenido,
-    altoFoto
-  );
+  /* FOTO SUPERIOR */
 
-  // FECHA
+  dibujarFoto(ctx, fotoSuperior, margen, yFotoSuperior,
+    anchoContenido, altoFoto);
+
+  /* FECHA */
+
   ctx.fillStyle = "#123d68";
   ctx.font = "bold 21px Arial";
   ctx.fillText("REGISTRO ACTUAL", margen, yFecha + 24);
 
   ctx.fillStyle = "#627c92";
   ctx.font = "17px Arial";
-
   ctx.fillText(
     "Fecha y hora: " +
     new Intl.DateTimeFormat("es-ES", {
@@ -846,22 +782,22 @@ async function generarImagenRegistro() {
     yFecha + 57
   );
 
-  // CABECERA DE LA TABLA
+  /* TABLA */
+
   const descW = anchoContenido * 0.55;
   const avisoW = anchoContenido * 0.12;
   const ubicW = anchoContenido - descW - avisoW;
+  const altoTotalTabla = altoCabeceraTabla + registros.length * altoFila;
 
   ctx.fillStyle = "#e7f0fb";
   ctx.fillRect(margen, yTabla, anchoContenido, altoCabeceraTabla);
 
   ctx.strokeStyle = "#123d68";
   ctx.lineWidth = 2;
-  ctx.strokeRect(margen, yTabla, anchoContenido,
-    altoCabeceraTabla + registros.length * altoFila);
+  ctx.strokeRect(margen, yTabla, anchoContenido, altoTotalTabla);
 
   ctx.fillStyle = "#123d68";
   ctx.font = "bold 16px Arial";
-
   ctx.textAlign = "left";
   ctx.fillText("DESCRIPCIÓN / BARNIZ", margen + 12, yTabla + 33);
 
@@ -869,11 +805,7 @@ async function generarImagenRegistro() {
   ctx.fillText("AVISO", margen + descW + avisoW / 2, yTabla + 33);
 
   ctx.textAlign = "left";
-  ctx.fillText(
-    "UBICACIÓN",
-    margen + descW + avisoW + 10,
-    yTabla + 33
-  );
+  ctx.fillText("UBICACIÓN", margen + descW + avisoW + 10, yTabla + 33);
 
   registros.forEach((registro, i) => {
     const y = yTabla + altoCabeceraTabla + i * altoFila;
@@ -896,12 +828,8 @@ async function generarImagenRegistro() {
     ctx.fillStyle = "#20364b";
 
     escribirAjustado(
-      ctx,
-      registro.descripcion,
-      margen + 12,
-      y + 39,
-      descW - 24,
-      "18px Arial"
+      ctx, registro.descripcion,
+      margen + 12, y + 39, descW - 24, "18px Arial"
     );
 
     const cx = margen + descW + avisoW / 2;
@@ -927,16 +855,14 @@ async function generarImagenRegistro() {
     ctx.fillStyle = "#123d68";
 
     escribirAjustado(
-      ctx,
-      registro.ubicacion,
+      ctx, registro.ubicacion,
       margen + descW + avisoW + 10,
-      y + 39,
-      ubicW - 20,
-      "bold 18px Arial"
+      y + 39, ubicW - 20, "bold 18px Arial"
     );
   });
 
-  // AVISO DE TRASVASE
+  /* AVISO DE TRASVASE */
+
   ctx.fillStyle = "#fff4f5";
   ctx.fillRect(margen, yAviso, anchoContenido, altoAviso);
 
@@ -947,22 +873,21 @@ async function generarImagenRegistro() {
   ctx.fillStyle = "#c52235";
   ctx.font = "bold 21px Arial";
   ctx.textAlign = "left";
-  ctx.fillText("🔴 AVISO DE TRASVASE", margen + 14, yAviso + 30);
+  ctx.fillText("AVISO DE TRASVASE", margen + 14, yAviso + 30);
 
   ctx.fillStyle = "#8f1f2e";
   ctx.font = "16px Arial";
   ctx.fillText(
     "Marca los barnices que requieren un trasvase de producto.",
-    margen + 14,
-    yAviso + 59
+    margen + 14, yAviso + 59
   );
   ctx.fillText(
     "Motivo: bajo nivel de contenido.",
-    margen + 14,
-    yAviso + 81
+    margen + 14, yAviso + 81
   );
 
-  // BOTONES REPRESENTADOS EN EL REGISTRO
+  /* BOTONES REPRESENTADOS */
+
   const hueco = 12;
   const anchoBoton = (anchoContenido - hueco) / 2;
 
@@ -980,11 +905,7 @@ async function generarImagenRegistro() {
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 16px Arial";
   ctx.textAlign = "center";
-  ctx.fillText(
-    "+ AÑADIR FILA",
-    margen + anchoBoton / 2,
-    yBotones + 38
-  );
+  ctx.fillText("+ AÑADIR FILA", margen + anchoBoton / 2, yBotones + 38);
 
   ctx.fillStyle = "#123d68";
   ctx.fillText(
@@ -993,31 +914,75 @@ async function generarImagenRegistro() {
     yBotones + 38
   );
 
-  // SEGUNDA FOTOGRAFÍA: DEBAJO DE LOS BOTONES
-  dibujarFoto(
-    ctx,
-    fotoInferior,
-    margen,
-    yFotoInferior,
-    anchoContenido,
-    altoFoto
+  /* FOTO INFERIOR */
+
+  dibujarFoto(ctx, fotoInferior, margen, yFotoInferior,
+    anchoContenido, altoFoto);
+
+  /* INSTRUCCIONES Y PIE */
+
+  ctx.fillStyle = "#72879a";
+  ctx.font = "15px Arial";
+  ctx.textAlign = "left";
+  ctx.fillText(
+    "Las ubicaciones conocidas se completan automáticamente al escribir",
+    margen, yInstrucciones + 18
+  );
+  ctx.fillText(
+    "el barniz. Puedes modificar la ubicación manualmente.",
+    margen, yInstrucciones + 40
   );
 
   ctx.fillStyle = "#9ab4ca";
   ctx.font = "14px Arial";
-  ctx.textAlign = "left";
-  ctx.fillText(
-    "CONTROL DE BARNICES | By Rubén D. 268",
-    margen,
-    altoFinal - 15
-  );
+  ctx.fillText("CONTROL DE BARNICES | By Rubén D. 268", margen, yPie + 15);
 
   return new Promise(resolve => {
-    canvas.toBlob(resolve, "image/png");
+    canvas.toBlob(blob => resolve(blob), "image/png");
   });
 }
 
-// COMPARTIR
+/* MOSTRAR CAPTURA PARA GUARDARLA MANUALMENTE */
+
+let urlCapturaActual = null;
+
+document.getElementById("capturar").addEventListener("click", async () => {
+  const boton = document.getElementById("capturar");
+  boton.disabled = true;
+  boton.textContent = "PREPARANDO IMAGEN...";
+
+  try {
+    const blob = await generarImagenRegistro();
+    if (!blob) return;
+
+    if (urlCapturaActual) URL.revokeObjectURL(urlCapturaActual);
+    urlCapturaActual = URL.createObjectURL(blob);
+
+    document.getElementById("imagenCapturada").src = urlCapturaActual;
+
+    document.getElementById("aplicacion").style.display = "none";
+    document.getElementById("vistaCaptura").classList.add("visible");
+    document.body.classList.add("mostrando-captura");
+
+    window.scrollTo(0, 0);
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo generar la captura completa.");
+  } finally {
+    boton.disabled = false;
+    boton.textContent = "📸 CAPTURAR IMAGEN";
+  }
+});
+
+document.getElementById("volver").addEventListener("click", () => {
+  document.getElementById("vistaCaptura").classList.remove("visible");
+  document.getElementById("aplicacion").style.display = "";
+  document.body.classList.remove("mostrando-captura");
+  window.scrollTo(0, 0);
+});
+
+/* COMPARTIR REGISTRO: SE MANTIENE COMO FUNCIÓN INDEPENDIENTE */
+
 document.getElementById("compartir").addEventListener("click", async () => {
   try {
     const blob = await generarImagenRegistro();
@@ -1039,8 +1004,7 @@ document.getElementById("compartir").addEventListener("click", async () => {
         title: "Control de barnices"
       });
     } else {
-      descargarBlob(blob);
-      alert("La imagen se ha preparado para guardar.");
+      mostrarImagenParaGuardar(blob);
     }
   } catch (error) {
     if (error.name !== "AbortError") {
@@ -1050,30 +1014,16 @@ document.getElementById("compartir").addEventListener("click", async () => {
   }
 });
 
-// GUARDAR IMAGEN
-function descargarBlob(blob) {
-  const url = URL.createObjectURL(blob);
-  const enlace = document.createElement("a");
+function mostrarImagenParaGuardar(blob) {
+  if (urlCapturaActual) URL.revokeObjectURL(urlCapturaActual);
+  urlCapturaActual = URL.createObjectURL(blob);
 
-  enlace.href = url;
-  enlace.download = "control-barnices.png";
-
-  document.body.appendChild(enlace);
-  enlace.click();
-  enlace.remove();
-
-  setTimeout(() => URL.revokeObjectURL(url), 3000);
+  document.getElementById("imagenCapturada").src = urlCapturaActual;
+  document.getElementById("aplicacion").style.display = "none";
+  document.getElementById("vistaCaptura").classList.add("visible");
+  document.body.classList.add("mostrando-captura");
+  window.scrollTo(0, 0);
 }
-
-document.getElementById("guardar").addEventListener("click", async () => {
-  try {
-    const blob = await generarImagenRegistro();
-    if (blob) descargarBlob(blob);
-  } catch (error) {
-    console.error(error);
-    alert("No se pudo guardar la imagen.");
-  }
-});
 </script>
 
 </body>
